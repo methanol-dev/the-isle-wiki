@@ -86,6 +86,16 @@ npx serve .
 
 ---
 
+---
+
+## 📚 Tài Liệu Kỹ Thuật & Đóng Góp (Documentation)
+- 🏛️ [**Kiến Trúc Kỹ Thuật (Architecture & Math Formulas)**](docs/ARCHITECTURE.md): Chi tiết kiến trúc hệ thống, luồng dữ liệu và công thức toán học tính toán chỉ số tăng trưởng.
+- 📊 [**Quy Chuẩn Cấu Trúc Dữ Liệu (Data Schema Specification)**](docs/DATA_SCHEMA.md): Hướng dẫn định dạng JSON cho khủng long, chất dinh dưỡng và cơ chế game.
+- 🤝 [**Hướng Dẫn Đóng Góp (Contribution Guidelines)**](CONTRIBUTING.md): Cách thức gửi Pull Request, thêm khủng long mới hoặc cập nhật chỉ số khi có bản vá.
+- 🛡️ [**Chính Sách Bảo Mật (Security Policy)**](SECURITY.md): Các cơ chế phòng thủ XSS, Input Sanitization và quy trình báo cáo lỗ hổng.
+
+---
+
 ## 🦖 Danh Sách 17 Loài Khủng Long Evrima Trong Dữ Liệu
 - **Carnivores / Ăn Thịt**: Carnotaurus, Ceratosaurus, Deinosuchus, Dilophosaurus, Herrerasaurus, Omniraptor, Troodon.
 - **Herbivores / Ăn Cỏ**: Diabloceratops, Dryosaurus, Hypsilophodon, Maiasaura, Pachycephalosaurus, Stegosaurus, Tenontosaurus.
