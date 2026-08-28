@@ -1,14 +1,19 @@
 /**
- * THE ISLE WIKI - MAIN APP ORCHESTRATOR
+ * THE ISLE WIKI - MAIN APP ORCHESTRATOR PRO MAX
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log('🦖 Khởi tạo The Isle Wiki (Evrima) - Tiếng Việt...');
+  console.log('🦖 Khởi tạo The Isle Wiki (Evrima) - Tiếng Việt Pro Max...');
 
-  // 1. Load Data
+  // 1. Initialize Audio FX
+  if (typeof AudioFX !== 'undefined') {
+    AudioFX.init();
+  }
+
+  // 2. Load Data
   await DataService.init();
 
-  // 2. Initialize Components
+  // 3. Initialize Components
   if (typeof FilterSearch !== 'undefined') {
     FilterSearch.init();
   }
@@ -21,13 +26,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     CompareTool.init();
   }
 
-  // 3. Initialize Global Quick Search Modal (Cmd+K)
+  // 4. Initialize Global Quick Search Modal (Cmd+K)
   initQuickSearch();
 
-  // 4. Initialize Mobile Navigation
+  // 5. Initialize Mobile Navigation
   initMobileNav();
 
-  // 5. Check URL parameters for direct opening (e.g. ?open=deinosuchus)
+  // 6. Initialize Back to Top button
+  initBackToTop();
+
+  // 7. Check URL parameters for direct opening (e.g. ?open=deinosuchus)
   checkUrlParams();
 });
 
@@ -62,6 +70,7 @@ function initQuickSearch() {
   function openSearch() {
     modal.classList.add('active');
     input.value = '';
+    if (typeof AudioFX !== 'undefined') AudioFX.playOpen();
     renderSearchResults('');
     setTimeout(() => input.focus(), 50);
   }
@@ -98,6 +107,7 @@ function initQuickSearch() {
     const cleanQuery = typeof SecurityUtils !== 'undefined' 
       ? SecurityUtils.sanitizeQuery(e.target.value) 
       : e.target.value.trim();
+    if (typeof AudioFX !== 'undefined') AudioFX.playTick();
     renderSearchResults(cleanQuery.toLowerCase());
   });
 
@@ -159,4 +169,25 @@ function initMobileNav() {
       navLinks.classList.toggle('mobile-active');
     });
   }
+}
+
+/**
+ * Back to top floating button controller
+ */
+function initBackToTop() {
+  const btn = document.getElementById('backToTopBtn');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
+  });
 }

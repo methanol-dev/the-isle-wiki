@@ -37,6 +37,10 @@ const ModalDetails = {
     this.currentCreature = creature;
     this.currentGrowth = 100; // default to full adult
 
+    if (typeof AudioFX !== 'undefined') {
+      AudioFX.playOpen();
+    }
+
     this.renderHeader();
     this.renderTabs();
     this.renderGrowthCalculator();
@@ -148,6 +152,7 @@ const ModalDetails = {
     if (slider) {
       slider.addEventListener('input', (e) => {
         this.currentGrowth = parseInt(e.target.value, 10);
+        if (typeof AudioFX !== 'undefined') AudioFX.playTick();
         this.updateCalculatedValues();
       });
     }
@@ -159,6 +164,8 @@ const ModalDetails = {
     this.currentGrowth = percent;
     const slider = document.getElementById('modalGrowthSlider');
     if (slider) slider.value = percent;
+
+    if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
 
     // Update preset buttons styling
     document.querySelectorAll('.stage-presets-group .stage-preset-btn').forEach(btn => {
