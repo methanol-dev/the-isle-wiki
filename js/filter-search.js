@@ -18,7 +18,10 @@ const FilterSearch = {
     const searchInput = document.getElementById('mainSearchInput');
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
-        this.searchQuery = e.target.value.toLowerCase().trim();
+        const raw = e.target.value;
+        this.searchQuery = typeof SecurityUtils !== 'undefined'
+          ? SecurityUtils.sanitizeQuery(raw).toLowerCase()
+          : raw.toLowerCase().trim();
         this.render();
       });
     }

@@ -26,7 +26,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 4. Initialize Mobile Navigation
   initMobileNav();
+
+  // 5. Check URL parameters for direct opening (e.g. ?open=deinosuchus)
+  checkUrlParams();
 });
+
+/**
+ * Handle incoming URL parameters with strict validation
+ */
+function checkUrlParams() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const openId = urlParams.get('open');
+    if (openId && typeof SecurityUtils !== 'undefined' && SecurityUtils.isValidId(openId)) {
+      if (typeof ModalDetails !== 'undefined') {
+        setTimeout(() => ModalDetails.open(openId), 150);
+      }
+    }
+  } catch (e) {
+    console.warn('URL param parse error:', e);
+  }
+}
 
 /**
  * Global Cmd+K / Ctrl+K Quick Search Dialog
@@ -75,7 +95,10 @@ function initQuickSearch() {
   });
 
   input.addEventListener('input', (e) => {
-    renderSearchResults(e.target.value.toLowerCase().trim());
+    const cleanQuery = typeof SecurityUtils !== 'undefined' 
+      ? SecurityUtils.sanitizeQuery(e.target.value) 
+      : e.target.value.trim();
+    renderSearchResults(cleanQuery.toLowerCase());
   });
 
   function renderSearchResults(query) {
@@ -113,10 +136,13 @@ function initQuickSearch() {
 
   window.openCreatureFromSearch = function(id) {
     closeSearch();
+    if (typeof SecurityUtils !== 'undefined' && !SecurityUtils.isValidId(id)) {
+      return;
+    }
     if (typeof ModalDetails !== 'undefined') {
       ModalDetails.open(id);
     } else {
-      window.location.href = `./index.html?open=${id}`;
+      window.location.href = `./index.html?open=${encodeURIComponent(id)}`;
     }
   };
 }
