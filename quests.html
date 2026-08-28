@@ -41,8 +41,6 @@
   <link rel="stylesheet" href="./css/responsive.css">
 </head>
 <body>
-  <!-- Ambient Spore Particles Canvas -->
-  <canvas id="particlesCanvas" class="particles-canvas"></canvas>
 
   <!-- NAVIGATION BAR -->
   <header class="navbar">
@@ -78,7 +76,7 @@
   </header>
 
   <!-- MAIN CONTAINER -->
-  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+  <main class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
     <!-- HERO TITLE -->
     <div style="text-align: center; margin-bottom: 3rem;">
       <div class="hero-tag">
@@ -196,44 +194,65 @@
     </section>
   </main>
 
+  <!-- GLOBAL SEARCH MODAL (CMD + K) -->
+  <div class="cmd-search-modal" id="cmdSearchModal" aria-hidden="true">
+    <div class="cmd-search-dialog">
+      <div class="cmd-search-header">
+        <span style="font-size: 1.25rem;">🔍</span>
+        <input type="text" id="cmdSearchInput" class="cmd-search-input" placeholder="Tìm kiếm khủng long (Tên, Thức ăn, Cấp độ, Kỹ năng)..." autocomplete="off">
+        <button class="cmd-close-btn" id="cmdCloseBtn" aria-label="Đóng tìm kiếm">ESC</button>
+      </div>
+      <ul class="cmd-results-list" id="cmdResultsList">
+        <!-- Results injected here -->
+      </ul>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-          <span style="font-size: 1.5rem;">🦖</span>
-          <span style="font-size: 1.2rem; font-weight: 900; color: var(--text-main);">THE ISLE WIKI</span>
-        </div>
-        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-          Hệ thống bách khoa toàn thư The Isle Evrima tiếng Việt chuẩn xác nhất. Dành riêng cho cộng đồng game thủ Việt Nam.
-        </p>
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--text-main);">
+        <span style="font-size: 1.3rem;">🦖</span> THE ISLE WIKI (EVRIMA) VIETNAM
       </div>
-
-      <div class="footer-bottom" style="width: 100%; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div style="font-size: 0.85rem; color: var(--text-dim);">
-          Tác giả & Phát triển: <a href="https://github.com/methanol-dev" target="_blank" rel="noopener noreferrer" style="color: var(--text-emerald); font-weight: 700; text-decoration: none;">methanol-dev</a>
-        </div>
-        <div style="font-size: 0.85rem; color: var(--text-dim);">
-          Dữ liệu trò chơi thuộc bản quyền Afterthought LLC.
-        </div>
-      </div>
+      <ul class="footer-links">
+        <li><a href="./index.html">Danh Sách Khủng Long</a></li>
+        <li><a href="./compare.html">So Sánh Đối Đầu</a></li>
+        <li><a href="./guides.html">Cơ Chế & Cẩm Nang</a></li>
+        <li><a href="./maps.html">Bản Đồ & Vị Trí</a></li>
+        <li><a href="./quests.html">Nhiệm Vụ & Đột Biến</a></li>
+        <li><a href="https://github.com/methanol-dev/the-isle-wiki" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+        <li><a href="https://github.com/methanol-dev" target="_blank" rel="noopener noreferrer">Tác Giả (@methanol-dev)</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        Phát triển & Duy trì bởi <strong><a href="https://github.com/methanol-dev" target="_blank" rel="noopener noreferrer" style="color: var(--color-emerald); text-decoration: none;">methanol-dev</a></strong>. Dữ liệu và hình ảnh thuộc bản quyền của Afterthought LLC.
+      </p>
     </div>
   </footer>
 
-  <!-- FLOATING BACK TO TOP BUTTON -->
-  <button class="back-to-top-btn" id="backToTopBtn" title="Về đầu trang" aria-label="Về đầu trang">↑</button>
+  <!-- Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">⬆️</button>
 
-  <!-- JS SCRIPTS -->
+  <!-- JAVASCRIPT BUNDLE -->
   <script src="./js/security-utils.js"></script>
+  <script src="./js/toast-service.js"></script>
   <script src="./js/audio-fx.js"></script>
   <script src="./js/particles.js"></script>
-  <script src="./js/toast-service.js"></script>
+  <script src="./js/embedded-data.js"></script>
+  <script src="./js/data-service.js"></script>
+  <script src="./js/app.js"></script>
 
   <script>
     let mutationCategories = [];
     let currentDietFilter = 'all';
 
     async function loadMutations() {
+      // 1. Try embedded data first for zero latency
+      if (window.EMBEDDED_MUTATIONS && window.EMBEDDED_MUTATIONS.length) {
+        mutationCategories = window.EMBEDDED_MUTATIONS;
+        renderMutations();
+      }
+
+      // 2. Fetch fresh JSON if available
       try {
         const res = await fetch('./data/mutations.json');
         if (res.ok) {
@@ -241,15 +260,18 @@
           renderMutations();
         }
       } catch (err) {
-        console.error('Error loading mutations:', err);
+        console.log('Using embedded mutations data');
       }
     }
 
     function filterMutations(filter) {
       currentDietFilter = filter;
-      document.getElementById('btnFilterAll').classList.toggle('active', filter === 'all');
-      document.getElementById('btnFilterCarnivore').classList.toggle('active', filter === 'carnivore');
-      document.getElementById('btnFilterHerbivore').classList.toggle('active', filter === 'herbivore');
+      const bAll = document.getElementById('btnFilterAll');
+      const bCarn = document.getElementById('btnFilterCarnivore');
+      const bHerb = document.getElementById('btnFilterHerbivore');
+      if (bAll) bAll.classList.toggle('active', filter === 'all');
+      if (bCarn) bCarn.classList.toggle('active', filter === 'carnivore');
+      if (bHerb) bHerb.classList.toggle('active', filter === 'herbivore');
       if (typeof AudioFx !== 'undefined') AudioFx.play('click');
       renderMutations();
     }
@@ -312,26 +334,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       loadMutations();
-
-      // Mobile nav toggle
-      const mobileNavBtn = document.getElementById('mobileNavToggle');
-      const navLinks = document.getElementById('navbarLinks');
-      if (mobileNavBtn && navLinks) {
-        mobileNavBtn.onclick = () => navLinks.classList.toggle('open');
-      }
-
-      // Back to top button
-      const backBtn = document.getElementById('backToTopBtn');
-      if (backBtn) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 400) {
-            backBtn.classList.add('visible');
-          } else {
-            backBtn.classList.remove('visible');
-          }
-        });
-        backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
     });
   </script>
 </body>

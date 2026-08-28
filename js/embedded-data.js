@@ -1,6 +1,6 @@
 /**
  * THE ISLE WIKI - EMBEDDED DATA FALLBACK
- * Fully functional offline dataset for file:/// browsing
+ * Fully functional offline dataset for file:/// and instant loading
  */
 
 window.EMBEDDED_CREATURES = [
@@ -2007,5 +2007,225 @@ window.EMBEDDED_CREATURES = [
       "defenseGuide": "Khi bị thú săn đuổi theo, đợi chúng há mồm chuẩn bị cắn thì bấm RMB phun thẳng axit vào mặt, sau đó bấm Space nhảy vọt lên tảng đá tẩu thoát."
     },
     "image": "./assets/creatures/hypsilophodon.png"
+  }
+];
+
+window.EMBEDDED_MAPS = [
+  {
+    "id": "gateway",
+    "name": "Gateway",
+    "status": "Official Evrima (Map Hiện Tại)",
+    "description": "Bản đồ thế hệ mới rộng lớn và chi tiết nhất của The Isle Evrima. Sở hữu địa hình đa dạng từ cao nguyên sương mù, các khu rừng mưa nhiệt đới rậm rạp, hệ thống sông ngòi chằng chịt, đầm lầy ngập mặn cho đến các cơ sở nghiên cứu và khu vòm nhân tạo bị bỏ hoang.",
+    "size": "16 x 16 km",
+    "features": [
+      "Hệ thống Vùng Di Cư (Migration Zones)",
+      "Cây Thánh Địa Con Non (Sanctuary Trees)",
+      "Khu nghiên cứu vòm (Dome Facility)",
+      "Sông ngòi kết nối biển"
+    ],
+    "regions": [
+      {
+        "name": "Highlands (Cao Nguyên Trung Tâm)",
+        "type": "Grassland / Hills",
+        "dangerLevel": "Rất Cao (Apex Predator Hotspot)",
+        "description": "Vùng đồng cỏ đồi núi thoáng đãng ở trung tâm bản đồ. Nơi tập trung đông đúc các loài ăn cỏ lớn như Stegosaurus, Maiasaura và những kẻ săn mồi tốc độ như Carnotaurus, Ceratosaurus.",
+        "resources": "Nước ngọt từ hồ trung tâm, hoa quả đạm S, xác thịt dồi dào.",
+        "tips": "Luôn quan sát đường chân trời, cẩn thận bị Carnotaurus húc lao từ trên đỉnh đồi xuống."
+      },
+      {
+        "name": "North Swamp (Đầm Lầy Phía Bắc)",
+        "type": "Swamp / Deep Water",
+        "dangerLevel": "Tử Địa (Deinosuchus Empire)",
+        "description": "Vùng trũng nước ngập mặn với thảm thực vật chằng chịt và tầm nhìn hạn chế. Đây là lãnh địa độc tôn của loài cá sấu khổng lồ Deinosuchus.",
+        "resources": "Cá tầng mặt, cá da trơn lớn, thực vật đầm lầy, bùn lặn.",
+        "tips": "Tuyệt đối không bơi qua đầm lầy nếu bạn là loài thú trên cạn. Chỉ uống nước ở các vũng nông có bờ dốc thoải."
+      },
+      {
+        "name": "Water Treatment Dome (Khu Vòm Nhân Tạo)",
+        "type": "Human Facility",
+        "dangerLevel": "Trung Bình",
+        "description": "Tàn tích khu xử lý nước khổng lồ với các công trình kim loại, bậc thang và hành lang hẹp. Rất thích hợp cho các loài nhỏ như Herrerasaurus, Troodon, Omniraptor leo trèo và phục kích.",
+        "resources": "Nước uống trong vòm nhân tạo, nơi trú ẩn an toàn trước thú săn mồi cỡ lớn.",
+        "tips": "Tận dụng độ cao của các giàn giáo sắt để né tránh đòn tấn công của khủng long bọc giáp."
+      },
+      {
+        "name": "South Plains (Đồng Bằng Phía Nam)",
+        "type": "Open Plains",
+        "dangerLevel": "Cao",
+        "description": "Đồng bằng trải dài với tầm nhìn thoáng, là nơi diễn ra các cuộc săn đuổi tốc độ cao của bầy Raptor và Gallimimus.",
+        "resources": "Cây bụi, rễ củ cho khủng long ăn cỏ, con mồi nhỏ.",
+        "tips": "Tránh đi đơn độc nếu chơi các loài ăn cỏ nhỏ như Dryosaurus hay Hypsilophodon."
+      },
+      {
+        "name": "West Coast & Delta (Vịnh Bờ Biển & Cửa Sông)",
+        "type": "Coastal / Estuary",
+        "dangerLevel": "Trung Bình",
+        "description": "Bãi cát ven biển trải dài kết nối cửa sông lớn. Thiên đường kiếm ăn cho dực long Pteranodon và Beipiaosaurus.",
+        "resources": "Rùa biển, cua biển, cá biển, nguồn nước lợ.",
+        "tips": "Nếu sở hữu đột biến Lọc Nước Mặn (Saltwater Ingestion), bạn có thể thoải mái sinh tồn tại đây mà không lo thiếu nước."
+      },
+      {
+        "name": "Sanctuary Forests (Rừng Thánh Địa)",
+        "type": "Protected Forest",
+        "dangerLevel": "Thấp (An toàn cho con non)",
+        "description": "Nơi mọc các Cây Mẹ Thánh Địa (Sanctuary Trees) tỏa ra mùi hương bảo hộ đặc biệt. Khi con non trú ngụ dưới tán cây, đàn ong độc sẽ tự động tấn công bất kỳ thú ăn thịt trưởng thành nào dám tiếp cận.",
+        "resources": "Nấm thánh địa giúp con non lớn cực nhanh, không lo thiếu đói.",
+        "tips": "Khi mới nở ra từ quả trứng hoặc spawn con non 0%, hãy lập tức ngửi mùi (Q) tìm biểu tượng Thánh Địa để trú ẩn."
+      }
+    ]
+  },
+  {
+    "id": "spiro",
+    "name": "Isle Spiro (Cựu Bản Đồ)",
+    "status": "Legacy Evrima Map",
+    "description": "Bản đồ thời kỳ đầu của Evrima với cấu trúc địa hình tập trung mạnh quanh các con sông chính và ốc đảo trung tâm. Nơi ghi dấu những trận đại chiến kinh điển giữa Deinosuchus, Stegosaurus và bầy Utahraptor.",
+    "size": "12 x 12 km",
+    "features": [
+      "Ốc đảo trung tâm (Center Oasis)",
+      "Sông Nam & Sông Bắc",
+      "Bãi đá Pachy Rock",
+      "Đầm lầy phía Tây"
+    ],
+    "regions": [
+      {
+        "name": "Center Oasis (Ốc Đảo Trung Tâm)",
+        "type": "River & Plains",
+        "dangerLevel": "Cực Độ Nguy Hiểm",
+        "description": "Điểm nóng số 1 trên bản đồ Spiro, nơi 80% người chơi tụ tập để giao tranh và săn mồi.",
+        "resources": "Nước ngọt, xác động vật vô tận.",
+        "tips": "Chỉ vào đây khi bạn đã đạt mốc 100% Full Adult và sẵn sàng cho các trận tử chiến liên tục."
+      },
+      {
+        "name": "North West Jungle (Rừng Rậm Tây Bắc)",
+        "type": "Dense Forest",
+        "dangerLevel": "Trung Bình",
+        "description": "Khu rừng rậm rạp che chắn tầm nhìn, lý tưởng để khủng long ăn cỏ ẩn nấp làm tổ.",
+        "resources": "Dinh dưỡng thực vật nhóm // và ..., quả hạch, dương xỉ.",
+        "tips": "Cẩn thận bẫy phục kích từ trên tán cây của Herrerasaurus."
+      },
+      {
+        "name": "South River Falls (Thác Sông Phía Nam)",
+        "type": "River Gorge",
+        "dangerLevel": "Cao",
+        "description": "Dòng sông sâu chảy từ trên núi xuống với các vách đá dốc đứng. Lãnh địa săn mồi quen thuộc của Deinosuchus phục kích bên dưới chân thác.",
+        "resources": "Cá hồi lớn, nước ngọt sạch.",
+        "tips": "Tránh nhảy xuống nước từ vách đá cao nếu không muốn rơi thẳng vào miệng cá sấu đang chờ sẵn."
+      }
+    ]
+  }
+];
+
+window.EMBEDDED_MUTATIONS = [
+  {
+    "category": "Đột Biến Sơ Sinh (Juvenile Mutations - Slot 1)",
+    "description": "Các đột biến có thể kích hoạt khi khủng long đạt giai đoạn con non / thiếu niên (từ 0% đến 40% tăng trưởng).",
+    "items": [
+      {
+        "id": "augmented_tapetum",
+        "name": "Augmented Tapetum (Mắt Mèo Ban Đêm)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Trải qua 3 đêm tối liên tiếp sống sót ngoài trời và di chuyển ít nhất 2km trong đêm.",
+        "effect": "Tăng 35% độ sáng và tầm nhìn xa trong màn đêm tối tăm.",
+        "icon": "👁️",
+        "rating": "Rất Hữu Dụng"
+      },
+      {
+        "id": "renal_adaptation",
+        "name": "Renal Adaptation / Saltwater Ingestion (Thận Lọc Muối)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài (Đặc biệt Deinosuchus)",
+        "objective": "Uống nước biển ngập mặn 5 lần liên tiếp ở bãi biển ven bờ Tây hoặc vùng cửa sông.",
+        "effect": "Cho phép uống nước biển thoải mái mà không bị tụt máu hoặc nôn mửa vì sốc độ mặn.",
+        "icon": "🌊",
+        "rating": "Thiết Yếu Cho Động Vật Nước"
+      },
+      {
+        "id": "multichambered_lungs",
+        "name": "Multichambered Lungs (Phổi Đa Ngăn)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Thực hiện 10 lần lặn nín thở dưới nước cho đến khi thanh oxy xuống dưới 20%.",
+        "effect": "Tăng 40% dung lượng nín thở dưới nước và giảm 25% tiêu hao thể lực khi bơi.",
+        "icon": "🫁",
+        "rating": "Hữu Ích Khi Qua Sông"
+      },
+      {
+        "id": "reconditioned_bones",
+        "name": "Reconditioned Bones (Khung Xương Thép)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Bị gãy xương (do ngã hoặc bị cắn) và nằm nghỉ chữa lành thành công ít nhất 2 lần.",
+        "effect": "Giảm 50% thời gian hồi phục vết thương gãy xương và tăng 20% khả năng chống gãy chân khi ngã.",
+        "icon": "🦴",
+        "rating": "Cực Kỳ Quan Trọng"
+      }
+    ]
+  },
+  {
+    "category": "Đột Biến Trưởng Thành (Sub-Adult & Adult Mutations - Slot 2 & 3)",
+    "description": "Các đột biến chiến đấu và sinh tồn cao cấp mở khóa ở giai đoạn từ 60% đến 100% Full Adult.",
+    "items": [
+      {
+        "id": "hemomania",
+        "name": "Hemomania (Cơn Cuồng Máu)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt",
+        "objective": "Tấn công và gây hiệu ứng chảy máu (Bleed) lên ít nhất 5 con mồi khác nhau.",
+        "effect": "Tăng 15% sát thương cắn và tăng 10% tốc độ chạy khi áp sát kẻ địch đang bị chảy máu.",
+        "icon": "🩸",
+        "rating": "Đột Biến Săn Mồi Đỉnh Cao"
+      },
+      {
+        "id": "hematophagy",
+        "name": "Hematophagy (Hút Nước Từ Máu)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt",
+        "objective": "Ăn thịt tươi từ con mồi vừa mới bị hạ gục trong vòng 2 phút.",
+        "effect": "Mỗi lần ăn thịt tươi sẽ đồng thời hồi phục 20% thanh Nước Uống, giúp sinh tồn không cần tìm hồ nước ngọt.",
+        "icon": "🥩",
+        "rating": "Sinh Tồn Độc Lập"
+      },
+      {
+        "id": "xerocole_adaptation",
+        "name": "Xerocole Adaptation (Hấp Thụ Nước Từ Thực Vật)",
+        "diet": "herbivore",
+        "dietLabel": "Loài ăn cỏ",
+        "objective": "Ăn liên tục 8 loại thực vật và hoa quả mọng nước trong vùng di cư (Migration Zone).",
+        "effect": "Ăn cây cối sẽ cung cấp thêm 25% lượng nước uống, giúp khủng long ăn cỏ thoải mái gặm cỏ trên núi cao.",
+        "icon": "🌵",
+        "rating": "Bảo Vệ Khỏi Khát"
+      },
+      {
+        "id": "epidermal_fibrosis",
+        "name": "Epidermal Fibrosis (Lớp Biểu Bì Xơ Hóa)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Sống sót sau khi mất hơn 70% lượng máu do vết thương chảy máu liên tục.",
+        "effect": "Tăng 30% kháng hiệu ứng Chảy Máu (Bleed Resistance), máu sẽ tự động cầm nhanh hơn 2 lần.",
+        "icon": "🛡️",
+        "rating": "Phòng Thủ Kháng Sát Thương"
+      },
+      {
+        "id": "cannibalistic",
+        "name": "Cannibalistic (Đồng Hóa Đồng Loại)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt (trừ loài có cannibalism mặc định)",
+        "objective": "Ăn thịt 3 xác đồng loại khi thanh đói xuống dưới 10%.",
+        "effect": "Loại bỏ hoàn toàn triệu chứng co giật cơ (Spasms) và nôn mửa khi ăn thịt đồng loại.",
+        "icon": "💀",
+        "rating": "Sinh Tồn Khắc Nghiệt"
+      },
+      {
+        "id": "prolific_reproduction",
+        "name": "Prolific Reproduction (Sinh Sản Vô Tính / Di Truyền Vượt Trội)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Xây tổ thành công và ấp nở thành công ít nhất 1 lứa trứng có con non nở ra.",
+        "effect": "Lứa đẻ tiếp theo tăng thêm 2 quả trứng và toàn bộ con non sinh ra có tỷ lệ kế thừa 100% đột biến của bố mẹ.",
+        "icon": "🥚",
+        "rating": "Xây Dựng Bầy Đàn"
+      }
+    ]
   }
 ];
