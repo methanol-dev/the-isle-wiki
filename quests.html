@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhiệm Vụ Sinh Tồn & Hệ Thống Đột Biến Gen - The Isle Wiki (Evrima)</title>
+  <meta name="description" content="Hướng dẫn toàn diện các nhiệm vụ sinh tồn, chuỗi nhiệm vụ di cư (Migration), quy trình làm tổ ấp trứng (Nesting) và danh sách đầy đủ Đột Biến Gen (Mutations) trong The Isle Evrima.">
+  <meta name="keywords" content="nhiem vu the isle, dot bien the isle, mutations the isle evrima, cach mo dot bien the isle, lam to the isle, nesting the isle, di cu the isle, migration the isle evrima">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://methanol-dev.github.io/the-isle-wiki/quests.html">
+
+  <!-- Theme & Mobile App Meta -->
+  <meta name="theme-color" content="#070a0e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Open Graph SEO -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://methanol-dev.github.io/the-isle-wiki/quests.html">
+  <meta property="og:title" content="Nhiệm Vụ Sinh Tồn & Hệ Thống Đột Biến Gen The Isle Evrima">
+  <meta property="og:description" content="Hướng dẫn chi tiết cách mở khóa 100% Đột Biến Gen, nhiệm vụ di cư và cách làm tổ nuôi con trong The Isle Evrima.">
+  <meta property="og:site_name" content="The Isle Wiki Vietnam">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://methanol-dev.github.io/the-isle-wiki/quests.html">
+  <meta name="twitter:title" content="Nhiệm Vụ & Đột Biến Gen The Isle Evrima">
+  <meta name="twitter:description" content="Khám phá toàn bộ đột biến gen, nhiệm vụ di cư và làm tổ trong The Isle.">
+  <meta name="twitter:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+  <!-- Ambient Spore Particles Canvas -->
+  <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="./index.html" class="navbar-logo">
+        <span style="font-size: 1.6rem;">🦖</span>
+        <div>
+          <span>THE ISLE WIKI</span>
+          <span class="logo-badge">EVRIMA VN</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="./index.html" class="nav-link"><span>🦕</span> Danh Sách Khủng Long</a></li>
+          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
+          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
+          <li><a href="./maps.html" class="nav-link"><span>🗺️</span> Bản Đồ & Vị Trí</a></li>
+          <li><a href="./quests.html" class="nav-link active"><span>🎯</span> Nhiệm Vụ & Đột Biến</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Bật/Tắt âm thanh">🔊</button>
+        <button class="search-trigger-btn" id="searchTriggerBtn">
+          <span>🔍</span>
+          <span>Tìm nhanh...</span>
+          <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Mở menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <!-- HERO TITLE -->
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div class="hero-tag">
+        <span>🎯</span> Mục Tiêu Tiến Hóa & Sinh Tồn Đỉnh Cao
+      </div>
+      <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">
+        Nhiệm Vụ & <span class="hero-title-highlight">Đột Biến Gen (Mutations)</span>
+      </h1>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+        Khám phá các thử thách tiến hóa sinh học, điều kiện mở khóa toàn bộ các Đột Biến Gen (Mutations), nhiệm vụ Di Cư theo đàn và chuỗi sinh sản làm tổ trong The Isle Evrima.
+      </p>
+    </div>
+
+    <!-- SECTION 1: MUTATION SYSTEM -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.8rem;">🧬</span>
+          <h2 style="font-size: 1.6rem; font-weight: 800;">1. Hệ Thống 3 Khe Cắm Đột Biến Gen (Mutation Slots)</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="filter-btn active" id="btnFilterAll" onclick="filterMutations('all')">Tất cả</button>
+          <button class="filter-btn" id="btnFilterCarnivore" onclick="filterMutations('carnivore')">🍖 Ăn thịt</button>
+          <button class="filter-btn" id="btnFilterHerbivore" onclick="filterMutations('herbivore')">🌿 Ăn cỏ</button>
+        </div>
+      </div>
+
+      <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); padding: 1.25rem 1.5rem; border-radius: var(--radius-lg); margin-bottom: 2rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+        💡 <strong style="color: var(--text-emerald);">Cơ chế hoạt động:</strong> Khủng long có tối đa <strong>3 Slot Đột Biến</strong> tương ứng với các giai đoạn trưởng thành (Slot 1: Con non dưới 40%, Slot 2: Thiếu niên 60-80%, Slot 3: Trưởng thành 100%). Khi hoàn thành nhiệm vụ thử thách tương ứng ngoài tự nhiên, đột biến sẽ sáng lên trong menu nhân vật (Bấm phím <strong>Insert</strong>) để bạn kích hoạt.
+      </div>
+
+      <div id="mutationsGridContainer">
+        <!-- Dynamic mutations rendered by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: MIGRATION QUESTLINE -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 1.8rem;">🦌</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800;">2. Chuỗi Nhiệm Vụ Di Cư (Migration Zones)</h2>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg);">
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Vùng Di Cư là cơ chế cốt lõi thúc đẩy người chơi di chuyển liên tục trên khắp bản đồ Gateway thay vì cắm trại một chỗ. Mỗi loài sẽ có khu vực di cư riêng biệt thay đổi theo chu kỳ thời gian.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--color-cyan); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">1. Dò Tìm Tuyến Di Cư</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+              Nhấn giữ <strong>Q</strong> để ngửi mùi gió. Vùng di cư sẽ hiển thị dưới dạng biểu tượng la bàn hình tròn phát sáng ở phía trên thanh la bàn màn hình.
+            </p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--color-emerald); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">2. Phần Thưởng Dinh Dưỡng</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+              Khi đặt chân vào vùng di cư, cây cối, hoa quả và con mồi sẽ hồi sinh với số lượng dồi dào, giúp nạp đầy 100% cả 3 chất dinh dưỡng S, //, ...
+            </p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--text-crimson); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">3. Cảnh Báo Phục Kích</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+              Các loài thú ăn thịt lớn (Carnotaurus, Ceratosaurus, Deinosuchus) thường mai phục sẵn trên các hẻm núi dẫn vào vùng di cư. Hãy đi cùng bầy đàn để phòng thủ.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NESTING & COURTSHIP QUEST -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 1.8rem;">🥚</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800;">3. Nhiệm Vụ Làm Tổ, Ấp Trứng & Di Truyền Gen (Nesting)</h2>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg);">
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Khi đạt mốc <strong>100% Full Adult</strong>, bạn có thể thực hiện thiên chức sinh sản để nhân giống bầy đàn và truyền lại các đột biến gen quý giá cho con non.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--color-amber);">
+            <div style="color: var(--color-amber); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem;">Bước 1: Ghép Đôi (Courtship)</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Tìm bạn tình cùng loài khác giới tính (Đực / Cái) và bấm <strong>F (Mời ghép đôi)</strong> khi đứng gần nhau.</p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--color-cyan);">
+            <div style="color: var(--color-cyan); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem;">Bước 2: Dựng Tổ (Build Nest)</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Bấm <strong>B (Menu dựng tổ)</strong> ở nơi kín đáo, tha cành cây khô và dương xỉ để hoàn thiện tổ ấm.</p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--color-emerald);">
+            <div style="color: var(--color-emerald); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem;">Bước 3: Đẻ & Ấp Trứng</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Khủng long cái đẻ trứng vào tổ. Cần nằm ấp (H) trên tổ để giữ nhiệt độ trứng luôn ở mức ấm ổn định.</p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--color-purple);">
+            <div style="color: var(--color-purple); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem;">Bước 4: Mời Người Chơi</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Mở menu tổ để chấp nhận người chơi khác vào vai con non (Hatchling) nở ra từ quả trứng.</p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--text-crimson);">
+            <div style="color: var(--text-crimson); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem;">Bước 5: Mớm Mồi & Nuôi Dưỡng</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Bấm giữ <strong>G (Nôn thức ăn)</strong> để mớm cho con non. Con non sẽ kế thừa 100% đột biến gen của bố mẹ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span style="font-size: 1.5rem;">🦖</span>
+          <span style="font-size: 1.2rem; font-weight: 900; color: var(--text-main);">THE ISLE WIKI</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Hệ thống bách khoa toàn thư The Isle Evrima tiếng Việt chuẩn xác nhất. Dành riêng cho cộng đồng game thủ Việt Nam.
+        </p>
+      </div>
+
+      <div class="footer-bottom" style="width: 100%; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="font-size: 0.85rem; color: var(--text-dim);">
+          Tác giả & Phát triển: <a href="https://github.com/methanol-dev" target="_blank" rel="noopener noreferrer" style="color: var(--text-emerald); font-weight: 700; text-decoration: none;">methanol-dev</a>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-dim);">
+          Dữ liệu trò chơi thuộc bản quyền Afterthought LLC.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="Về đầu trang" aria-label="Về đầu trang">↑</button>
+
+  <!-- JS SCRIPTS -->
+  <script src="./js/security-utils.js"></script>
+  <script src="./js/audio-fx.js"></script>
+  <script src="./js/particles.js"></script>
+  <script src="./js/toast-service.js"></script>
+
+  <script>
+    let mutationCategories = [];
+    let currentDietFilter = 'all';
+
+    async function loadMutations() {
+      try {
+        const res = await fetch('./data/mutations.json');
+        if (res.ok) {
+          mutationCategories = await res.json();
+          renderMutations();
+        }
+      } catch (err) {
+        console.error('Error loading mutations:', err);
+      }
+    }
+
+    function filterMutations(filter) {
+      currentDietFilter = filter;
+      document.getElementById('btnFilterAll').classList.toggle('active', filter === 'all');
+      document.getElementById('btnFilterCarnivore').classList.toggle('active', filter === 'carnivore');
+      document.getElementById('btnFilterHerbivore').classList.toggle('active', filter === 'herbivore');
+      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+      renderMutations();
+    }
+
+    function renderMutations() {
+      const container = document.getElementById('mutationsGridContainer');
+      if (!container || !mutationCategories.length) return;
+
+      container.innerHTML = mutationCategories.map(cat => {
+        const filteredItems = cat.items.filter(item => {
+          if (currentDietFilter === 'all') return true;
+          if (currentDietFilter === 'carnivore') return item.diet === 'carnivore' || item.diet === 'all';
+          if (currentDietFilter === 'herbivore') return item.diet === 'herbivore' || item.diet === 'all';
+          return true;
+        });
+
+        if (filteredItems.length === 0) return '';
+
+        const itemsHtml = filteredItems.map(item => `
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="font-size: 1.5rem;">${item.icon}</span>
+                  <div>
+                    <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">${item.name}</h3>
+                    <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">${item.dietLabel}</div>
+                  </div>
+                </div>
+                <span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); font-size: 0.75rem; white-space: nowrap;">${item.rating}</span>
+              </div>
+
+              <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                <strong style="color: var(--color-amber);">🎯 Nhiệm Vụ Mở Khóa:</strong>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">${item.objective}</p>
+              </div>
+
+              <div style="background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem;">
+                <strong style="color: var(--color-cyan);">✨ Hiệu Ứng Bùa Lợi:</strong>
+                <p style="color: var(--text-emerald); margin-top: 0.25rem; font-weight: 600;">${item.effect}</p>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        return `
+          <div style="margin-bottom: 2.5rem;">
+            <div style="margin-bottom: 1rem;">
+              <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-main);">${cat.category}</h3>
+              <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.2rem;">${cat.description}</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.25rem;">
+              ${itemsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMutations();
+
+      // Mobile nav toggle
+      const mobileNavBtn = document.getElementById('mobileNavToggle');
+      const navLinks = document.getElementById('navbarLinks');
+      if (mobileNavBtn && navLinks) {
+        mobileNavBtn.onclick = () => navLinks.classList.toggle('open');
+      }
+
+      // Back to top button
+      const backBtn = document.getElementById('backToTopBtn');
+      if (backBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            backBtn.classList.add('visible');
+          } else {
+            backBtn.classList.remove('visible');
+          }
+        });
+        backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>

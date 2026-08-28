@@ -1,0 +1,114 @@
+[
+  {
+    "category": "Đột Biến Sơ Sinh (Juvenile Mutations - Slot 1)",
+    "description": "Các đột biến có thể kích hoạt khi khủng long đạt giai đoạn con non / thiếu niên (từ 0% đến 40% tăng trưởng).",
+    "items": [
+      {
+        "id": "augmented_tapetum",
+        "name": "Augmented Tapetum (Mắt Mèo Ban Đêm)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Trải qua 3 đêm tối liên tiếp sống sót ngoài trời và di chuyển ít nhất 2km trong đêm.",
+        "effect": "Tăng 35% độ sáng và tầm nhìn xa trong màn đêm tối tăm.",
+        "icon": "👁️",
+        "rating": "Rất Hữu Dụng"
+      },
+      {
+        "id": "renal_adaptation",
+        "name": "Renal Adaptation / Saltwater Ingestion (Thận Lọc Muối)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài (Đặc biệt Deinosuchus)",
+        "objective": "Uống nước biển ngập mặn 5 lần liên tiếp ở bãi biển ven bờ Tây hoặc vùng cửa sông.",
+        "effect": "Cho phép uống nước biển thoải mái mà không bị tụt máu hoặc nôn mửa vì sốc độ mặn.",
+        "icon": "🌊",
+        "rating": "Thiết Yếu Cho Động Vật Nước"
+      },
+      {
+        "id": "multichambered_lungs",
+        "name": "Multichambered Lungs (Phổi Đa Ngăn)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Thực hiện 10 lần lặn nín thở dưới nước cho đến khi thanh oxy xuống dưới 20%.",
+        "effect": "Tăng 40% dung lượng nín thở dưới nước và giảm 25% tiêu hao thể lực khi bơi.",
+        "icon": "🫁",
+        "rating": "Hữu Ích Khi Qua Sông"
+      },
+      {
+        "id": "reconditioned_bones",
+        "name": "Reconditioned Bones (Khung Xương Thép)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Bị gãy xương (do ngã hoặc bị cắn) và nằm nghỉ chữa lành thành công ít nhất 2 lần.",
+        "effect": "Giảm 50% thời gian hồi phục vết thương gãy xương và tăng 20% khả năng chống gãy chân khi ngã.",
+        "icon": "🦴",
+        "rating": "Cực Kỳ Quan Trọng"
+      }
+    ]
+  },
+  {
+    "category": "Đột Biến Trưởng Thành (Sub-Adult & Adult Mutations - Slot 2 & 3)",
+    "description": "Các đột biến chiến đấu và sinh tồn cao cấp mở khóa ở giai đoạn từ 60% đến 100% Full Adult.",
+    "items": [
+      {
+        "id": "hemomania",
+        "name": "Hemomania (Cơn Cuồng Máu)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt",
+        "objective": "Tấn công và gây hiệu ứng chảy máu (Bleed) lên ít nhất 5 con mồi khác nhau.",
+        "effect": "Tăng 15% sát thương cắn và tăng 10% tốc độ chạy khi áp sát kẻ địch đang bị chảy máu.",
+        "icon": "🩸",
+        "rating": "Đột Biến Săn Mồi Đỉnh Cao"
+      },
+      {
+        "id": "hematophagy",
+        "name": "Hematophagy (Hút Nước Từ Máu)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt",
+        "objective": "Ăn thịt tươi từ con mồi vừa mới bị hạ gục trong vòng 2 phút.",
+        "effect": "Mỗi lần ăn thịt tươi sẽ đồng thời hồi phục 20% thanh Nước Uống, giúp sinh tồn không cần tìm hồ nước ngọt.",
+        "icon": "🥩",
+        "rating": "Sinh Tồn Độc Lập"
+      },
+      {
+        "id": "xerocole_adaptation",
+        "name": "Xerocole Adaptation (Hấp Thụ Nước Từ Thực Vật)",
+        "diet": "herbivore",
+        "dietLabel": "Loài ăn cỏ",
+        "objective": "Ăn liên tục 8 loại thực vật và hoa quả mọng nước trong vùng di cư (Migration Zone).",
+        "effect": "Ăn cây cối sẽ cung cấp thêm 25% lượng nước uống, giúp khủng long ăn cỏ thoải mái gặm cỏ trên núi cao.",
+        "icon": "🌵",
+        "rating": "Bảo Vệ Khỏi Khát"
+      },
+      {
+        "id": "epidermal_fibrosis",
+        "name": "Epidermal Fibrosis (Lớp Biểu Bì Xơ Hóa)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Sống sót sau khi mất hơn 70% lượng máu do vết thương chảy máu liên tục.",
+        "effect": "Tăng 30% kháng hiệu ứng Chảy Máu (Bleed Resistance), máu sẽ tự động cầm nhanh hơn 2 lần.",
+        "icon": "🛡️",
+        "rating": "Phòng Thủ Kháng Sát Thương"
+      },
+      {
+        "id": "cannibalistic",
+        "name": "Cannibalistic (Đồng Hóa Đồng Loại)",
+        "diet": "carnivore",
+        "dietLabel": "Loài ăn thịt (trừ loài có cannibalism mặc định)",
+        "objective": "Ăn thịt 3 xác đồng loại khi thanh đói xuống dưới 10%.",
+        "effect": "Loại bỏ hoàn toàn triệu chứng co giật cơ (Spasms) và nôn mửa khi ăn thịt đồng loại.",
+        "icon": "💀",
+        "rating": "Sinh Tồn Khắc Nghiệt"
+      },
+      {
+        "id": "prolific_reproduction",
+        "name": "Prolific Reproduction (Sinh Sản Vô Tính / Di Truyền Vượt Trội)",
+        "diet": "all",
+        "dietLabel": "Tất cả loài",
+        "objective": "Xây tổ thành công và ấp nở thành công ít nhất 1 lứa trứng có con non nở ra.",
+        "effect": "Lứa đẻ tiếp theo tăng thêm 2 quả trứng và toàn bộ con non sinh ra có tỷ lệ kế thừa 100% đột biến của bố mẹ.",
+        "icon": "🥚",
+        "rating": "Xây Dựng Bầy Đàn"
+      }
+    ]
+  }
+]

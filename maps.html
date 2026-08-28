@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Đồ & Địa Điểm Sinh Tồn - The Isle Wiki (Gateway & Spiro)</title>
+  <meta name="description" content="Khám phá chi tiết bản đồ Gateway và Isle Spiro trong The Isle Evrima: Điểm nóng săn mồi (Hotspots), nguồn nước an toàn, khu vực di cư (Migration Zones) và Cây Mẹ Thánh Địa (Sanctuary Trees).">
+  <meta name="keywords" content="ban do the isle, map gateway the isle, map spiro the isle, toa do the isle evrima, vi tri nuoc the isle, sanctuary tree the isle, migration zones the isle">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://methanol-dev.github.io/the-isle-wiki/maps.html">
+
+  <!-- Theme & Mobile App Meta -->
+  <meta name="theme-color" content="#070a0e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Open Graph SEO -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://methanol-dev.github.io/the-isle-wiki/maps.html">
+  <meta property="og:title" content="Bản Đồ & Địa Điểm Sinh Tồn The Isle Evrima (Gateway & Spiro)">
+  <meta property="og:description" content="Chi tiết các khu vực trọng yếu, nguồn nước, cây thánh địa và điểm nóng giao tranh trên bản đồ Gateway.">
+  <meta property="og:site_name" content="The Isle Wiki Vietnam">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://methanol-dev.github.io/the-isle-wiki/maps.html">
+  <meta name="twitter:title" content="Bản Đồ The Isle Evrima (Gateway)">
+  <meta name="twitter:description" content="Khám phá bản đồ Gateway, tọa độ sinh tồn và vùng an toàn cho con non.">
+  <meta name="twitter:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+  <!-- Ambient Spore Particles Canvas -->
+  <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="./index.html" class="navbar-logo">
+        <span style="font-size: 1.6rem;">🦖</span>
+        <div>
+          <span>THE ISLE WIKI</span>
+          <span class="logo-badge">EVRIMA VN</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="./index.html" class="nav-link"><span>🦕</span> Danh Sách Khủng Long</a></li>
+          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
+          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
+          <li><a href="./maps.html" class="nav-link active"><span>🗺️</span> Bản Đồ & Vị Trí</a></li>
+          <li><a href="./quests.html" class="nav-link"><span>🎯</span> Nhiệm Vụ & Đột Biến</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Bật/Tắt âm thanh">🔊</button>
+        <button class="search-trigger-btn" id="searchTriggerBtn">
+          <span>🔍</span>
+          <span>Tìm nhanh...</span>
+          <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Mở menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <!-- HERO TITLE -->
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div class="hero-tag">
+        <span>🗺️</span> Khảo Sát Địa Hình & Tọa Độ Sinh Tồn
+      </div>
+      <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">
+        Bản Đồ <span class="hero-title-highlight">The Isle Evrima</span>
+      </h1>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+        Tổng hợp chi tiết toàn bộ các vùng lãnh thổ, điểm nóng tử địa, nguồn nước an toàn, khu vực di cư và vị trí cây thánh địa bảo vệ con non trên các bản đồ chính thức.
+      </p>
+    </div>
+
+    <!-- MAP SELECTOR TABS -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+      <button class="filter-btn active" id="btnMapGateway" onclick="selectMap('gateway')" style="padding: 0.85rem 1.75rem; font-size: 1rem; font-weight: 700;">
+        <span>🏝️</span> Gateway (Bản Đồ Hiện Tại)
+      </button>
+      <button class="filter-btn" id="btnMapSpiro" onclick="selectMap('spiro')" style="padding: 0.85rem 1.75rem; font-size: 1rem; font-weight: 700;">
+        <span>🏞️</span> Isle Spiro (Cựu Bản Đồ)
+      </button>
+    </div>
+
+    <!-- MAP CONTENT CONTAINER -->
+    <div id="mapDetailContainer">
+      <!-- Dynamic content rendered by JS -->
+    </div>
+
+    <!-- NAVIGATION & GPS COORDINATES GUIDE -->
+    <section style="margin-top: 4rem; background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg);">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+        <span style="font-size: 1.8rem;">🧭</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800;">Hướng Dẫn Định Vị & Xem Tọa Độ In-Game</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06);">
+          <h3 style="color: var(--color-emerald); font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">📍 Lệnh Xem Tọa Độ GPS</h3>
+          <p>Mở khung chat trong game (nhấn <strong>Enter</strong>) và gõ lệnh:</p>
+          <div style="background: rgba(0,0,0,0.6); padding: 0.5rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); color: var(--color-amber); margin: 0.5rem 0;">
+            /loc hoặc /coords
+          </div>
+          <p>Tọa độ hiện tại <code>(X, Y, Z)</code> sẽ xuất hiện ở góc màn hình để bạn dễ dàng định hướng hoặc chia sẻ vị trí cho đồng đội trong bầy.</p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06);">
+          <h3 style="color: var(--color-cyan); font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">👃 Cơ Chế Ngửi Mùi (Scenting)</h3>
+          <p>Nhấn giữ phím <strong>Q</strong> trong 2 giây để kích hoạt khứu giác:</p>
+          <ul style="padding-left: 1.25rem; margin-top: 0.4rem;">
+            <li>💧 <strong>Vệt sáng xanh dương:</strong> Nguồn nước ngọt gần nhất.</li>
+            <li>🍃 <strong>Lục giác S / // / ...:</strong> Thức ăn dinh dưỡng theo loài.</li>
+            <li>🌲 <strong>Biểu tượng Cây:</strong> Cây Thánh Địa cho con non trú ẩn.</li>
+            <li>👣 <strong>Vệt chân phát sáng:</strong> Dấu vết bầy đàn đang di cư.</li>
+          </ul>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06);">
+          <h3 style="color: var(--color-purple); font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">☀️ Định Hướng Thiên Văn</h3>
+          <p>Khi trời tối hoặc mất phương hướng trong rừng rậm:</p>
+          <p style="margin-top: 0.4rem;">Mặt trời và mặt trăng luôn mọc ở hướng <strong>Đông (East)</strong> và lặn ở hướng <strong>Tây (West)</strong>. Hướng biển lớn luôn nằm ở rìa phía Tây của bản đồ Gateway.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span style="font-size: 1.5rem;">🦖</span>
+          <span style="font-size: 1.2rem; font-weight: 900; color: var(--text-main);">THE ISLE WIKI</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Hệ thống bách khoa toàn thư The Isle Evrima tiếng Việt chuẩn xác nhất. Dành riêng cho cộng đồng game thủ Việt Nam.
+        </p>
+      </div>
+
+      <div class="footer-bottom" style="width: 100%; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="font-size: 0.85rem; color: var(--text-dim);">
+          Tác giả & Phát triển: <a href="https://github.com/methanol-dev" target="_blank" rel="noopener noreferrer" style="color: var(--text-emerald); font-weight: 700; text-decoration: none;">methanol-dev</a>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-dim);">
+          Dữ liệu trò chơi thuộc bản quyền Afterthought LLC.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="Về đầu trang" aria-label="Về đầu trang">↑</button>
+
+  <!-- JS SCRIPTS -->
+  <script src="./js/security-utils.js"></script>
+  <script src="./js/audio-fx.js"></script>
+  <script src="./js/particles.js"></script>
+  <script src="./js/toast-service.js"></script>
+
+  <script>
+    let mapsData = [];
+    let currentMapId = 'gateway';
+
+    async function loadMaps() {
+      try {
+        const res = await fetch('./data/maps.json');
+        if (res.ok) {
+          mapsData = await res.json();
+          renderMap(currentMapId);
+        }
+      } catch (err) {
+        console.error('Error loading maps data:', err);
+      }
+    }
+
+    function selectMap(mapId) {
+      currentMapId = mapId;
+      document.getElementById('btnMapGateway').classList.toggle('active', mapId === 'gateway');
+      document.getElementById('btnMapSpiro').classList.toggle('active', mapId === 'spiro');
+      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+      renderMap(mapId);
+    }
+
+    function renderMap(mapId) {
+      const container = document.getElementById('mapDetailContainer');
+      if (!container || !mapsData.length) return;
+
+      const map = mapsData.find(m => m.id === mapId) || mapsData[0];
+
+      const regionsHtml = map.regions.map(r => {
+        let dangerColor = 'var(--color-emerald)';
+        if (r.dangerLevel.includes('Cao') || r.dangerLevel.includes('Tử Địa') || r.dangerLevel.includes('Cực Độ')) {
+          dangerColor = 'var(--text-crimson)';
+        } else if (r.dangerLevel.includes('Trung Bình')) {
+          dangerColor = 'var(--color-amber)';
+        }
+
+        return `
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); transition: transform 0.2s, border-color 0.2s;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">${r.name}</h3>
+              <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);">${r.type}</span>
+            </div>
+
+            <div style="font-size: 0.85rem; margin-bottom: 0.75rem; color: ${dangerColor}; font-weight: 700;">
+              ⚠️ Mức độ nguy hiểm: <span>${r.dangerLevel}</span>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+              ${r.description}
+            </p>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; border-left: 3px solid var(--color-cyan);">
+              <strong style="color: var(--color-cyan);">💧 Tài nguyên / Thực phẩm:</strong>
+              <div style="color: var(--text-dim); margin-top: 0.2rem;">${r.resources}</div>
+            </div>
+
+            <div style="background: rgba(16,185,129,0.08); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; border-left: 3px solid var(--color-emerald);">
+              <strong style="color: var(--color-emerald);">💡 Mẹo sinh tồn:</strong>
+              <div style="color: var(--text-muted); margin-top: 0.2rem;">${r.tips}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div style="background: var(--bg-card); border: 1px solid var(--border-accent); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem; position: relative; overflow: hidden;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-apex" style="margin-bottom: 0.5rem;">${map.status}</span>
+              <h2 style="font-size: 2rem; font-weight: 900; color: var(--text-main);">${map.name}</h2>
+              <div style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.25rem;">Kích thước diện tích: <strong>${map.size}</strong></div>
+            </div>
+          </div>
+
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; max-width: 900px; margin-bottom: 1.5rem;">
+            ${map.description}
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            ${map.features.map(f => `<span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); border: 1px solid rgba(16,185,129,0.25); font-size: 0.85rem;">✨ ${f}</span>`).join('')}
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>📍</span> Các Khu Vực Trọng Yếu & Lãnh Địa Săn Mồi (${map.regions.length} Vùng)
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem;">
+          ${regionsHtml}
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMaps();
+
+      // Mobile nav toggle
+      const mobileNavBtn = document.getElementById('mobileNavToggle');
+      const navLinks = document.getElementById('navbarLinks');
+      if (mobileNavBtn && navLinks) {
+        mobileNavBtn.onclick = () => navLinks.classList.toggle('open');
+      }
+
+      // Back to top button
+      const backBtn = document.getElementById('backToTopBtn');
+      if (backBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            backBtn.classList.add('visible');
+          } else {
+            backBtn.classList.remove('visible');
+          }
+        });
+        backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
