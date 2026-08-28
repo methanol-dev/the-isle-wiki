@@ -1,7 +1,8 @@
 /**
- * THE ISLE WIKI - EMBEDDED FALLBACK DATA
- * Ensures offline and file:/// protocol compatibility
+ * THE ISLE WIKI - EMBEDDED DATA FALLBACK
+ * Fully functional offline dataset for file:/// browsing
  */
+
 window.EMBEDDED_CREATURES = [
   {
     "id": "deinosuchus",
@@ -24,8 +25,8 @@ window.EMBEDDED_CREATURES = [
       "health": 250,
       "biteDamage": 35,
       "sprintSpeed": 28.5,
-      "trotSpeed": 14.0,
-      "swimSpeed": 38.0,
+      "trotSpeed": 14,
+      "swimSpeed": 38,
       "stamina": 100,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Rất Thấp",
@@ -37,7 +38,7 @@ window.EMBEDDED_CREATURES = [
       "biteDamage": 1150,
       "sprintSpeed": 34.2,
       "trotSpeed": 16.5,
-      "swimSpeed": 45.0,
+      "swimSpeed": 45,
       "stamina": 140,
       "staminaRegen": "Chậm",
       "fallDamageResistance": "Cực Kém",
@@ -48,27 +49,56 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Đạm Động Vật Lớn",
-          "foods": ["Thịt Stegosaurus", "Thịt Tenontosaurus", "Thịt Carnotaurus", "Thịt Ceratosaurus"],
+          "foods": [
+            "Thịt Stegosaurus",
+            "Thịt Tenontosaurus",
+            "Thịt Carnotaurus",
+            "Thịt Ceratosaurus"
+          ],
           "buffDescription": "+50% Tốc độ lớn, +20% Hồi máu"
         },
         {
           "symbol": "//",
           "name": "Cá & Động Vật Nhỏ",
-          "foods": ["Cá Lớn (Elite Fish)", "Thịt Beipiaosaurus", "Thịt Pteranodon", "Thịt Hypsilophodon"],
+          "foods": [
+            "Cá Lớn (Elite Fish)",
+            "Thịt Beipiaosaurus",
+            "Thịt Pteranodon",
+            "Thịt Hypsilophodon"
+          ],
           "buffDescription": "+30% Hồi thể lực, Tăng tầm nhìn ban đêm dưới nước"
         },
         {
           "symbol": "...",
           "name": "Nội Tạng & Con Mồi Bờ Sông",
-          "foods": ["Phổi & Tim con mồi", "Thịt Pachycephalosaurus", "Thịt Dryosaurus"],
+          "foods": [
+            "Phổi & Tim con mồi",
+            "Thịt Pachycephalosaurus",
+            "Thịt Dryosaurus"
+          ],
           "buffDescription": "+25% Kháng vết thương, Tăng tốc độ bơi"
         }
       ],
-      "preferredPrey": ["Stegosaurus", "Tenontosaurus", "Carnotaurus", "Mọi sinh vật uống nước bờ sông", "Cá lớn"],
+      "preferredPrey": [
+        "Stegosaurus",
+        "Tenontosaurus",
+        "Carnotaurus",
+        "Mọi sinh vật uống nước bờ sông",
+        "Cá lớn"
+      ],
       "favoriteOrgans": [
-        {"organ": "Phổi (Lungs)", "benefit": "Tăng thêm 40% thời gian nhịn thở dưới nước"},
-        {"organ": "Tim (Heart)", "benefit": "Tăng 15% hồi phục thể lực trong 15 phút"},
-        {"organ": "Dạ dày (Stomach)", "benefit": "Tăng thời gian duy trì thanh dinh dưỡng"}
+        {
+          "organ": "Phổi (Lungs)",
+          "benefit": "Tăng thêm 40% thời gian nhịn thở dưới nước"
+        },
+        {
+          "organ": "Tim (Heart)",
+          "benefit": "Tăng 15% hồi phục thể lực trong 15 phút"
+        },
+        {
+          "organ": "Dạ dày (Stomach)",
+          "benefit": "Tăng thời gian duy trì thanh dinh dưỡng"
+        }
       ],
       "cannibalism": true,
       "cannibalismNote": "Deinosuchus CÓ THỂ ăn thịt đồng loại mà KHÔNG bị trừng phạt dinh dưỡng. Cá sấu lớn thường xuyên săn cá sấu nhỏ!"
@@ -114,7 +144,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Ẩn mình dưới mặt nước sẫm màu, dùng ngửi (phím Q) để dò tiếng bước chân con mồi đến uống nước. Canh đúng thời điểm con mồi cúi đầu, dùng RMB lunge phóng lên kéo chìm.",
       "defenseGuide": "Khi ở trên cạn bị Stego hay Cera quấy rối, hãy lùi dần về phía mép nước. Tuyệt đối không giao chiến kéo dài trên cạn nếu không có lợi thế địa hình."
-    }
+    },
+    "image": "./assets/creatures/deinosuchus.png"
   },
   {
     "id": "stegosaurus",
@@ -127,7 +158,7 @@ window.EMBEDDED_CREATURES = [
     "tierLabelVi": "Apex Ăn Cỏ (Pháo Đài Cạn)",
     "locomotion": "terrestrial",
     "locomotionLabelVi": "Trên cạn",
-    "growthTimeHours": 5.0,
+    "growthTimeHours": 5,
     "growthTimeFormatted": "5 giờ 00 phút",
     "badgeColor": "#10b981",
     "accentColor": "#059669",
@@ -136,9 +167,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 100,
       "health": 300,
       "biteDamage": 30,
-      "sprintSpeed": 26.0,
-      "trotSpeed": 15.0,
-      "swimSpeed": 18.0,
+      "sprintSpeed": 26,
+      "trotSpeed": 15,
+      "swimSpeed": 18,
       "stamina": 100,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Thấp",
@@ -150,7 +181,7 @@ window.EMBEDDED_CREATURES = [
       "biteDamage": 450,
       "sprintSpeed": 31.5,
       "trotSpeed": 18.2,
-      "swimSpeed": 20.0,
+      "swimSpeed": 20,
       "stamina": 120,
       "staminaRegen": "Trung bình",
       "fallDamageResistance": "Kém",
@@ -161,23 +192,37 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Thực Vật Thân Mộc & Quả",
-          "foods": ["Cây Dừa Cạn (Sumac)", "Bụi Quả Mọng Đỏ", "Lá Thông Cổ"],
+          "foods": [
+            "Cây Dừa Cạn (Sumac)",
+            "Bụi Quả Mọng Đỏ",
+            "Lá Thông Cổ"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng độ dày lớp giáp"
         },
         {
           "symbol": "//",
           "name": "Rễ Cây & Nấm Rừng",
-          "foods": ["Củ Dương Xỉ (Fern Root)", "Nấm Phát Quang"],
+          "foods": [
+            "Củ Dương Xỉ (Fern Root)",
+            "Nấm Phát Quang"
+          ],
           "buffDescription": "+30% Hồi phục thể lực, Giảm tiêu hao năng lượng"
         },
         {
           "symbol": "...",
           "name": "Dương Xỉ Lớn & Thảo Mộc",
-          "foods": ["Dương Xỉ Khổng Lồ (Marattia)", "Cỏ Nước"],
+          "foods": [
+            "Dương Xỉ Khổng Lồ (Marattia)",
+            "Cỏ Nước"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng khả năng kháng chảy máu"
         }
       ],
-      "preferredPrey": ["Dương xỉ Marattia", "Cây bụi Sumac", "Củ rễ rừng sâu"],
+      "preferredPrey": [
+        "Dương xỉ Marattia",
+        "Cây bụi Sumac",
+        "Củ rễ rừng sâu"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Loài ăn cỏ thuần túy, kiếm ăn theo bầy đàn để bảo vệ lẫn nhau."
@@ -221,7 +266,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Là loài ăn cỏ, mục tiêu của bạn là kiếm đủ 3 loại thức ăn dinh dưỡng (S, //, ...) để tăng trưởng đạt 100%. Luôn di chuyển ở khu vực thoáng đãng.",
       "defenseGuide": "Khi bị thú săn mồi bao vây, hãy tìm vách đá hoặc cây to để che phần đầu, quay đuôi ra ngoài và chờ đợi đối phương mắc sai lầm lao vào phạm vi đuôi."
-    }
+    },
+    "image": "./assets/creatures/stegosaurus.png"
   },
   {
     "id": "carnotaurus",
@@ -234,7 +280,7 @@ window.EMBEDDED_CREATURES = [
     "tierLabelVi": "Thú Săn Lớn (Tốc Độ)",
     "locomotion": "terrestrial",
     "locomotionLabelVi": "Trên cạn",
-    "growthTimeHours": 3.0,
+    "growthTimeHours": 3,
     "growthTimeFormatted": "3 giờ 00 phút",
     "badgeColor": "#ef4444",
     "accentColor": "#dc2626",
@@ -243,9 +289,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 80,
       "health": 200,
       "biteDamage": 25,
-      "sprintSpeed": 38.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 38,
+      "trotSpeed": 18,
+      "swimSpeed": 14,
       "stamina": 120,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -255,9 +301,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 2200,
       "health": 2200,
       "biteDamage": 240,
-      "sprintSpeed": 54.0,
+      "sprintSpeed": 54,
       "trotSpeed": 23.5,
-      "swimSpeed": 16.0,
+      "swimSpeed": 16,
       "stamina": 160,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -268,26 +314,49 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Thịt Thú Ăn Cỏ Nhanh",
-          "foods": ["Thịt Gallimimus", "Thịt Dryosaurus", "Thịt Hypsilophodon"],
+          "foods": [
+            "Thịt Gallimimus",
+            "Thịt Dryosaurus",
+            "Thịt Hypsilophodon"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng tốc độ tối đa"
         },
         {
           "symbol": "//",
           "name": "Thịt Thú Cỡ Vừa",
-          "foods": ["Thịt Tenontosaurus", "Thịt Pachycephalosaurus", "Thịt Diabloceratops non"],
+          "foods": [
+            "Thịt Tenontosaurus",
+            "Thịt Pachycephalosaurus",
+            "Thịt Diabloceratops non"
+          ],
           "buffDescription": "+30% Thể lực tối đa, Giảm tiêu hao thể lực khi húc"
         },
         {
           "symbol": "...",
           "name": "Động Vật Cạnh Tranh",
-          "foods": ["Thịt Ceratosaurus non", "Thịt Omniraptor", "Thịt Herrerasaurus"],
+          "foods": [
+            "Thịt Ceratosaurus non",
+            "Thịt Omniraptor",
+            "Thịt Herrerasaurus"
+          ],
           "buffDescription": "+25% Hồi máu, Kháng gãy xương"
         }
       ],
-      "preferredPrey": ["Tenontosaurus", "Gallimimus", "Pachycephalosaurus", "Dryosaurus"],
+      "preferredPrey": [
+        "Tenontosaurus",
+        "Gallimimus",
+        "Pachycephalosaurus",
+        "Dryosaurus"
+      ],
       "favoriteOrgans": [
-        {"organ": "Tim (Heart)", "benefit": "Tăng 20% khả năng hồi phục Stamina"},
-        {"organ": "Phổi (Lungs)", "benefit": "Tăng thời gian duy trì trạng thái Húc (Charge)"}
+        {
+          "organ": "Tim (Heart)",
+          "benefit": "Tăng 20% khả năng hồi phục Stamina"
+        },
+        {
+          "organ": "Phổi (Lungs)",
+          "benefit": "Tăng thời gian duy trì trạng thái Húc (Charge)"
+        }
       ],
       "cannibalism": false,
       "cannibalismNote": "Ăn thịt đồng loại sẽ bị co thắt dạ dày và giảm tốc độ tăng trưởng."
@@ -323,7 +392,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Lấy khoảng cách lấy đà từ xa, bật Charge căn hướng chạy của con mồi để húc ngã. Khi con mồi nằm sàn, lao vào cắn liên tục trước khi chúng kịp đứng dậy.",
       "defenseGuide": "Nếu gặp Stego hay Deino, đừng dại dột đối đầu trực diện. Sử dụng tốc độ vượt trội để rút lui an toàn."
-    }
+    },
+    "image": "./assets/creatures/carnotaurus.png"
   },
   {
     "id": "ceratosaurus",
@@ -336,7 +406,7 @@ window.EMBEDDED_CREATURES = [
     "tierLabelVi": "Thú Săn Lực Chiến (Bully)",
     "locomotion": "terrestrial",
     "locomotionLabelVi": "Trên cạn",
-    "growthTimeHours": 3.0,
+    "growthTimeHours": 3,
     "growthTimeFormatted": "3 giờ 00 phút",
     "badgeColor": "#f59e0b",
     "accentColor": "#d97706",
@@ -345,9 +415,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 85,
       "health": 220,
       "biteDamage": 30,
-      "sprintSpeed": 34.0,
-      "trotSpeed": 17.0,
-      "swimSpeed": 15.0,
+      "sprintSpeed": 34,
+      "trotSpeed": 17,
+      "swimSpeed": 15,
       "stamina": 110,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -358,8 +428,8 @@ window.EMBEDDED_CREATURES = [
       "health": 2400,
       "biteDamage": 320,
       "sprintSpeed": 42.5,
-      "trotSpeed": 20.0,
-      "swimSpeed": 18.0,
+      "trotSpeed": 20,
+      "swimSpeed": 18,
       "stamina": 140,
       "staminaRegen": "Khá",
       "fallDamageResistance": "Trung bình",
@@ -370,26 +440,49 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Xác Thối & Thịt Phân Hủy",
-          "foods": ["Mọi loại xác thối rữa", "Thịt Stegosaurus thối", "Thịt Tenontosaurus thối"],
+          "foods": [
+            "Mọi loại xác thối rữa",
+            "Thịt Stegosaurus thối",
+            "Thịt Tenontosaurus thối"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng 30% hiệu lực Corpse Buff"
         },
         {
           "symbol": "//",
           "name": "Động Vật Có Giáp / Độc",
-          "foods": ["Thịt Pachycephalosaurus", "Thịt Diabloceratops", "Thịt Troodon"],
+          "foods": [
+            "Thịt Pachycephalosaurus",
+            "Thịt Diabloceratops",
+            "Thịt Troodon"
+          ],
           "buffDescription": "+30% Hồi máu, Kháng nọc độc & buồn nôn"
         },
         {
           "symbol": "...",
           "name": "Thú Săn Thịt Cạnh Tranh",
-          "foods": ["Thịt Carnotaurus", "Thịt Omniraptor", "Thịt Dilophosaurus"],
+          "foods": [
+            "Thịt Carnotaurus",
+            "Thịt Omniraptor",
+            "Thịt Dilophosaurus"
+          ],
           "buffDescription": "+25% Thể lực tối đa, Tăng lực cắn vi khuẩn"
         }
       ],
-      "preferredPrey": ["Xác chết tự do trên bản đồ", "Tenontosaurus", "Carnotaurus", "Pachycephalosaurus"],
+      "preferredPrey": [
+        "Xác chết tự do trên bản đồ",
+        "Tenontosaurus",
+        "Carnotaurus",
+        "Pachycephalosaurus"
+      ],
       "favoriteOrgans": [
-        {"organ": "Dạ dày (Stomach)", "benefit": "Miễn nhiễm 100% ngộ độc thực phẩm"},
-        {"organ": "Gan (Liver)", "benefit": "Tăng 25% khả năng hồi máu vết thương"}
+        {
+          "organ": "Dạ dày (Stomach)",
+          "benefit": "Miễn nhiễm 100% ngộ độc thực phẩm"
+        },
+        {
+          "organ": "Gan (Liver)",
+          "benefit": "Tăng 25% khả năng hồi máu vết thương"
+        }
       ],
       "cannibalism": true,
       "cannibalismNote": "Có thể ăn xác đồng loại thoải mái mà không bị bất kỳ hình phạt nào."
@@ -425,7 +518,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Dùng mùi (Q) để tìm các bãi xác thối bỏ lại sau các trận chiến. Chiếm lĩnh bãi xác để nhận buff và phục kích kẻ đói mò tới.",
       "defenseGuide": "Nếu bị Carno hay bầy Omni tấn công, hãy kéo trận đấu về gần một cái xác chết để kích hoạt Corpse Buff, lúc này chỉ số giáp và lực cắn của bạn sẽ tăng vọt."
-    }
+    },
+    "image": "./assets/creatures/ceratosaurus.png"
   },
   {
     "id": "omniraptor",
@@ -447,9 +541,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 35,
       "health": 120,
       "biteDamage": 18,
-      "sprintSpeed": 36.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 36,
+      "trotSpeed": 18,
+      "swimSpeed": 14,
       "stamina": 140,
       "staminaRegen": "Rất Nhanh",
       "fallDamageResistance": "Cao",
@@ -460,8 +554,8 @@ window.EMBEDDED_CREATURES = [
       "health": 700,
       "biteDamage": 120,
       "sprintSpeed": 48.2,
-      "trotSpeed": 22.0,
-      "swimSpeed": 16.0,
+      "trotSpeed": 22,
+      "swimSpeed": 16,
       "stamina": 180,
       "staminaRegen": "Rất Nhanh",
       "fallDamageResistance": "Cao",
@@ -472,26 +566,49 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Con Mồi Cỡ Lớn (Săn Bầy)",
-          "foods": ["Thịt Tenontosaurus", "Thịt Stegosaurus", "Thịt Maiasaura"],
+          "foods": [
+            "Thịt Tenontosaurus",
+            "Thịt Stegosaurus",
+            "Thịt Maiasaura"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng thời gian bám Pounce"
         },
         {
           "symbol": "//",
           "name": "Thú Nhỏ Nhanh Nhẹn",
-          "foods": ["Thịt Dryosaurus", "Thịt Hypsilophodon", "Thịt Gallimimus"],
+          "foods": [
+            "Thịt Dryosaurus",
+            "Thịt Hypsilophodon",
+            "Thịt Gallimimus"
+          ],
           "buffDescription": "+30% Hồi phục Stamina, Tăng độ cao bật nhảy"
         },
         {
           "symbol": "...",
           "name": "Thú Bay & Lưỡng Cư",
-          "foods": ["Thịt Pteranodon", "Thịt Beipiaosaurus", "Thịt Herrerasaurus"],
+          "foods": [
+            "Thịt Pteranodon",
+            "Thịt Beipiaosaurus",
+            "Thịt Herrerasaurus"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng sát thương xé rách"
         }
       ],
-      "preferredPrey": ["Tenontosaurus", "Diabloceratops", "Pachycephalosaurus", "Gallimimus"],
+      "preferredPrey": [
+        "Tenontosaurus",
+        "Diabloceratops",
+        "Pachycephalosaurus",
+        "Gallimimus"
+      ],
       "favoriteOrgans": [
-        {"organ": "Tim (Heart)", "benefit": "Tăng tốc độ hồi Stamina khi bám vồ"},
-        {"organ": "Phổi (Lungs)", "benefit": "Giảm tiêu hao Stamina khi chạy nhảy"}
+        {
+          "organ": "Tim (Heart)",
+          "benefit": "Tăng tốc độ hồi Stamina khi bám vồ"
+        },
+        {
+          "organ": "Phổi (Lungs)",
+          "benefit": "Giảm tiêu hao Stamina khi chạy nhảy"
+        }
       ],
       "cannibalism": false,
       "cannibalismNote": "Không nên ăn đồng loại để bảo tồn bầy đàn."
@@ -527,7 +644,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Đi theo bầy, phân công 1 con nhử đòn, các con còn lại lần lượt Pounce từ phía sau. Nhảy ra trước khi hết Stamina để hồi phục và cho đồng đội khác vào thay phiên.",
       "defenseGuide": "Tận dụng tảng đá cao nhảy lên trốn thoát khi bị Carno hay Cera truy đuổi."
-    }
+    },
+    "image": "./assets/creatures/omniraptor.png"
   },
   {
     "id": "tenontosaurus",
@@ -549,9 +667,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 60,
       "health": 180,
       "biteDamage": 20,
-      "sprintSpeed": 33.0,
-      "trotSpeed": 16.0,
-      "swimSpeed": 16.0,
+      "sprintSpeed": 33,
+      "trotSpeed": 16,
+      "swimSpeed": 16,
       "stamina": 120,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -563,7 +681,7 @@ window.EMBEDDED_CREATURES = [
       "biteDamage": 180,
       "sprintSpeed": 41.5,
       "trotSpeed": 19.5,
-      "swimSpeed": 18.0,
+      "swimSpeed": 18,
       "stamina": 150,
       "staminaRegen": "Rất Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -574,23 +692,35 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Cây Bụi Dinh Dưỡng Cao",
-          "foods": ["Cây Rừng Ngọt", "Quả Dại Sơn Cước"],
+          "foods": [
+            "Cây Rừng Ngọt",
+            "Quả Dại Sơn Cước"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng lực đòn đuôi"
         },
         {
           "symbol": "//",
           "name": "Củ Dương Xỉ & Rễ Ngầm",
-          "foods": ["Củ Dương Xỉ Đầm Lầy", "Nấm Thảo Mộc"],
+          "foods": [
+            "Củ Dương Xỉ Đầm Lầy",
+            "Nấm Thảo Mộc"
+          ],
           "buffDescription": "+30% Hồi phục thể lực, Giảm tiêu hao đòn đánh"
         },
         {
           "symbol": "...",
           "name": "Thảo Mộc Rừng Rậm",
-          "foods": ["Dương Xỉ Nhỏ", "Lá Mềm Thung Lũng"],
+          "foods": [
+            "Dương Xỉ Nhỏ",
+            "Lá Mềm Thung Lũng"
+          ],
           "buffDescription": "+25% Hồi máu, Giảm thời gian choáng"
         }
       ],
-      "preferredPrey": ["Dương xỉ", "Bụi rậm thung lũng"],
+      "preferredPrey": [
+        "Dương xỉ",
+        "Bụi rậm thung lũng"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Ăn cỏ ôn hòa, kết hợp sống chung với Stego, Dryo và Pachy."
@@ -625,7 +755,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Di chuyển theo nhóm ăn cỏ, tích đủ dinh dưỡng để đạt kích thước 1800kg.",
       "defenseGuide": "Khi bị Raptor pounce bám vào sườn, lập tức bấm quất đuôi (RMB) hoặc dậm chân để quật ngã chúng xuống đất, sau đó bồi thêm cú đập đuôi kết liễu."
-    }
+    },
+    "image": "./assets/creatures/tenontosaurus.png"
   },
   {
     "id": "dilophosaurus",
@@ -647,9 +778,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 40,
       "health": 130,
       "biteDamage": 20,
-      "sprintSpeed": 35.0,
-      "trotSpeed": 17.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 35,
+      "trotSpeed": 17,
+      "swimSpeed": 14,
       "stamina": 130,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -659,9 +790,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 1100,
       "health": 1100,
       "biteDamage": 150,
-      "sprintSpeed": 44.0,
-      "trotSpeed": 20.0,
-      "swimSpeed": 16.0,
+      "sprintSpeed": 44,
+      "trotSpeed": 20,
+      "swimSpeed": 16,
       "stamina": 160,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -672,26 +803,47 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Thú Ăn Cỏ Ban Đêm",
-          "foods": ["Thịt Tenontosaurus", "Thịt Pachycephalosaurus", "Thịt Dryosaurus"],
+          "foods": [
+            "Thịt Tenontosaurus",
+            "Thịt Pachycephalosaurus",
+            "Thịt Dryosaurus"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng hiệu lực nọc độc ảo giác"
         },
         {
           "symbol": "//",
           "name": "Thú Nhỏ & Thú Ăn Thịt Non",
-          "foods": ["Thịt Hypsilophodon", "Thịt Ceratosaurus non", "Thịt Troodon"],
+          "foods": [
+            "Thịt Hypsilophodon",
+            "Thịt Ceratosaurus non",
+            "Thịt Troodon"
+          ],
           "buffDescription": "+30% Hồi phục Stamina, Tăng độ nét tầm nhìn đêm"
         },
         {
           "symbol": "...",
           "name": "Thú Bờ Nước & Bò Sát",
-          "foods": ["Thịt Beipiaosaurus", "Thịt Pteranodon"],
+          "foods": [
+            "Thịt Beipiaosaurus",
+            "Thịt Pteranodon"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng thời gian duy trì bóng ma"
         }
       ],
-      "preferredPrey": ["Tenontosaurus", "Pachycephalosaurus", "Mọi con mồi mù đêm"],
+      "preferredPrey": [
+        "Tenontosaurus",
+        "Pachycephalosaurus",
+        "Mọi con mồi mù đêm"
+      ],
       "favoriteOrgans": [
-        {"organ": "Mắt (Eyes)", "benefit": "Tăng cường độ sáng ban đêm lên mức tối đa"},
-        {"organ": "Tuyến Độc (Venom Gland)", "benefit": "Tăng 50% tốc độ tích tụ độc tố khi cắn"}
+        {
+          "organ": "Mắt (Eyes)",
+          "benefit": "Tăng cường độ sáng ban đêm lên mức tối đa"
+        },
+        {
+          "organ": "Tuyến Độc (Venom Gland)",
+          "benefit": "Tăng 50% tốc độ tích tụ độc tố khi cắn"
+        }
       ],
       "cannibalism": false,
       "cannibalismNote": "Không nên ăn thịt đồng loại."
@@ -726,7 +878,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Chờ trời tối, áp sát con mồi từ phía sau, cắn 1-2 phát RMB tiêm độc rồi lùi lại giữ khoảng cách. Khi con mồi bị ảo giác hoảng loạn quay cuồng, lao vào kết liễu.",
       "defenseGuide": "Ban ngày tránh giao chiến trực diện, ẩn nấp trong bụi rậm dày và chờ màn đêm buông xuống."
-    }
+    },
+    "image": "./assets/creatures/dilophosaurus.png"
   },
   {
     "id": "herrerasaurus",
@@ -748,9 +901,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 25,
       "health": 90,
       "biteDamage": 15,
-      "sprintSpeed": 35.0,
-      "trotSpeed": 17.0,
-      "swimSpeed": 13.0,
+      "sprintSpeed": 35,
+      "trotSpeed": 17,
+      "swimSpeed": 13,
       "stamina": 130,
       "staminaRegen": "Rất Nhanh",
       "fallDamageResistance": "Cực Cao",
@@ -760,9 +913,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 450,
       "health": 450,
       "biteDamage": 85,
-      "sprintSpeed": 45.0,
-      "trotSpeed": 21.0,
-      "swimSpeed": 15.0,
+      "sprintSpeed": 45,
+      "trotSpeed": 21,
+      "swimSpeed": 15,
       "stamina": 170,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Tuyệt Đối (Giảm sát thương rơi)",
@@ -773,25 +926,45 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Thú Nhỏ Đi Ngang Gốc Cây",
-          "foods": ["Thịt Dryosaurus", "Thịt Hypsilophodon", "Thịt Beipiaosaurus"],
+          "foods": [
+            "Thịt Dryosaurus",
+            "Thịt Hypsilophodon",
+            "Thịt Beipiaosaurus"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng tốc độ leo trèo"
         },
         {
           "symbol": "//",
           "name": "Thú Bay & Bò Sát",
-          "foods": ["Thịt Pteranodon", "Thịt Troodon", "Cá Nhỏ"],
+          "foods": [
+            "Thịt Pteranodon",
+            "Thịt Troodon",
+            "Cá Nhỏ"
+          ],
           "buffDescription": "+30% Hồi phục Stamina, Tăng sát thương thả rơi"
         },
         {
           "symbol": "...",
           "name": "Con Non Của Các Loài Lớn",
-          "foods": ["Thịt Tenonto non", "Thịt Carno non", "Thịt Cera non"],
+          "foods": [
+            "Thịt Tenonto non",
+            "Thịt Carno non",
+            "Thịt Cera non"
+          ],
           "buffDescription": "+25% Hồi máu, Giảm tiêu hao Stamina khi leo"
         }
       ],
-      "preferredPrey": ["Pteranodon", "Dryosaurus", "Hypsilophodon", "Mọi con non đi lạc dưới tán cây"],
+      "preferredPrey": [
+        "Pteranodon",
+        "Dryosaurus",
+        "Hypsilophodon",
+        "Mọi con non đi lạc dưới tán cây"
+      ],
       "favoriteOrgans": [
-        {"organ": "Não (Brain)", "benefit": "Tăng độ chính xác khi ngắm đòn thả mình Drop Attack"}
+        {
+          "organ": "Não (Brain)",
+          "benefit": "Tăng độ chính xác khi ngắm đòn thả mình Drop Attack"
+        }
       ],
       "cannibalism": false,
       "cannibalismNote": "Không nên ăn đồng loại."
@@ -826,7 +999,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Chọn những cây to nằm cạnh lối mòn hoặc nguồn nước. Leo lên cành cây kiên nhẫn rình mồi. Khi con mồi dừng lại ăn hoặc nghỉ, ngắm kỹ hồng tâm và bấm thả đòn Drop Attack.",
       "defenseGuide": "Khi bị truy đuổi dưới đất, nhanh chóng tìm cây gần nhất và nhảy bám lên thân cây thoát thân."
-    }
+    },
+    "image": "./assets/creatures/herrerasaurus.png"
   },
   {
     "id": "pteranodon",
@@ -848,9 +1022,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 15,
       "health": 60,
       "biteDamage": 10,
-      "sprintSpeed": 30.0,
-      "trotSpeed": 14.0,
-      "swimSpeed": 12.0,
+      "sprintSpeed": 30,
+      "trotSpeed": 14,
+      "swimSpeed": 12,
       "stamina": 150,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Tuyệt Đối (Mở cánh)",
@@ -860,9 +1034,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 250,
       "health": 250,
       "biteDamage": 50,
-      "sprintSpeed": 40.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 40,
+      "trotSpeed": 18,
+      "swimSpeed": 14,
       "stamina": 200,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Tuyệt Đối",
@@ -873,23 +1047,37 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Cá Tươi & Cá Lớn",
-          "foods": ["Cá Tươi Bắt Dưới Sông (Fish)", "Cá Tầm Lớn"],
+          "foods": [
+            "Cá Tươi Bắt Dưới Sông (Fish)",
+            "Cá Tầm Lớn"
+          ],
           "buffDescription": "+50% Tốc độ tăng trưởng, Tăng tốc độ bay lượn"
         },
         {
           "symbol": "//",
           "name": "Động Vật Nhỏ & Thằn Lằn",
-          "foods": ["Thịt Hypsilophodon", "Thịt Rùa/Cua", "Cóc Nhỏ"],
+          "foods": [
+            "Thịt Hypsilophodon",
+            "Thịt Rùa/Cua",
+            "Cóc Nhỏ"
+          ],
           "buffDescription": "+30% Thể lực tối đa, Giảm tiêu hao Stamina khi bay"
         },
         {
           "symbol": "...",
           "name": "Xác Thức Ăn Thừa",
-          "foods": ["Mẩu thịt thừa rơi vãi", "Thịt Beipiaosaurus"],
+          "foods": [
+            "Mẩu thịt thừa rơi vãi",
+            "Thịt Beipiaosaurus"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng khả năng nhịn đói"
         }
       ],
-      "preferredPrey": ["Cá sông biển", "Hypsilophodon", "Mẩu thịt vụn trên vách núi"],
+      "preferredPrey": [
+        "Cá sông biển",
+        "Hypsilophodon",
+        "Mẩu thịt vụn trên vách núi"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Không nên ăn thịt đồng loại."
@@ -925,7 +1113,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Bay cao quan sát đàn cá dưới sông, lướt mỏ RMB để gắp cá rồi bay lên mỏm đá cao thưởng thức.",
       "defenseGuide": "Luôn quan sát mặt nước trước khi bắt cá để tránh Deino mai phục. Nếu bị thương, bay thẳng lên đỉnh núi cao nhất để hồi phục."
-    }
+    },
+    "image": "./assets/creatures/pteranodon.png"
   },
   {
     "id": "troodon",
@@ -947,9 +1136,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 10,
       "health": 50,
       "biteDamage": 8,
-      "sprintSpeed": 37.0,
-      "trotSpeed": 19.0,
-      "swimSpeed": 12.0,
+      "sprintSpeed": 37,
+      "trotSpeed": 19,
+      "swimSpeed": 12,
       "stamina": 140,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Rất Cao",
@@ -960,8 +1149,8 @@ window.EMBEDDED_CREATURES = [
       "health": 150,
       "biteDamage": 25,
       "sprintSpeed": 46.5,
-      "trotSpeed": 22.0,
-      "swimSpeed": 14.0,
+      "trotSpeed": 22,
+      "swimSpeed": 14,
       "stamina": 180,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Rất Cao",
@@ -972,23 +1161,38 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Con Mồi Bị Đầu Độc",
-          "foods": ["Thịt Tenontosaurus", "Thịt Ceratosaurus", "Thịt Carnotaurus"],
+          "foods": [
+            "Thịt Tenontosaurus",
+            "Thịt Ceratosaurus",
+            "Thịt Carnotaurus"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng tốc độ kích hoạt độc Tầng 3"
         },
         {
           "symbol": "//",
           "name": "Thú Ăn Cỏ Nhỏ",
-          "foods": ["Thịt Dryosaurus", "Thịt Hypsilophodon"],
+          "foods": [
+            "Thịt Dryosaurus",
+            "Thịt Hypsilophodon"
+          ],
           "buffDescription": "+30% Hồi phục thể lực, Tăng tốc độ di chuyển"
         },
         {
           "symbol": "...",
           "name": "Thú Bay & Lưỡng Cư",
-          "foods": ["Thịt Pteranodon", "Thịt Beipiaosaurus"],
+          "foods": [
+            "Thịt Pteranodon",
+            "Thịt Beipiaosaurus"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng khả năng ngụy trang bụi rậm"
         }
       ],
-      "preferredPrey": ["Tenontosaurus", "Carnotaurus", "Ceratosaurus", "Mọi loài thú lớn đi lẻ"],
+      "preferredPrey": [
+        "Tenontosaurus",
+        "Carnotaurus",
+        "Ceratosaurus",
+        "Mọi loài thú lớn đi lẻ"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Không nên ăn thịt đồng loại."
@@ -1023,7 +1227,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Đi bầy trong đêm, phân công từng thành viên thay phiên nhau nhảy vào RMB tiêm độc. Khi nghe thấy tiếng hú độc bộc phát, tiếp tục duy trì nhịp cắn tỉa đến khi con mồi gục ngã.",
       "defenseGuide": "Lẩn trốn trong các bụi cỏ rậm rạp, thân hình nhỏ bé giúp Troodon gần như tàng hình trước mắt kẻ thù."
-    }
+    },
+    "image": "./assets/creatures/troodon.png"
   },
   {
     "id": "gallimimus",
@@ -1045,9 +1250,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 30,
       "health": 100,
       "biteDamage": 12,
-      "sprintSpeed": 42.0,
-      "trotSpeed": 20.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 42,
+      "trotSpeed": 20,
+      "swimSpeed": 14,
       "stamina": 160,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Cao",
@@ -1058,8 +1263,8 @@ window.EMBEDDED_CREATURES = [
       "health": 550,
       "biteDamage": 75,
       "sprintSpeed": 57.5,
-      "trotSpeed": 26.0,
-      "swimSpeed": 16.0,
+      "trotSpeed": 26,
+      "swimSpeed": 16,
       "stamina": 220,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Cao",
@@ -1070,23 +1275,37 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Côn Trùng & Động Vật Nhỏ",
-          "foods": ["Cua Bờ Suối", "Trứng Khủng Long", "Cóc Nhỏ"],
+          "foods": [
+            "Cua Bờ Suối",
+            "Trứng Khủng Long",
+            "Cóc Nhỏ"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng thời lượng Stamina"
         },
         {
           "symbol": "//",
           "name": "Quả Mọng & Hạt Cây",
-          "foods": ["Quả Đỏ Thung Lũng", "Hạt Thông"],
+          "foods": [
+            "Quả Đỏ Thung Lũng",
+            "Hạt Thông"
+          ],
           "buffDescription": "+30% Tốc độ tối đa, Hồi phục thể lực nhanh"
         },
         {
           "symbol": "...",
           "name": "Rễ Cây & Nấm",
-          "foods": ["Củ Nông", "Nấm Thảo Dược"],
+          "foods": [
+            "Củ Nông",
+            "Nấm Thảo Dược"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng tầm xa tiếng gầm cảnh báo"
         }
       ],
-      "preferredPrey": ["Quả mọng", "Cua nhỏ bờ suối", "Trứng tổ"],
+      "preferredPrey": [
+        "Quả mọng",
+        "Cua nhỏ bờ suối",
+        "Trứng tổ"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Ăn tạp hòa bình, là tai mắt cảnh giới của mọi bầy ăn cỏ."
@@ -1121,7 +1340,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Kiếm ăn quanh bờ suối và các lùm cây quả mọng, luôn vừa ăn vừa quan sát xung quanh.",
       "defenseGuide": "Khi phát hiện nguy hiểm, lập tức bật sprint chạy thoát. Tận dụng tốc độ để lừa Carno đâm đầu vào gốc cây."
-    }
+    },
+    "image": "./assets/creatures/gallimimus.png"
   },
   {
     "id": "beipiaosaurus",
@@ -1134,7 +1354,7 @@ window.EMBEDDED_CREATURES = [
     "tierLabelVi": "Lưỡng Cư Cỡ Nhỏ (Lặn Sông)",
     "locomotion": "semi-aquatic",
     "locomotionLabelVi": "Lưỡng cư (Lặn nước & Trên cạn)",
-    "growthTimeHours": 1.0,
+    "growthTimeHours": 1,
     "growthTimeFormatted": "1 giờ 00 phút",
     "badgeColor": "#14b8a6",
     "accentColor": "#0d9488",
@@ -1143,9 +1363,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 20,
       "health": 70,
       "biteDamage": 10,
-      "sprintSpeed": 31.0,
-      "trotSpeed": 15.0,
-      "swimSpeed": 32.0,
+      "sprintSpeed": 31,
+      "trotSpeed": 15,
+      "swimSpeed": 32,
       "stamina": 150,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -1155,9 +1375,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 300,
       "health": 300,
       "biteDamage": 45,
-      "sprintSpeed": 38.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 42.0,
+      "sprintSpeed": 38,
+      "trotSpeed": 18,
+      "swimSpeed": 42,
       "stamina": 190,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -1168,23 +1388,37 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Cua, Cá & Động Vật Đáy Sông",
-          "foods": ["Cua Nước Ngọt", "Cá Nhỏ", "Ốc Đầm Lầy"],
+          "foods": [
+            "Cua Nước Ngọt",
+            "Cá Nhỏ",
+            "Ốc Đầm Lầy"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng tốc độ bơi lội"
         },
         {
           "symbol": "//",
           "name": "Rong Tảo & Cây Thủy Sinh",
-          "foods": ["Rong Biển Nước Ngọt", "Củ Ấu Thủy Sinh"],
+          "foods": [
+            "Rong Biển Nước Ngọt",
+            "Củ Ấu Thủy Sinh"
+          ],
           "buffDescription": "+30% Thể lực dưới nước, Tăng thời gian nhịn thở"
         },
         {
           "symbol": "...",
           "name": "Quả Rơi Bờ Sông",
-          "foods": ["Quả Mọng Ven Suối", "Nấm Ẩm"],
+          "foods": [
+            "Quả Mọng Ven Suối",
+            "Nấm Ẩm"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng khả năng né đòn"
         }
       ],
-      "preferredPrey": ["Cua đáy sông", "Rong tảo", "Cá nhỏ"],
+      "preferredPrey": [
+        "Cua đáy sông",
+        "Rong tảo",
+        "Cá nhỏ"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Loài ăn tạp thân thiện, dễ nuôi lớn."
@@ -1219,7 +1453,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Lặn dưới đáy sông đào bắt cua và ăn rong biển, luôn nhìn lên mặt nước để cảnh giác.",
       "defenseGuide": "Khi bị Deino đuổi dưới nước, dùng kỹ năng lặn uốn lượn zíc-zắc đổi hướng liên tục để thoát thân lên bờ."
-    }
+    },
+    "image": "./assets/creatures/beipiaosaurus.png"
   },
   {
     "id": "pachycephalosaurus",
@@ -1232,7 +1467,7 @@ window.EMBEDDED_CREATURES = [
     "tierLabelVi": "Ăn Cỏ Cận Chiến (Thiết Đầu Công)",
     "locomotion": "terrestrial",
     "locomotionLabelVi": "Trên cạn",
-    "growthTimeHours": 2.0,
+    "growthTimeHours": 2,
     "growthTimeFormatted": "2 giờ 00 phút",
     "badgeColor": "#10b981",
     "accentColor": "#059669",
@@ -1241,9 +1476,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 45,
       "health": 150,
       "biteDamage": 20,
-      "sprintSpeed": 35.0,
-      "trotSpeed": 17.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 35,
+      "trotSpeed": 17,
+      "swimSpeed": 14,
       "stamina": 130,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Rất Cao",
@@ -1253,9 +1488,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 1300,
       "health": 1300,
       "biteDamage": 140,
-      "sprintSpeed": 45.0,
-      "trotSpeed": 21.0,
-      "swimSpeed": 16.0,
+      "sprintSpeed": 45,
+      "trotSpeed": 21,
+      "swimSpeed": 16,
       "stamina": 160,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Rất Cao",
@@ -1266,23 +1501,35 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Quả Cây & Hạt Cứng",
-          "foods": ["Quả Hạch Rừng", "Quả Đỏ Đồi Núi"],
+          "foods": [
+            "Quả Hạch Rừng",
+            "Quả Đỏ Đồi Núi"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng sát thương cú húc sọ"
         },
         {
           "symbol": "//",
           "name": "Củ Rễ Cứng & Nấm Núi",
-          "foods": ["Củ Dương Xỉ Đá", "Nấm Đồi"],
+          "foods": [
+            "Củ Dương Xỉ Đá",
+            "Nấm Đồi"
+          ],
           "buffDescription": "+30% Thể lực tối đa, Giảm sát thương va đập đầu"
         },
         {
           "symbol": "...",
           "name": "Lá Cây Bụi",
-          "foods": ["Lá Dương Xỉ Núi", "Cỏ Đồi"],
+          "foods": [
+            "Lá Dương Xỉ Núi",
+            "Cỏ Đồi"
+          ],
           "buffDescription": "+25% Hồi máu, Kháng gãy xương"
         }
       ],
-      "preferredPrey": ["Quả hạch đồi núi", "Củ rễ vách đá"],
+      "preferredPrey": [
+        "Quả hạch đồi núi",
+        "Củ rễ vách đá"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Ăn cỏ ôn hòa, thích sống ở các vùng cao nguyên và đồi núi hiểm trở."
@@ -1317,7 +1564,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Kiếm ăn trên các vùng cao nguyên đồi dốc, vừa an toàn vừa nhiều hạt dinh dưỡng S.",
       "defenseGuide": "Khi bị Carno hay Cera truy đuổi, hãy dẫn dụ chúng lên sườn núi hiểm trở. Canh lúc đối phương leo dốc chậm lại, quay người tung cú húc RMB bẻ gãy chân chúng."
-    }
+    },
+    "image": "./assets/creatures/pachycephalosaurus.png"
   },
   {
     "id": "diabloceratops",
@@ -1339,9 +1587,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 80,
       "health": 240,
       "biteDamage": 25,
-      "sprintSpeed": 31.0,
-      "trotSpeed": 16.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 31,
+      "trotSpeed": 16,
+      "swimSpeed": 14,
       "stamina": 120,
       "staminaRegen": "Khá",
       "fallDamageResistance": "Trung bình",
@@ -1352,8 +1600,8 @@ window.EMBEDDED_CREATURES = [
       "health": 3200,
       "biteDamage": 280,
       "sprintSpeed": 38.5,
-      "trotSpeed": 18.0,
-      "swimSpeed": 16.0,
+      "trotSpeed": 18,
+      "swimSpeed": 16,
       "stamina": 140,
       "staminaRegen": "Khá",
       "fallDamageResistance": "Trung bình",
@@ -1364,23 +1612,35 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Cây Bụi Gai & Quả Dày",
-          "foods": ["Cây Bụi Gai Dày", "Quả Rừng Lớn"],
+          "foods": [
+            "Cây Bụi Gai Dày",
+            "Quả Rừng Lớn"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng độ cứng sừng đỡ đòn"
         },
         {
           "symbol": "//",
           "name": "Rễ Cây Cổ Thụ & Nấm",
-          "foods": ["Rễ Thông Cổ", "Nấm Thân Gỗ"],
+          "foods": [
+            "Rễ Thông Cổ",
+            "Nấm Thân Gỗ"
+          ],
           "buffDescription": "+30% Hồi phục thể lực, Giảm tiêu hao khi vào thế thủ"
         },
         {
           "symbol": "...",
           "name": "Dương Xỉ Đầm Lầy",
-          "foods": ["Dương Xỉ Khổng Lồ", "Thảo Mộc Bờ Suối"],
+          "foods": [
+            "Dương Xỉ Khổng Lồ",
+            "Thảo Mộc Bờ Suối"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng khả năng chống đẩy lùi"
         }
       ],
-      "preferredPrey": ["Cây bụi gai", "Rễ cây rừng"],
+      "preferredPrey": [
+        "Cây bụi gai",
+        "Rễ cây rừng"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Ăn cỏ bầy đàn kỷ luật."
@@ -1415,7 +1675,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Đi cùng bầy Diablo hoặc kết hợp với Teno và Stego để tạo thành hàng rào phòng thủ không thể xuyên phá.",
       "defenseGuide": "Luôn quay mặt về phía kẻ săn mồi và giữ thế thủ RMB. Chờ Carno lao vào húc thì thả đòn phản công đâm sừng."
-    }
+    },
+    "image": "./assets/creatures/diabloceratops.png"
   },
   {
     "id": "maiasaura",
@@ -1437,9 +1698,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 70,
       "health": 210,
       "biteDamage": 22,
-      "sprintSpeed": 36.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 15.0,
+      "sprintSpeed": 36,
+      "trotSpeed": 18,
+      "swimSpeed": 15,
       "stamina": 140,
       "staminaRegen": "Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -1449,9 +1710,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 2800,
       "health": 2800,
       "biteDamage": 210,
-      "sprintSpeed": 47.0,
-      "trotSpeed": 22.0,
-      "swimSpeed": 17.0,
+      "sprintSpeed": 47,
+      "trotSpeed": 22,
+      "swimSpeed": 17,
       "stamina": 170,
       "staminaRegen": "Rất Nhanh",
       "fallDamageResistance": "Trung bình",
@@ -1462,23 +1723,35 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Lá Cây Cao & Hoa Thảo Nguyên",
-          "foods": ["Hoa Thảo Nguyên Vàng", "Lá Cây Mềm"],
+          "foods": [
+            "Hoa Thảo Nguyên Vàng",
+            "Lá Cây Mềm"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng tốc độ nuôi con"
         },
         {
           "symbol": "//",
           "name": "Cỏ Đồng Bằng & Củ Ngọt",
-          "foods": ["Cỏ Đồng Bằng", "Củ Ngọt Thảo Nguyên"],
+          "foods": [
+            "Cỏ Đồng Bằng",
+            "Củ Ngọt Thảo Nguyên"
+          ],
           "buffDescription": "+30% Thể lực bầy đàn, Tăng tốc độ chạy"
         },
         {
           "symbol": "...",
           "name": "Dương Xỉ Đồng Cỏ",
-          "foods": ["Dương Xỉ Đồng Bằng", "Cây Bụi Ngọt"],
+          "foods": [
+            "Dương Xỉ Đồng Bằng",
+            "Cây Bụi Ngọt"
+          ],
           "buffDescription": "+25% Hồi máu, Giảm tiêu hao thức ăn"
         }
       ],
-      "preferredPrey": ["Hoa thảo nguyên", "Cỏ đồng bằng"],
+      "preferredPrey": [
+        "Hoa thảo nguyên",
+        "Cỏ đồng bằng"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Sống theo đàn đông đúc, tính bầy đàn rất cao."
@@ -1512,7 +1785,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Kiếm ăn cùng bầy trên các đồng cỏ rộng lớn, chia sẻ vị trí thức ăn dinh dưỡng S.",
       "defenseGuide": "Dùng tốc độ để giữ khoảng cách với Cera. Nếu bị Raptor quấy rối, dồn chúng vào chân núi và dùng đòn giẫm chân Trample kết liễu."
-    }
+    },
+    "image": "./assets/creatures/maiasaura.png"
   },
   {
     "id": "dryosaurus",
@@ -1534,9 +1808,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 15,
       "health": 55,
       "biteDamage": 8,
-      "sprintSpeed": 38.0,
-      "trotSpeed": 19.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 38,
+      "trotSpeed": 19,
+      "swimSpeed": 14,
       "stamina": 160,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Cao",
@@ -1546,9 +1820,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 200,
       "health": 200,
       "biteDamage": 35,
-      "sprintSpeed": 50.0,
-      "trotSpeed": 23.0,
-      "swimSpeed": 16.0,
+      "sprintSpeed": 50,
+      "trotSpeed": 23,
+      "swimSpeed": 16,
       "stamina": 200,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Cao",
@@ -1559,23 +1833,35 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Củ Rễ Ngầm & Quả Ngọt",
-          "foods": ["Củ Dương Xỉ Ngọt", "Quả Mọng Thung Lũng"],
+          "foods": [
+            "Củ Dương Xỉ Ngọt",
+            "Quả Mọng Thung Lũng"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng tốc độ đào hang"
         },
         {
           "symbol": "//",
           "name": "Nấm Hang Động & Rễ Cây",
-          "foods": ["Nấm Phát Sáng Hang", "Rễ Cỏ Mềm"],
+          "foods": [
+            "Nấm Phát Sáng Hang",
+            "Rễ Cỏ Mềm"
+          ],
           "buffDescription": "+30% Hồi phục thể lực, Giảm tiêu hao năng lượng"
         },
         {
           "symbol": "...",
           "name": "Lá Non Thảo Mộc",
-          "foods": ["Lá Non Ven Rừng", "Mầm Dương Xỉ"],
+          "foods": [
+            "Lá Non Ven Rừng",
+            "Mầm Dương Xỉ"
+          ],
           "buffDescription": "+25% Hồi máu, Tăng độ nhanh nhạy khi lách né"
         }
       ],
-      "preferredPrey": ["Củ rễ ngầm", "Quả ngọt"],
+      "preferredPrey": [
+        "Củ rễ ngầm",
+        "Quả ngọt"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
       "cannibalismNote": "Ăn cỏ hiền lành, đào hang chia sẻ cho đồng loại."
@@ -1609,7 +1895,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Đào một cái hang gần bãi thức ăn dinh dưỡng S để vừa ăn vừa có chỗ trốn lập tức.",
       "defenseGuide": "Khi bị Carno húc đuổi, bấm Alt né sang một bên rồi lập tức phóng vào miệng hang ngầm gần nhất."
-    }
+    },
+    "image": "./assets/creatures/dryosaurus.png"
   },
   {
     "id": "hypsilophodon",
@@ -1631,9 +1918,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 5,
       "health": 25,
       "biteDamage": 5,
-      "sprintSpeed": 36.0,
-      "trotSpeed": 18.0,
-      "swimSpeed": 12.0,
+      "sprintSpeed": 36,
+      "trotSpeed": 18,
+      "swimSpeed": 12,
       "stamina": 150,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Tuyệt Đối (Không tốn máu)",
@@ -1643,9 +1930,9 @@ window.EMBEDDED_CREATURES = [
       "weight": 35,
       "health": 70,
       "biteDamage": 15,
-      "sprintSpeed": 46.0,
-      "trotSpeed": 22.0,
-      "swimSpeed": 14.0,
+      "sprintSpeed": 46,
+      "trotSpeed": 22,
+      "swimSpeed": 14,
       "stamina": 200,
       "staminaRegen": "Cực Nhanh",
       "fallDamageResistance": "Tuyệt Đối (Nhảy từ đỉnh cây không chết)",
@@ -1656,26 +1943,38 @@ window.EMBEDDED_CREATURES = [
         {
           "symbol": "S",
           "name": "Hạt & Quả Nhỏ",
-          "foods": ["Hạt Thông Rừng", "Quả Mọng Đỏ"],
+          "foods": [
+            "Hạt Thông Rừng",
+            "Quả Mọng Đỏ"
+          ],
           "buffDescription": "+50% Tốc độ lớn, Tăng độ xa cú nhảy"
         },
         {
           "symbol": "//",
           "name": "Nấm & Mầm Cây",
-          "foods": ["Nấm Nhỏ Rừng", "Mầm Cây Dương Xỉ"],
+          "foods": [
+            "Nấm Nhỏ Rừng",
+            "Mầm Cây Dương Xỉ"
+          ],
           "buffDescription": "+30% Thể lực tối đa, Tăng lượng axit tích trữ"
         },
         {
           "symbol": "...",
           "name": "Lá Mềm Thung Lũng",
-          "foods": ["Lá Non Rừng Rậm", "Cỏ Mềm"],
+          "foods": [
+            "Lá Non Rừng Rậm",
+            "Cỏ Mềm"
+          ],
           "buffDescription": "+25% Hồi máu, Giảm tiếng ồn bước chân"
         }
       ],
-      "preferredPrey": ["Hạt thông", "Quả mọng nhỏ"],
+      "preferredPrey": [
+        "Hạt thông",
+        "Quả mọng nhỏ"
+      ],
       "favoriteOrgans": [],
       "cannibalism": false,
-      "cannibalismNote": "Ăn cỏ siêu nhỏ, chỉ mất 30 phút để max 100."
+      "cannibalismNote": "Ăn cỏ siêu nhỏ, chỉ mất 30 phút để max 100%."
     },
     "abilities": [
       {
@@ -1706,6 +2005,7 @@ window.EMBEDDED_CREATURES = [
       ],
       "huntingGuide": "Ăn vài hạt thông là đầy thanh thức ăn và lớn vèo vèo.",
       "defenseGuide": "Khi bị thú săn đuổi theo, đợi chúng há mồm chuẩn bị cắn thì bấm RMB phun thẳng axit vào mặt, sau đó bấm Space nhảy vọt lên tảng đá tẩu thoát."
-    }
+    },
+    "image": "./assets/creatures/hypsilophodon.png"
   }
 ];

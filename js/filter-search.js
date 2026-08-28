@@ -138,17 +138,23 @@ const FilterSearch = {
       return `
         <div class="creature-card" style="--card-accent: ${c.badgeColor}; animation-delay: ${Math.min(300, index * 25)}ms;" onclick="ModalDetails.open('${c.id}')">
           <div>
+            <div class="creature-card-banner">
+              <img src="${c.image}" alt="${c.name} The Isle Evrima" loading="lazy" class="creature-card-img" onerror="this.style.display='none'">
+              <div class="card-badges-floating">
+                <span class="${tierBadgeClass}">${c.tierLabelVi}</span>
+                <span class="badge ${dietBadgeClass}">${c.dietLabelVi}</span>
+              </div>
+            </div>
+
             <div class="card-header">
               <div class="creature-title-group">
                 <h3>${c.name}</h3>
                 <div class="creature-vietnamese-name">${c.vietnameseName}</div>
                 <div class="creature-scientific-name">${c.scientificName}</div>
               </div>
-              <span class="badge ${dietBadgeClass}">${c.dietLabelVi}</span>
             </div>
 
-            <div class="card-badges">
-              <span class="${tierBadgeClass}">${c.tierLabelVi}</span>
+            <div class="card-badges" style="margin-bottom: 0.85rem;">
               <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);">${c.locomotionLabelVi}</span>
             </div>
 

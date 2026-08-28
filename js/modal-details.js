@@ -127,6 +127,13 @@ const ModalDetails = {
     if (!panel) return;
 
     panel.innerHTML = `
+      <div style="width: 100%; height: 260px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem; background: radial-gradient(circle at center, rgba(16,185,129,0.15) 0%, rgba(0,0,0,0.85) 100%); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; position: relative;">
+        <img src="${c.image}" alt="${c.name} render" style="max-height: 90%; max-width: 95%; object-fit: contain; filter: drop-shadow(0 12px 30px rgba(0,0,0,0.9));">
+        <div style="position: absolute; bottom: 0.75rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.3rem 0.75rem; border-radius: 4px; font-size: 0.75rem; color: var(--text-dim); border: 1px solid rgba(255,255,255,0.1);">
+          📸 In-game Official Artwork: <strong>${c.name}</strong>
+        </div>
+      </div>
+
       <div class="growth-calculator-card">
         <div class="growth-calc-header">
           <div>
@@ -257,16 +264,22 @@ const ModalDetails = {
     const panel = document.getElementById('tab-diet');
     if (!panel) return;
 
-    const slotsHtml = c.dietInfo.slots.map(s => `
-      <div class="nutrient-card">
-        <div class="nutrient-badge-symbol">Chất [ ${s.symbol} ] : ${s.name}</div>
-        <div style="font-size: 0.85rem; color: var(--text-emerald); margin-bottom: 0.5rem;">✨ ${s.buffDescription}</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.25rem;">Thức ăn cung cấp:</div>
-        <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-dim);">
-          ${s.foods.map(f => `<li>${f}</li>`).join('')}
-        </ul>
-      </div>
-    `).join('');
+    const slotsHtml = c.dietInfo.slots.map(s => {
+      const iconFile = s.symbol === 'S' ? 'nutrient-s.svg' : (s.symbol === '//' ? 'nutrient-lines.svg' : 'nutrient-dots.svg');
+      return `
+        <div class="nutrient-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+            <img src="./assets/nutrients/${iconFile}" alt="${s.symbol}" style="width: 32px; height: 32px;">
+            <div class="nutrient-badge-symbol" style="margin: 0;">Chất [ ${s.symbol} ] : ${s.name}</div>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-emerald); margin-bottom: 0.5rem;">✨ ${s.buffDescription}</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.25rem;">Thức ăn cung cấp:</div>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-dim);">
+            ${s.foods.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }).join('');
 
     const organsHtml = c.dietInfo.favoriteOrgans.length > 0 ? `
       <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
@@ -306,12 +319,28 @@ const ModalDetails = {
     const panel = document.getElementById('tab-abilities');
     if (!panel) return;
 
+    function getAbilityIcon(abilityName) {
+      const name = abilityName.toLowerCase();
+      if (name.includes('bite') || name.includes('cắn') || name.includes('xé')) return './assets/skills/bite.svg';
+      if (name.includes('pounce') || name.includes('vồ') || name.includes('bám')) return './assets/skills/pounce.svg';
+      if (name.includes('lockjaw') || name.includes('khóa hàm') || name.includes('lôi')) return './assets/skills/lockjaw.svg';
+      if (name.includes('headbutt') || name.includes('húc đầu') || name.includes('spar')) return './assets/skills/headbutt.svg';
+      if (name.includes('tail') || name.includes('đuôi') || name.includes('swipe')) return './assets/skills/tail-swipe.svg';
+      if (name.includes('charge') || name.includes('húc') || name.includes('lao')) return './assets/skills/charge.svg';
+      if (name.includes('venom') || name.includes('độc') || name.includes('spit') || name.includes('hallucination')) return './assets/skills/venom.svg';
+      if (name.includes('fly') || name.includes('bay') || name.includes('dive') || name.includes('glide')) return './assets/skills/fly.svg';
+      return './assets/skills/bite.svg';
+    }
+
     const abilitiesHtml = c.abilities.map(a => `
       <div class="ability-card">
         <div class="ability-header">
-          <div>
-            <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main);">${a.nameVi}</h4>
-            <div style="font-size: 0.8rem; color: var(--text-dim);">${a.name}</div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <img src="${getAbilityIcon(a.name)}" alt="${a.name}" style="width: 32px; height: 32px; padding: 4px; background: rgba(255,255,255,0.06); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main);">${a.nameVi}</h4>
+              <div style="font-size: 0.8rem; color: var(--text-dim);">${a.name}</div>
+            </div>
           </div>
           <span class="ability-keybind">⌨️ ${a.keybind}</span>
         </div>

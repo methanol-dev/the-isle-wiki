@@ -122,6 +122,10 @@ const CompareTool = {
     const isHealthHigher = current.health >= opponent.health;
 
     return `
+      <div style="width: 100%; height: 160px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.25rem; background: radial-gradient(circle at center, rgba(16,185,129,0.12) 0%, rgba(0,0,0,0.7) 100%); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;">
+        <img src="${creature.image}" alt="${creature.name}" style="max-height: 88%; max-width: 90%; object-fit: contain; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.8));">
+      </div>
+
       <div style="margin-bottom: 1.25rem;">
         <span class="badge badge-${creature.diet}">${creature.dietLabelVi}</span>
         <span class="badge" style="background: rgba(255,255,255,0.06);">${creature.tierLabelVi}</span>
