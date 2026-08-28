@@ -128,17 +128,17 @@ const FilterSearch = {
       return;
     }
 
-    grid.innerHTML = creatures.map(c => {
+    grid.innerHTML = creatures.map((c, index) => {
       const dietBadgeClass = `badge-${c.diet}`;
       const tierBadgeClass = c.tier === 'apex' ? 'badge badge-apex' : 'badge';
 
       return `
-        <div class="creature-card" style="--card-accent: ${c.badgeColor};" onclick="ModalDetails.open('${c.id}')">
+        <div class="creature-card" style="--card-accent: ${c.badgeColor}; animation-delay: ${Math.min(300, index * 25)}ms;" onclick="ModalDetails.open('${c.id}')">
           <div>
             <div class="card-header">
               <div class="creature-title-group">
                 <h3>${c.name}</h3>
-                <div class="creature-vietnameseName">${c.vietnameseName}</div>
+                <div class="creature-vietnamese-name">${c.vietnameseName}</div>
                 <div class="creature-scientific-name">${c.scientificName}</div>
               </div>
               <span class="badge ${dietBadgeClass}">${c.dietLabelVi}</span>
@@ -195,6 +195,10 @@ const FilterSearch = {
         </div>
       `;
     }).join('');
+
+    if (typeof window.attachCardTilts === 'function') {
+      window.attachCardTilts();
+    }
   }
 };
 
