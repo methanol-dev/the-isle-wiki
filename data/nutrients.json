@@ -1,0 +1,42 @@
+[
+  {
+    "id": "perfect_diet",
+    "name": "Chế Độ Dinh Dưỡng Hoàn Hảo (Perfect Diet 3/3)",
+    "description": "Khi bạn duy trì đủ cả 3 loại chất dinh dưỡng khác nhau (S, //, ...), cơ thể khủng long sẽ kích hoạt các bùa lợi (Buff) tối đa của hệ tiêu hóa.",
+    "buffs": [
+      "+50% Tốc độ tăng trưởng kích thước (Lớn nhanh gấp rưỡi)",
+      "+25% Tốc độ hồi phục thể lực (Stamina Regen)",
+      "+20% Tốc độ hồi phục máu và liền miệng vết thương",
+      "+30% Kháng tích tụ chảy máu (Bleed Resist) và gãy xương (Fracture Resist)",
+      "Tăng cường độ nét của thị giác ban đêm (Night Vision Boost)"
+    ],
+    "penalties": "Nếu để thanh dinh dưỡng tụt về 0%, bạn sẽ bị sốt đói (Malnutrition), giảm 50% máu tối đa và chạy chậm hơn 20%."
+  },
+  {
+    "id": "nutrient_s",
+    "symbol": "S",
+    "name": "Nhóm Dinh Dưỡng S (Protein / Sugar / Lipids)",
+    "role": "Tập trung vào tốc độ tăng trưởng cơ bắp và khối lượng thân thể.",
+    "carnivoreSources": "Thịt con mồi lớn, nội tạng đặc biệt, mẩu thịt săn tươi",
+    "herbivoreSources": "Cây bụi Sumac, Quả mọng đỏ, Hoa thảo nguyên vàng, Hạt thông",
+    "primaryBuff": "+30% đến +50% Tốc độ lớn, Tăng độ dày lớp giáp bảo vệ"
+  },
+  {
+    "id": "nutrient_lines",
+    "symbol": "//",
+    "name": "Nhóm Dinh Dưỡng Hai Gạch // (Carbohydrates / Vitamins)",
+    "role": "Tập trung vào sự dẻo dai của hệ cơ bắp, thể lực và tốc độ.",
+    "carnivoreSources": "Thịt thú chạy nhanh, cá tươi dưới sông, thịt thú nhỏ",
+    "herbivoreSources": "Củ dương xỉ ngầm, Rễ cây cổ thụ, Nấm phát quang hang động",
+    "primaryBuff": "+30% Thể lực tối đa, Giảm tiêu hao thể lực khi Sprint hoặc dùng chiêu"
+  },
+  {
+    "id": "nutrient_dots",
+    "symbol": "...",
+    "name": "Nhóm Dinh Dưỡng Ba Chấm ... (Minerals / Organics)",
+    "role": "Tập trung vào hệ miễn dịch, hồi phục vết thương và kháng sát thương độc tố.",
+    "carnivoreSources": "Nội tạng tim phổi, thịt thú bơi lặn, xác thối lên men",
+    "herbivoreSources": "Dương xỉ khổng lồ Marattia, Thảo mộc đầm lầy, Lá non rừng rậm",
+    "primaryBuff": "+25% Tốc độ hồi máu, Kháng độc ảo giác và giảm thời gian gãy xương"
+  }
+]

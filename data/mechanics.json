@@ -1,0 +1,62 @@
+[
+  {
+    "category": "Trạng Thái Bất Lợi & Vết Thương (Status Effects)",
+    "items": [
+      {
+        "name": "Chảy Máu (Bleed)",
+        "icon": "🩸",
+        "description": "Khi nhận đòn cắn xé từ Raptor, Cera, Dilo hoặc gai đuôi Stego, thanh máu sẽ xuất hiện giọt máu nhỏ màu đỏ.",
+        "effects": "Chạy Sprint khi đang chảy máu sẽ khiến máu tụt với tốc độ gấp 4 lần. Ngồi hoặc nằm nghỉ (phím H) sẽ cầm máu nhanh nhất.",
+        "cure": "Tìm bụi rậm an toàn, nằm xuống (Phím H) để kích hoạt cơ chế hồi phục và cầm máu tự nhiên."
+      },
+      {
+        "name": "Gãy Xương (Fracture / Broken Bones)",
+        "nameEn": "Fracture",
+        "icon": "🦴",
+        "description": "Bị gây ra bởi đòn húc Pachy, quất đuôi Stego/Teno, cú húc Carno hoặc rơi từ trên cao.",
+        "effects": "Tốc độ di chuyển giảm 60-80%, không thể chạy nước rút (Sprint) và không thể bật nhảy.",
+        "cure": "Cần nằm nghỉ ngơi tại chỗ trong 2 - 5 phút tùy thuộc vào kích thước và lượng dinh dưỡng bổ sung."
+      },
+      {
+        "name": "Nọc Độc Ảo Giác (Hallucination Venom)",
+        "icon": "🧪",
+        "description": "Bị gây ra bởi vết cắn của Dilophosaurus và Troodon trong bóng đêm.",
+        "effects": "Màn hình mờ dần, xuất hiện bóng ma khủng long giả tấn công và tiếng gầm ảo làm phân tâm.",
+        "cure": "Tấn công kẻ thù để ngắt nhịp tiêm độc hoặc lùi lại gần nguồn sáng, đồng đội để được bảo vệ."
+      },
+      {
+        "name": "Nhiễm Khuẩn & Nôn Mửa (Septic Bacteria)",
+        "icon": "🤢",
+        "description": "Bị gây ra bởi cú cắn vi khuẩn xác thối của Ceratosaurus.",
+        "effects": "Thanh nôn mửa đầy sẽ khiến khủng long nôn sạch thức ăn trong bụng, mất toàn bộ dinh dưỡng và bị cạn kiệt Stamina.",
+        "cure": "Tránh để Cera cắn bồi nhiều phát liên tiếp, giữ khoảng cách khi Cera đang đứng cạnh xác thối."
+      }
+    ]
+  },
+  {
+    "category": "Cơ Chế Điều Khiển & Phím Bấm Sinh Tồn (Core Controls)",
+    "items": [
+      {
+        "name": "Đánh Hơi & Định Vị (Scenting)",
+        "icon": "👃",
+        "description": "Giữ phím Q trong 2 giây khi đứng yên hoặc đi bộ.",
+        "effects": "Hiển thị hướng gió, nguồn nước ngọt (vệt xanh dương), thức ăn dinh dưỡng (biểu tượng S, //, ...) và dấu chân/mùi xác thối trong bán kính 1km.",
+        "cure": "Ngửi mùi thường xuyên để không bị lạc đường và tránh đâm đầu vào ổ thú săn mồi."
+      },
+      {
+        "name": "Lăn Bùn Che Mùi (Mud Wallower)",
+        "icon": "🟤",
+        "description": "Nằm xuống các vũng bùn ven sông đầm lầy và bấm phím E để lăn mình.",
+        "effects": "Phủ lớp bùn lên cơ thể giúp che giấu 100% mùi hương trước mũi của thú săn mồi trong 15 phút, đồng thời làm mát cơ thể.",
+        "cure": "Rất quan trọng đối với con non và loài ăn cỏ khi di chuyển qua vùng nguy hiểm."
+      },
+      {
+        "name": "Khu Bảo Tồn Con Non (Sanctuary)",
+        "icon": "🌿",
+        "description": "Khu vực đặc biệt có đàn ong bảo vệ và nhiều cây nấm/quả nhỏ.",
+        "effects": "Chỉ có khủng long con non dưới 20% tăng trưởng mới vào được. Thú săn mồi lớn bước vào sẽ bị đàn ong chích mất máu liên tục và phải rút lui.",
+        "cure": "Nơi an toàn nhất để con non lớn lên những mốc đầu đời."
+      }
+    ]
+  }
+]

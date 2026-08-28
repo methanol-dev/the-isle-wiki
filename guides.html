@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cẩm Nang Cơ Chế & Mẹo Sinh Tồn - The Isle Wiki (Evrima)</title>
+  <meta name="description" content="Hướng dẫn toàn diện về hệ thống dinh dưỡng 3/3, các trạng thái chảy máu, gãy xương, nọc độc, cách ngửi mùi, làm tổ và mẹo sinh tồn The Isle Evrima.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="./index.html" class="navbar-logo">
+        <span style="font-size: 1.6rem;">🦖</span>
+        <div>
+          <span>THE ISLE WIKI</span>
+          <span class="logo-badge">EVRIMA VN</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="./index.html" class="nav-link"><span>🦕</span> Danh Sách Khủng Long</a></li>
+          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
+          <li><a href="./guides.html" class="nav-link active"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="search-trigger-btn" id="searchTriggerBtn">
+          <span>🔍</span>
+          <span>Tìm nhanh...</span>
+          <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Mở menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div class="hero-tag">
+        <span>📜</span> Cẩm Nang Kiến Thức Sinh Tồn Toàn Diện
+      </div>
+      <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">
+        Cơ Chế Game <span class="hero-title-highlight">The Isle Evrima</span>
+      </h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">
+        Nắm vững các cơ chế sinh học, hệ dinh dưỡng 3/3 hoàn hảo, vết thương gãy xương - chảy máu và phím tắt điều khiển để không trở thành bữa tối của loài khác.
+      </p>
+    </div>
+
+    <!-- SECTION 1: PERFECT DIET & NUTRIENTS -->
+    <section style="margin-bottom: 3.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 1.8rem;">🥗</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800;">1. Hệ Thống Dinh Dưỡng Hoàn Hảo (Perfect Diet 3/3)</h2>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+          Trong The Isle Evrima, mỗi loài khủng long cần nạp đủ <strong style="color: var(--text-emerald);">3 nhóm chất dinh dưỡng khác nhau</strong> (ký hiệu là <strong>S</strong>, <strong>//</strong>, và <strong>...</strong>). Khi duy trì thanh dinh dưỡng trên 80% cho cả 3 chất, bạn sẽ kích hoạt hiệu ứng <strong>Chế Độ Ăn Hoàn Hảo</strong>.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--color-amber); font-weight: 900; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: var(--font-mono);">[ S ] Nhóm Đường / Đạm Lớn</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Tập trung vào tốc độ tăng trưởng cơ bắp và khối lượng thân thể.</p>
+            <div style="font-size: 0.8rem; color: var(--color-emerald); font-weight: 600;">✨ Buff: +50% Tốc độ lớn, Tăng độ dày lớp giáp bảo vệ.</div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--color-cyan); font-weight: 900; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: var(--font-mono);">[ // ] Nhóm Tinh Bột / Nhanh Nhẹn</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Tập trung vào sự dẻo dai của hệ cơ bắp, thể lực và tốc độ.</p>
+            <div style="font-size: 0.8rem; color: var(--color-emerald); font-weight: 600;">✨ Buff: +30% Thể lực tối đa, Giảm tiêu hao Stamina khi chạy.</div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--color-purple); font-weight: 900; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: var(--font-mono);">[ ... ] Nhóm Khoáng Chất / Miễn Dịch</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Tập trung vào hệ miễn dịch, hồi phục vết thương và kháng độc.</p>
+            <div style="font-size: 0.8rem; color: var(--color-emerald); font-weight: 600;">✨ Buff: +25% Hồi máu, Kháng độc ảo giác và giảm thời gian gãy xương.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: STATUS EFFECTS & WOUNDS -->
+    <section style="margin-bottom: 3.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 1.8rem;">🩸</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800;">2. Vết Thương & Trạng Thái Bất Lợi (Status Effects)</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.4rem;">🩸</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-crimson);">Chảy Máu (Bleed)</h3>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+            Khi nhận các đòn cắn xé từ Raptor (Pounce), Ceratosaurus hay gai đuôi Stegosaurus, máu sẽ liên tục nhỏ giọt.
+          </p>
+          <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; color: var(--text-main);">
+            ⚠️ <strong>Quy tắc vàng:</strong> Tuyệt đối không chạy Sprint khi đang chảy máu vì máu sẽ tụt gấp 4 lần. Hãy tìm bụi rậm và bấm <strong>H (Nằm nghỉ)</strong> để cầm máu nhanh nhất.
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.4rem;">🦴</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fbbf24;">Gãy Xương (Fracture)</h3>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+            Xảy ra khi bị Pachycephalosaurus húc đầu, Deinosuchus cắn hoặc rơi từ trên cao xuống đất.
+          </p>
+          <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; color: var(--text-main);">
+            ⚠️ <strong>Hậu quả:</strong> Tốc độ di chuyển giảm 70%, không thể nhảy hay chạy nước rút. Cần nằm nghỉ tĩnh dưỡng từ 2 đến 5 phút để xương lành lặn.
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.4rem;">🧪</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #c084fc;">Nọc Độc Ảo Giác (Venom)</h3>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+            Gây ra bởi vết cắn của Dilophosaurus và Troodon trong bóng tối của màn đêm.
+          </p>
+          <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; color: var(--text-main);">
+            ⚠️ <strong>Triệu chứng:</strong> Màn hình bị méo mó, xuất hiện bóng ma giả tấn công và tiếng cười khẩy. Giữ bình tĩnh dựa lưng vào vách đá để phòng thủ.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ESSENTIAL SURVIVAL MECHANICS -->
+    <section>
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 1.8rem;">🌲</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800;">3. Kỹ Năng & Mẹo Sinh Tồn Sống Còn</h2>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-lg);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h4 style="color: var(--color-emerald); font-size: 1.05rem; margin-bottom: 0.5rem;">👃 Giữ Phím Q để Ngửi Mùi</h4>
+            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
+              Khi đứng yên hoặc đi bộ, giữ phím Q để hiển thị nguồn nước (vệt sáng xanh dương), thức ăn dinh dưỡng và dấu chân con mồi trong bán kính lớn.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="color: var(--color-amber); font-size: 1.05rem; margin-bottom: 0.5rem;">🟤 Lăn Bùn (Mud Wallowing)</h4>
+            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
+              Nằm xuống các vũng bùn bờ sông và bấm phím E để lăn bùn. Cơ thể sẽ được xóa sạch 100% mùi hương trong 15 phút, giúp thú săn mồi không thể ngửi ra bạn.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="color: var(--color-cyan); font-size: 1.05rem; margin-bottom: 0.5rem;">🌿 Khu Bảo Tồn Con Non (Sanctuary)</h4>
+            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
+              Khu vực có cây ong bảo vệ dành riêng cho con non dưới 20% tăng trưởng. Thú săn mồi lớn bước vào sẽ bị ong đốt mất máu liên tục và phải rút lui.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CMD + K QUICK SEARCH MODAL -->
+  <div class="cmd-search-modal" id="cmdSearchModal">
+    <div class="cmd-search-dialog">
+      <div class="cmd-input-header">
+        <span>🔍</span>
+        <input type="text" id="cmdSearchInput" class="cmd-input" placeholder="Gõ tên loài khủng long cần tra cứu...">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <ul class="cmd-results-list" id="cmdResultsList">
+        <!-- Results injected here -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--text-main);">
+        <span style="font-size: 1.3rem;">🦖</span> THE ISLE WIKI (EVRIMA) VIETNAM
+      </div>
+      <ul class="footer-links">
+        <li><a href="./index.html">Danh Sách Khủng Long</a></li>
+        <li><a href="./compare.html">So Sánh Đối Đầu</a></li>
+        <li><a href="./guides.html">Cơ Chế & Cẩm Nang</a></li>
+        <li><a href="https://github.com/methanol-dev/the-isle-wiki" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        Trang web được xây dựng bởi cộng đồng game thủ The Isle Việt Nam. Dữ liệu và hình ảnh thuộc bản quyền của Afterthought LLC.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT BUNDLE -->
+  <script src="./js/embedded-data.js"></script>
+  <script src="./js/data-service.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

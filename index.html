@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Isle Wiki (Evrima) - Cẩm Nang & Cơ Sở Dữ Liệu Khủng Long Tiếng Việt</title>
+  <meta name="description" content="Trang tra cứu thông số khủng long, thanh trượt tăng trưởng 0-100%, hệ thống dinh dưỡng, bộ kỹ năng và cẩm nang sinh tồn The Isle Evrima tiếng Việt.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="./index.html" class="navbar-logo">
+        <span style="font-size: 1.6rem;">🦖</span>
+        <div>
+          <span>THE ISLE WIKI</span>
+          <span class="logo-badge">EVRIMA VN</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="./index.html" class="nav-link active"><span>🦕</span> Danh Sách Khủng Long</a></li>
+          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
+          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="search-trigger-btn" id="searchTriggerBtn">
+          <span>🔍</span>
+          <span>Tìm nhanh...</span>
+          <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Mở menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-tag">
+        <span>✨</span> Phiên bản cập nhật Gateway Evrima mới nhất
+      </div>
+      <h1 class="hero-title">
+        Cơ Sở Dữ Liệu <br>
+        <span class="hero-title-highlight">The Isle (Evrima) Tiếng Việt</span>
+      </h1>
+      <p class="hero-subtitle">
+        Tra cứu chỉ số 17 loài khủng long, thanh trượt mô phỏng tăng trưởng theo thời gian thực (0% – 100%), biểu đồ dinh dưỡng hoàn hảo và hướng dẫn kỹ năng chiến đấu chuẩn cho game thủ Việt.
+      </p>
+
+      <!-- STATS TICKER -->
+      <div class="stats-ticker">
+        <div class="ticker-card">
+          <div class="ticker-number">17</div>
+          <div class="ticker-label">Loài Khủng Long Có Sẵn</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-number" style="color: var(--color-crimson);">2</div>
+          <div class="ticker-label">Apex Thống Trị Đầm Lầy & Cạn</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-number" style="color: var(--color-amber);">57.5</div>
+          <div class="ticker-label">km/h Tốc Độ Nhanh Nhất (Galli)</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-number" style="color: var(--color-cyan);">0 - 100%</div>
+          <div class="ticker-label">Thanh Trượt Tính Toán Live</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH TOOLBAR -->
+    <section class="toolbar-section">
+      <div class="toolbar-wrapper">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="mainSearchInput" 
+            class="main-search-input" 
+            placeholder="Tìm theo tên khủng long, tên tiếng Việt (cá sấu, bò tót, vồ, pounce, ăn thịt, stego...)"
+          >
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-group">
+            <span class="filter-label">Chế Độ Ăn:</span>
+            <button class="filter-btn active" data-filter-diet="all">Tất Cả</button>
+            <button class="filter-btn" data-filter-diet="carnivore">🍖 Ăn Thịt</button>
+            <button class="filter-btn" data-filter-diet="herbivore">🌿 Ăn Cỏ</button>
+            <button class="filter-btn" data-filter-diet="omnivore">🫐 Ăn Tạp</button>
+            <button class="filter-btn" data-filter-diet="piscivore">🐟 Ăn Cá</button>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Môi Trường:</span>
+            <button class="filter-btn active" data-filter-loco="all">Tất Cả</button>
+            <button class="filter-btn" data-filter-loco="terrestrial">🏞️ Trên Cạn</button>
+            <button class="filter-btn" data-filter-loco="semi-aquatic">🌊 Lưỡng Cư</button>
+            <button class="filter-btn" data-filter-loco="aerial">🪽 Bầu Trời</button>
+          </div>
+
+          <div class="sort-wrapper">
+            <label for="sortSelect" class="filter-label">Sắp Xếp:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="weight_desc">⚖️ Trọng lượng: Lớn ➔ Nhỏ</option>
+              <option value="weight_asc">⚖️ Trọng lượng: Nhỏ ➔ Lớn</option>
+              <option value="speed_desc">⚡ Tốc độ chạy Sprint</option>
+              <option value="growth_asc">⏱️ Thời gian lớn: Nhanh nhất</option>
+              <option value="growth_desc">⏱️ Thời gian lớn: Lâu nhất</option>
+              <option value="name_asc">🔤 Tên A ➔ Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="resultsCount" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-dim); text-align: right;"></div>
+    </section>
+
+    <!-- CREATURE GRID -->
+    <section>
+      <div class="creature-grid" id="creatureGrid">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CREATURE DETAIL MODAL -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="modalHeaderTitle">
+          <!-- Dynamic Header -->
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Đóng modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Navigation Tabs -->
+        <div class="modal-tabs">
+          <button class="tab-btn active" data-tab="growth">📊 Chỉ Số & Tăng Trưởng</button>
+          <button class="tab-btn" data-tab="diet">🥩 Dinh Dưỡng & Con Mồi</button>
+          <button class="tab-btn" data-tab="abilities">⚔️ Bộ Kỹ Năng & Phím Bấm</button>
+          <button class="tab-btn" data-tab="tips">🛡️ Mẹo Sinh Tồn & Kèo Đấu</button>
+        </div>
+
+        <!-- Tab 1: Growth & Stats Slider -->
+        <div class="tab-panel active" id="tab-growth">
+          <!-- Dynamic Growth Slider Injected via JS -->
+        </div>
+
+        <!-- Tab 2: Diet -->
+        <div class="tab-panel" id="tab-diet">
+          <!-- Dynamic Diet Injected via JS -->
+        </div>
+
+        <!-- Tab 3: Abilities -->
+        <div class="tab-panel" id="tab-abilities">
+          <!-- Dynamic Abilities Injected via JS -->
+        </div>
+
+        <!-- Tab 4: Survival Tips -->
+        <div class="tab-panel" id="tab-tips">
+          <!-- Dynamic Tips Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CMD + K QUICK SEARCH MODAL -->
+  <div class="cmd-search-modal" id="cmdSearchModal">
+    <div class="cmd-search-dialog">
+      <div class="cmd-input-header">
+        <span>🔍</span>
+        <input type="text" id="cmdSearchInput" class="cmd-input" placeholder="Gõ tên loài khủng long cần tra cứu...">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <ul class="cmd-results-list" id="cmdResultsList">
+        <!-- Results injected here -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--text-main);">
+        <span style="font-size: 1.3rem;">🦖</span> THE ISLE WIKI (EVRIMA) VIETNAM
+      </div>
+      <ul class="footer-links">
+        <li><a href="./index.html">Danh Sách Khủng Long</a></li>
+        <li><a href="./compare.html">So Sánh Đối Đầu</a></li>
+        <li><a href="./guides.html">Cơ Chế & Cẩm Nang</a></li>
+        <li><a href="https://github.com/methanol-dev/the-isle-wiki" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        Trang web được xây dựng bởi cộng đồng game thủ The Isle Việt Nam. Dữ liệu và hình ảnh thuộc bản quyền của Afterthought LLC.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT BUNDLE -->
+  <script src="./js/embedded-data.js"></script>
+  <script src="./js/data-service.js"></script>
+  <script src="./js/growth-calc.js"></script>
+  <script src="./js/filter-search.js"></script>
+  <script src="./js/modal-details.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

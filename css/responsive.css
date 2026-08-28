@@ -1,0 +1,95 @@
+/* ==========================================================================
+   THE ISLE WIKI - RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .compare-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .compare-vs-badge {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .navbar-links.mobile-active {
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .search-trigger-btn .kbd-shortcut {
+    display: none;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .creature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-content {
+    max-height: 95vh;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-tabs {
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .calc-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-presets-group {
+    justify-content: center;
+  }
+
+  .growth-calc-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
