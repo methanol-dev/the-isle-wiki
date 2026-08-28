@@ -120,9 +120,12 @@ const FilterSearch = {
     if (creatures.length === 0) {
       grid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
-          <h3>Không tìm thấy loài khủng long nào</h3>
-          <p>Hãy thử thay đổi từ khóa tìm kiếm hoặc bỏ bớt bộ lọc.</p>
+          <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔍</div>
+          <h3 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 0.5rem;">Không tìm thấy loài khủng long nào</h3>
+          <p style="color: var(--text-dim); margin-bottom: 1.25rem;">Hãy thử thay đổi từ khóa tìm kiếm hoặc bỏ bớt các tùy chọn lọc.</p>
+          <button class="btn btn-primary" onclick="FilterSearch.resetFilters()" style="padding: 0.6rem 1.25rem; font-size: 0.88rem;">
+            <span>🔄</span> Khôi phục tất cả bộ lọc
+          </button>
         </div>
       `;
       return;
@@ -199,6 +202,32 @@ const FilterSearch = {
     if (typeof window.attachCardTilts === 'function') {
       window.attachCardTilts();
     }
+  },
+
+  resetFilters() {
+    this.currentDiet = 'all';
+    this.currentLocomotion = 'all';
+    this.currentSort = 'weight_desc';
+    this.searchQuery = '';
+
+    const searchInput = document.getElementById('mainSearchInput');
+    if (searchInput) searchInput.value = '';
+
+    document.querySelectorAll('[data-filter-diet]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter-diet') === 'all');
+    });
+
+    document.querySelectorAll('[data-filter-loco]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter-loco') === 'all');
+    });
+
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) sortSelect.value = 'weight_desc';
+
+    if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
+    if (typeof ToastService !== 'undefined') ToastService.show('Đã khôi phục toàn bộ bộ lọc và tìm kiếm!', 'info');
+
+    this.render();
   }
 };
 

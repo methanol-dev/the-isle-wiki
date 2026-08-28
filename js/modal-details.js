@@ -69,18 +69,39 @@ const ModalDetails = {
     if (!headerEl) return;
 
     headerEl.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 1rem;">
         <div>
           <h2 style="font-size: 1.6rem; font-weight: 900; line-height: 1.1;">${c.name}</h2>
-          <div style="font-size: 0.95rem; color: var(--color-emerald); font-weight: 600;">${c.vietnameseName}</div>
+          <div style="font-size: 0.95rem; color: var(--color-emerald); font-weight: 700; margin-top: 0.2rem;">${c.vietnameseName}</div>
           <div style="font-size: 0.8rem; color: var(--text-dim); font-style: italic;">${c.scientificName}</div>
         </div>
-      </div>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span class="badge badge-${c.diet}">${c.dietLabelVi}</span>
-        <span class="badge ${c.tier === 'apex' ? 'badge-apex' : ''}" style="background: rgba(255,255,255,0.08);">${c.tierLabelVi}</span>
+
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+          <button class="filter-btn" onclick="ModalDetails.copyShareLink()" title="Sao chép liên kết chia sẻ" style="font-size: 0.8rem;">
+            <span>🔗</span> Chia sẻ
+          </button>
+          <a href="./compare.html?a=${c.id}" class="filter-btn" style="font-size: 0.8rem; text-decoration: none; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.35); color: var(--text-crimson);">
+            <span>⚔️</span> So sánh kèo
+          </a>
+          <span class="badge badge-${c.diet}">${c.dietLabelVi}</span>
+          <span class="badge ${c.tier === 'apex' ? 'badge-apex' : ''}" style="background: rgba(255,255,255,0.08);">${c.tierLabelVi}</span>
+        </div>
       </div>
     `;
+  },
+
+  copyShareLink() {
+    const c = this.currentCreature;
+    if (!c) return;
+
+    const shareUrl = `${window.location.origin}${window.location.pathname.replace(/compare\.html|guides\.html/, 'index.html')}?open=${c.id}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        if (typeof ToastService !== 'undefined') {
+          ToastService.show(`Đã sao chép liên kết của ${c.name} vào bộ nhớ đệm!`, 'success');
+        }
+      });
+    }
   },
 
   renderTabs() {
