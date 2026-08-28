@@ -104,6 +104,13 @@ npx serve .
 
 ---
 
+## 👨‍💻 Tác Giả & Liên Hệ (Author & Contact)
+- **Tác giả**: **[methanol-dev](https://github.com/methanol-dev)**
+- **Kho lưu trữ**: [github.com/methanol-dev/the-isle-wiki](https://github.com/methanol-dev/the-isle-wiki)
+
+---
+
 ## 📜 Bản Quyền & Giấy Phép (License)
 - Mã nguồn được phát hành theo giấy phép **MIT**.
+- Phát triển & duy trì bởi **[methanol-dev](https://github.com/methanol-dev)**.
 - Nội dung hình ảnh và tài sản trò chơi thuộc sở hữu của **Afterthought LLC**.
