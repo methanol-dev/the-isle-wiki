@@ -116,8 +116,11 @@
         <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06);">
           <h3 style="color: var(--color-emerald); font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">📍 Lệnh Xem Tọa Độ GPS</h3>
           <p>Mở khung chat trong game (nhấn <strong>Enter</strong>) và gõ lệnh:</p>
-          <div style="background: rgba(0,0,0,0.6); padding: 0.5rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); color: var(--color-amber); margin: 0.5rem 0;">
-            /loc hoặc /coords
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0;">
+            <div style="background: rgba(0,0,0,0.6); padding: 0.5rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); color: var(--color-amber);">
+              /loc hoặc /coords
+            </div>
+            <button class="gps-copy-pill" onclick="copyText('/loc')">📋 Sao chép</button>
           </div>
           <p>Tọa độ hiện tại <code>(X, Y, Z)</code> sẽ xuất hiện ở góc màn hình để bạn dễ dàng định hướng hoặc chia sẻ vị trí cho đồng đội trong bầy.</p>
         </div>
@@ -194,13 +197,11 @@
     let currentMapId = 'gateway';
 
     async function loadMaps() {
-      // 1. Try embedded data first for zero latency
       if (window.EMBEDDED_MAPS && window.EMBEDDED_MAPS.length) {
         mapsData = window.EMBEDDED_MAPS;
         renderMap(currentMapId);
       }
 
-      // 2. Fetch fresh JSON if available
       try {
         const res = await fetch('./data/maps.json');
         if (res.ok) {
@@ -222,43 +223,65 @@
       renderMap(mapId);
     }
 
+    function copyText(text) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          if (typeof AudioFx !== 'undefined') AudioFx.play('select');
+          if (typeof ToastService !== 'undefined') {
+            ToastService.show(`Đã sao chép "${text}" vào bộ nhớ tạm!`, 'success');
+          }
+        });
+      }
+    }
+
     function renderMap(mapId) {
       const container = document.getElementById('mapDetailContainer');
       if (!container || !mapsData.length) return;
 
       const map = mapsData.find(m => m.id === mapId) || mapsData[0];
 
-      const regionsHtml = map.regions.map(r => {
+      const regionsHtml = map.regions.map((r, idx) => {
         let dangerColor = 'var(--color-emerald)';
+        let dangerBadge = 'badge';
         if (r.dangerLevel.includes('Cao') || r.dangerLevel.includes('Tử Địa') || r.dangerLevel.includes('Cực Độ')) {
           dangerColor = 'var(--text-crimson)';
+          dangerBadge = 'badge badge-apex';
         } else if (r.dangerLevel.includes('Trung Bình')) {
           dangerColor = 'var(--color-amber)';
         }
 
         return `
-          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); transition: transform 0.2s, border-color 0.2s;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-lg); transition: all 0.25s; position: relative; overflow: hidden;" class="creature-card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-              <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">${r.name}</h3>
-              <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);">${r.type}</span>
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">${r.name}</h3>
+                <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;">Khu Vực #${idx + 1}</span>
+              </div>
+              <span class="${dangerBadge}">${r.type}</span>
             </div>
 
-            <div style="font-size: 0.85rem; margin-bottom: 0.75rem; color: ${dangerColor}; font-weight: 700;">
-              ⚠️ Mức độ nguy hiểm: <span>${r.dangerLevel}</span>
+            <div style="font-size: 0.85rem; margin-bottom: 0.85rem; color: ${dangerColor}; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+              <span>⚠️ Mức độ nguy hiểm:</span> <span>${r.dangerLevel}</span>
             </div>
 
-            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
               ${r.description}
             </p>
 
-            <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; border-left: 3px solid var(--color-cyan);">
+            <div style="background: rgba(0,0,0,0.35); padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; border-left: 3px solid var(--color-cyan);">
               <strong style="color: var(--color-cyan);">💧 Tài nguyên / Thực phẩm:</strong>
-              <div style="color: var(--text-dim); margin-top: 0.2rem;">${r.resources}</div>
+              <div style="color: var(--text-dim); margin-top: 0.25rem;">${r.resources}</div>
             </div>
 
-            <div style="background: rgba(16,185,129,0.08); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; border-left: 3px solid var(--color-emerald);">
+            <div style="background: rgba(16,185,129,0.08); padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; border-left: 3px solid var(--color-emerald); margin-bottom: 1rem;">
               <strong style="color: var(--color-emerald);">💡 Mẹo sinh tồn:</strong>
-              <div style="color: var(--text-muted); margin-top: 0.2rem;">${r.tips}</div>
+              <div style="color: var(--text-muted); margin-top: 0.25rem;">${r.tips}</div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end;">
+              <button class="gps-copy-pill" onclick="copyText('${r.name} (${map.name})')">
+                <span>📍</span> Sao chép địa danh
+              </button>
             </div>
           </div>
         `;
@@ -269,7 +292,7 @@
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
             <div>
               <span class="badge badge-apex" style="margin-bottom: 0.5rem;">${map.status}</span>
-              <h2 style="font-size: 2rem; font-weight: 900; color: var(--text-main);">${map.name}</h2>
+              <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main);">${map.name}</h2>
               <div style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.25rem;">Kích thước diện tích: <strong>${map.size}</strong></div>
             </div>
           </div>

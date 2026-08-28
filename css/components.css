@@ -875,6 +875,125 @@
   outline: none;
 }
 
+/* ==========================================================================
+   UI/UX PRO MAX - MUTATION BUILDER & QUEST TRACKER
+   ========================================================================== */
+.mutation-builder-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(10, 15, 22, 0.95) 100%);
+  border: 1px solid var(--border-accent);
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 3rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.mutation-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mutation-slot-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.mutation-slot-box.filled {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--color-emerald);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.mutation-slot-box:hover {
+  border-color: var(--color-emerald-light);
+  transform: translateY(-2px);
+}
+
+.mutation-slot-remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: var(--text-crimson);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.mutation-slot-remove:hover {
+  background: var(--color-crimson);
+  color: #fff;
+}
+
+.gps-copy-pill {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.gps-copy-pill:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--color-amber);
+  transform: scale(1.03);
+}
+
+.gps-copy-pill:active {
+  transform: scale(0.97);
+}
+
+.quest-check-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  user-select: none;
+  margin-top: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.quest-check-toggle:hover {
+  color: var(--text-emerald);
+}
+
+.quest-check-toggle input[type="checkbox"] {
+  accent-color: var(--color-emerald);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 .cmd-results-list {
   max-height: 400px;
   overflow-y: auto;
