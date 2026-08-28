@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Isle Wiki (Evrima) - Cẩm Nang & Cơ Sở Dữ Liệu Khủng Long Tiếng Việt</title>
-  <meta name="description" content="Trang tra cứu thông số khủng long, thanh trượt tăng trưởng 0-100%, hệ thống dinh dưỡng, bộ kỹ năng và cẩm nang sinh tồn The Isle Evrima tiếng Việt.">
+  <meta name="description" content="Trang tra cứu thông số 17 loài khủng long The Isle Evrima tiếng Việt. Thanh trượt tăng trưởng 0-100%, hệ dinh dưỡng S // ..., bộ kỹ năng chiến đấu và mẹo sinh tồn chuẩn game thủ.">
+  <meta name="keywords" content="the isle, the isle evrima, the isle wiki, the isle tieng viet, the isle vietnam, tra cuu khung long the isle, deinosuchus, stegosaurus, carnotaurus, ceratosaurus, omniraptor, dinh duong the isle, phím bấm the isle, game the isle">
+  <meta name="author" content="methanol-dev">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://methanol-dev.github.io/the-isle-wiki/">
+
+  <!-- Theme & Mobile App Meta -->
+  <meta name="theme-color" content="#070a0e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="The Isle Wiki VN">
+
+  <!-- Open Graph / Facebook / Discord SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://methanol-dev.github.io/the-isle-wiki/">
+  <meta property="og:title" content="The Isle Wiki (Evrima) - Cẩm Nang & Cơ Sở Dữ Liệu Khủng Long Tiếng Việt">
+  <meta property="og:description" content="Tra cứu chỉ số 17 loài khủng long, thanh trượt tăng trưởng thực tế 0% - 100%, hệ dinh dưỡng 3/3 và cẩm nang phím bấm The Isle Evrima tiếng Việt.">
+  <meta property="og:site_name" content="The Isle Wiki Vietnam">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Twitter Card SEO -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://methanol-dev.github.io/the-isle-wiki/">
+  <meta name="twitter:title" content="The Isle Wiki (Evrima) - Cơ Sở Dữ Liệu Tiếng Việt">
+  <meta name="twitter:description" content="Tra cứu chỉ số, thanh trượt tăng trưởng 0% - 100%, hệ 3 nhóm dinh dưỡng và mẹo sinh tồn The Isle Evrima.">
+  <meta name="twitter:image" content="https://methanol-dev.github.io/the-isle-wiki/assets/icons/og-preview.png">
+
+  <!-- Structured Data / JSON-LD Schema.org for Google & GEO AI Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://methanol-dev.github.io/the-isle-wiki/#website",
+        "url": "https://methanol-dev.github.io/the-isle-wiki/",
+        "name": "The Isle Wiki Vietnam",
+        "description": "Cơ sở dữ liệu và cẩm nang sinh tồn The Isle Evrima Tiếng Việt",
+        "inLanguage": "vi-VN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://methanol-dev.github.io/the-isle-wiki/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://methanol-dev.github.io/the-isle-wiki/#webapp",
+        "name": "The Isle Wiki & Growth Calculator",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "url": "https://methanol-dev.github.io/the-isle-wiki/",
+        "description": "Ứng dụng tra cứu và tính toán chỉ số tăng trưởng khủng long trong game The Isle Evrima."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://methanol-dev.github.io/the-isle-wiki/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "The Isle Evrima có bao nhiêu loài khủng long có thể chơi được?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hiện tại The Isle Evrima có 17 loài khủng long playable gồm: Carnotaurus, Ceratosaurus, Deinosuchus, Stegosaurus, Omniraptor, Tenontosaurus, Dilophosaurus, Troodon, Gallimimus, Pachycephalosaurus, Diabloceratops, Maiasaura, Beipiaosaurus, Dryosaurus, Hypsilophodon, Herrerasaurus và Pteranodon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Làm thế nào để kích hoạt chế độ ăn hoàn hảo (Perfect Diet 3/3) trong The Isle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Để kích hoạt Perfect Diet 3/3, bạn cần ăn đủ 3 loại thức ăn chứa 3 nhóm chất dinh dưỡng khác nhau (S, //, và ...). Khi đủ 3 chất, bạn nhận buff +50% tốc độ lớn, +25% hồi phục thể lực (Stamina) và kháng vết thương."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Loài khủng long nào có trọng lượng và lực cắn lớn nhất trong The Isle Evrima?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deinosuchus (Cá sấu khổng lồ) là loài có trọng lượng lớn nhất (8,000 kg) và lực cắn mạnh nhất (1,150 dmg) ở mốc 100% Full Adult, thống trị tuyệt đối các vùng đầm lầy và sông ngòi."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
