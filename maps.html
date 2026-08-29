@@ -235,14 +235,14 @@
       const btnS = document.getElementById('btnMapSpiro');
       if (btnG) btnG.classList.toggle('active', mapId === 'gateway');
       if (btnS) btnS.classList.toggle('active', mapId === 'spiro');
-      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+      if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
       renderMap(mapId);
     }
 
     function copyText(text) {
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => {
-          if (typeof AudioFx !== 'undefined') AudioFx.play('select');
+          if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
           if (typeof ToastService !== 'undefined') {
             ToastService.show(`Đã sao chép "${text}" vào bộ nhớ tạm!`, 'success');
           }
@@ -263,7 +263,7 @@
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+      if (typeof AudioFX !== 'undefined') AudioFX.playOpen();
     }
 
     function closeMapLightbox() {
@@ -272,7 +272,7 @@
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (typeof AudioFx !== 'undefined') AudioFx.play('close');
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
     }
 
     // Đóng modal khi click ra ngoài hoặc bấm ESC
@@ -287,13 +287,17 @@
       });
     }
 
-    function switchMapView(imgSrc, mapTitle) {
+    function switchMapView(imgSrc, viewType) {
       const mainImg = document.getElementById('mainMapPreviewImg');
       if (mainImg) {
         mainImg.src = imgSrc;
         activeMapImage = imgSrc;
       }
-      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+      const pills = document.querySelectorAll('.map-view-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      const activePill = document.getElementById(`pill-${viewType}`);
+      if (activePill) activePill.classList.add('active');
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
     }
 
     function renderMap(mapId) {
@@ -316,23 +320,46 @@
         return `
           <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-lg); transition: all 0.25s; position: relative; overflow: hidden;" class="creature-card">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-              <div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">${r.name}</h3>
-                <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;">Khu Vực #${idx + 1}</span>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.8rem; background: rgba(255,255,255,0.05); padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.1);">${r.icon || '📍'}</span>
+                <div>
+                  <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">${r.name}</h3>
+                  <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;">Khu Vực #${idx + 1}</span>
+                </div>
               </div>
               <span class="${dangerBadge}">${r.type}</span>
             </div>
 
+            <!-- GPS Coordinates Box -->
+            <div class="region-coords-box">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 800; display: block;">📍 Tọa Độ In-Game (/loc)</span>
+                <span class="region-coords-val">${r.coords || 'Đang cập nhật'}</span>
+              </div>
+              <button class="gps-copy-pill" onclick="copyText('${r.coords || r.name}')" title="Sao chép tọa độ">
+                📋 Copy
+              </button>
+            </div>
+
+            <!-- Danger Alert -->
             <div style="font-size: 0.85rem; margin-bottom: 0.85rem; color: ${dangerColor}; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
               <span>⚠️ Mức độ nguy hiểm:</span> <span>${r.dangerLevel}</span>
             </div>
+
+            <!-- Key Species -->
+            ${r.keySpecies ? `
+              <div style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.85rem;">
+                <strong style="color: var(--text-main);">🦖 Sinh vật thường gặp:</strong> 
+                <span style="color: var(--color-emerald); font-weight: 600;">${r.keySpecies}</span>
+              </div>
+            ` : ''}
 
             <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
               ${r.description}
             </p>
 
             <div style="background: rgba(0,0,0,0.35); padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; border-left: 3px solid var(--color-cyan);">
-              <strong style="color: var(--color-cyan);">💧 Tài nguyên / Thực phẩm:</strong>
+              <strong style="color: var(--color-cyan);">💧 Tài nguyên / Nguồn nước:</strong>
               <div style="color: var(--text-dim); margin-top: 0.25rem;">${r.resources}</div>
             </div>
 
@@ -350,17 +377,24 @@
         `;
       }).join('');
 
-      // Sub-views buttons for Spiro if available
-      const viewToggleHtml = map.image3D ? `
-        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-          <button class="gps-copy-pill" style="font-size: 0.8rem;" onclick="switchMapView('${map.image}', '${map.name}')">
-            🗺️ Xem Bản Đồ Vệ Tinh
+      // Sub-views buttons
+      const viewToggleHtml = `
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.85rem; flex-wrap: wrap;">
+          <button class="map-view-pill active" id="pill-sat" onclick="switchMapView('${map.image}', 'sat')">
+            🗺️ Vệ Tinh Độ Nét Cao
           </button>
-          <button class="gps-copy-pill" style="font-size: 0.8rem;" onclick="switchMapView('${map.image3D}', '${map.name} 3D')">
-            🏔️ Xem Toàn Cảnh 3D
-          </button>
+          ${map.image3D ? `
+            <button class="map-view-pill" id="pill-3d" onclick="switchMapView('${map.image3D}', '3d')">
+              🏔️ Địa Hình 3D
+            </button>
+          ` : ''}
+          ${map.interactiveUrl ? `
+            <a href="${map.interactiveUrl}" target="_blank" rel="noopener noreferrer" class="map-view-pill" style="text-decoration: none;">
+              🌐 Mở Bản Đồ Vệ Tinh Trực Tuyến ↗
+            </a>
+          ` : ''}
         </div>
-      ` : '';
+      `;
 
       container.innerHTML = `
         <!-- MAP SHOWCASE & IN-GAME IMAGE VIEWER -->
@@ -372,7 +406,7 @@
                 <div class="map-img-badge-overlay">
                   <span>🎮</span> <span>ẢNH IN-GAME THỰC TẾ</span>
                 </div>
-                <img id="mainMapPreviewImg" src="${map.image}" alt="Bản đồ in-game thực tế ${map.name}" loading="lazy" />
+                <img id="mainMapPreviewImg" src="${map.image}" alt="Bản đồ in-game thực tế ${map.name}" loading="eager" onerror="this.onerror=null; this.src='./assets/icons/og-preview.png';" />
                 <div class="map-zoom-hint-overlay">
                   <span>🔍</span> <span>Bấm để phóng to</span>
                 </div>

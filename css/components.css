@@ -1278,3 +1278,48 @@
   user-select: none;
 }
 
+/* REGION CARDS PRO MAX ENHANCEMENTS */
+.region-coords-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.region-coords-val {
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.map-view-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.map-view-pill:hover,
+.map-view-pill.active {
+  background: var(--color-emerald);
+  color: #05080c;
+  border-color: var(--color-emerald);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+

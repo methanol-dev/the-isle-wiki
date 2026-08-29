@@ -9,52 +9,75 @@
     "description": "Bản đồ thế hệ mới rộng lớn và chi tiết nhất của The Isle Evrima. Sở hữu địa hình đa dạng từ cao nguyên sương mù, các khu rừng mưa nhiệt đới rậm rạp, hệ thống sông ngòi chằng chịt, đầm lầy ngập mặn cho đến các cơ sở nghiên cứu và khu vòm nhân tạo bị bỏ hoang.",
     "size": "16 x 16 km",
     "engine": "Unreal Engine 5",
-    "features": ["Hệ thống Vùng Di Cư (Migration Zones)", "Cây Thánh Địa Con Non (Sanctuary Trees)", "Khu nghiên cứu vòm (Dome Facility)", "Sông ngòi kết nối biển"],
+    "features": [
+      "Hệ thống Vùng Di Cư (Migration Zones)",
+      "Cây Thánh Địa Con Non (Sanctuary Trees)",
+      "Khu nghiên cứu vòm (Dome Facility)",
+      "Sông ngòi kết nối biển"
+    ],
     "regions": [
       {
         "name": "Highlands (Cao Nguyên Trung Tâm)",
+        "icon": "🏔️",
         "type": "Grassland / Hills",
+        "coords": "X: -150,000 | Y: 220,000",
         "dangerLevel": "Rất Cao (Apex Predator Hotspot)",
+        "keySpecies": "Stegosaurus, Maiasaura, Carnotaurus, Ceratosaurus",
         "description": "Vùng đồng cỏ đồi núi thoáng đãng ở trung tâm bản đồ. Nơi tập trung đông đúc các loài ăn cỏ lớn như Stegosaurus, Maiasaura và những kẻ săn mồi tốc độ như Carnotaurus, Ceratosaurus.",
         "resources": "Nước ngọt từ hồ trung tâm, hoa quả đạm S, xác thịt dồi dào.",
         "tips": "Luôn quan sát đường chân trời, cẩn thận bị Carnotaurus húc lao từ trên đỉnh đồi xuống."
       },
       {
         "name": "North Swamp (Đầm Lầy Phía Bắc)",
+        "icon": "🐊",
         "type": "Swamp / Deep Water",
+        "coords": "X: 420,000 | Y: -180,000",
         "dangerLevel": "Tử Địa (Deinosuchus Empire)",
+        "keySpecies": "Deinosuchus, Beipiaosaurus, Pteranodon",
         "description": "Vùng trũng nước ngập mặn với thảm thực vật chằng chịt và tầm nhìn hạn chế. Đây là lãnh địa độc tôn của loài cá sấu khổng lồ Deinosuchus.",
         "resources": "Cá tầng mặt, cá da trơn lớn, thực vật đầm lầy, bùn lặn.",
         "tips": "Tuyệt đối không bơi qua đầm lầy nếu bạn là loài thú trên cạn. Chỉ uống nước ở các vũng nông có bờ dốc thoải."
       },
       {
         "name": "Water Treatment Dome (Khu Vòm Nhân Tạo)",
+        "icon": "🏭",
         "type": "Human Facility",
+        "coords": "X: -80,000 | Y: -320,000",
         "dangerLevel": "Trung Bình",
+        "keySpecies": "Herrerasaurus, Troodon, Omniraptor",
         "description": "Tàn tích khu xử lý nước khổng lồ với các công trình kim loại, bậc thang và hành lang hẹp. Rất thích hợp cho các loài nhỏ như Herrerasaurus, Troodon, Omniraptor leo trèo và phục kích.",
         "resources": "Nước uống trong vòm nhân tạo, nơi trú ẩn an toàn trước thú săn mồi cỡ lớn.",
         "tips": "Tận dụng độ cao của các giàn giáo sắt để né tránh đòn tấn công của khủng long bọc giáp."
       },
       {
         "name": "South Plains (Đồng Bằng Phía Nam)",
+        "icon": "🌾",
         "type": "Open Plains",
+        "coords": "X: -450,000 | Y: 50,000",
         "dangerLevel": "Cao",
+        "keySpecies": "Gallimimus, Omniraptor, Tenontosaurus",
         "description": "Đồng bằng trải dài với tầm nhìn thoáng, là nơi diễn ra các cuộc săn đuổi tốc độ cao của bầy Raptor và Gallimimus.",
         "resources": "Cây bụi, rễ củ cho khủng long ăn cỏ, con mồi nhỏ.",
         "tips": "Tránh đi đơn độc nếu chơi các loài ăn cỏ nhỏ như Dryosaurus hay Hypsilophodon."
       },
       {
         "name": "West Coast & Delta (Vịnh Bờ Biển & Cửa Sông)",
+        "icon": "🏖️",
         "type": "Coastal / Estuary",
+        "coords": "X: -600,000 | Y: -120,000",
         "dangerLevel": "Trung Bình",
+        "keySpecies": "Pteranodon, Beipiaosaurus, Deinosuchus",
         "description": "Bãi cát ven biển trải dài kết nối cửa sông lớn. Thiên đường kiếm ăn cho dực long Pteranodon và Beipiaosaurus.",
         "resources": "Rùa biển, cua biển, cá biển, nguồn nước lợ.",
         "tips": "Nếu sở hữu đột biến Lọc Nước Mặn (Saltwater Ingestion), bạn có thể thoải mái sinh tồn tại đây mà không lo thiếu nước."
       },
       {
         "name": "Sanctuary Forests (Rừng Thánh Địa)",
+        "icon": "🌳",
         "type": "Protected Forest",
+        "coords": "Nhiều vị trí (Ngửi Q tìm biểu tượng Cây)",
         "dangerLevel": "Thấp (An toàn cho con non)",
+        "keySpecies": "Mọi loài con non (Juveniles < 20%)",
         "description": "Nơi mọc các Cây Mẹ Thánh Địa (Sanctuary Trees) tỏa ra mùi hương bảo hộ đặc biệt. Khi con non trú ngụ dưới tán cây, đàn ong độc sẽ tự động tấn công bất kỳ thú ăn thịt trưởng thành nào dám tiếp cận.",
         "resources": "Nấm thánh địa giúp con non lớn cực nhanh, không lo thiếu đói.",
         "tips": "Khi mới nở ra từ quả trứng hoặc spawn con non 0%, hãy lập tức ngửi mùi (Q) tìm biểu tượng Thánh Địa để trú ẩn."
@@ -71,28 +94,42 @@
     "description": "Bản đồ thời kỳ đầu của Evrima với cấu trúc địa hình tập trung mạnh quanh các con sông chính và ốc đảo trung tâm. Nơi ghi dấu những trận đại chiến kinh điển giữa Deinosuchus, Stegosaurus và bầy Utahraptor.",
     "size": "12 x 12 km",
     "engine": "Unreal Engine 4",
-    "features": ["Ốc đảo trung tâm (Center Oasis)", "Sông Nam & Sông Bắc", "Bãi đá Pachy Rock", "Đầm lầy phía Tây"],
+    "features": [
+      "Ốc đảo trung tâm (Center Oasis)",
+      "Sông Nam & Sông Bắc",
+      "Bãi đá Pachy Rock",
+      "Đầm lầy phía Tây"
+    ],
     "regions": [
       {
         "name": "Center Oasis (Ốc Đảo Trung Tâm)",
+        "icon": "🏝️",
         "type": "River & Plains",
+        "coords": "X: 0 | Y: 0 (Tâm bản đồ)",
         "dangerLevel": "Cực Độ Nguy Hiểm",
+        "keySpecies": "Deinosuchus, Stegosaurus, Carnotaurus",
         "description": "Điểm nóng số 1 trên bản đồ Spiro, nơi 80% người chơi tụ tập để giao tranh và săn mồi.",
         "resources": "Nước ngọt, xác động vật vô tận.",
         "tips": "Chỉ vào đây khi bạn đã đạt mốc 100% Full Adult và sẵn sàng cho các trận tử chiến liên tục."
       },
       {
         "name": "North West Jungle (Rừng Rậm Tây Bắc)",
+        "icon": "🌴",
         "type": "Dense Forest",
+        "coords": "X: -300,000 | Y: -300,000",
         "dangerLevel": "Trung Bình",
+        "keySpecies": "Herrerasaurus, Troodon, Dryosaurus",
         "description": "Khu rừng rậm rạp che chắn tầm nhìn, lý tưởng để khủng long ăn cỏ ẩn nấp làm tổ.",
         "resources": "Dinh dưỡng thực vật nhóm // và ..., quả hạch, dương xỉ.",
         "tips": "Cẩn thận bẫy phục kích từ trên tán cây của Herrerasaurus."
       },
       {
         "name": "South River Falls (Thác Sông Phía Nam)",
+        "icon": "🌊",
         "type": "River Gorge",
+        "coords": "X: 150,000 | Y: 400,000",
         "dangerLevel": "Cao",
+        "keySpecies": "Deinosuchus, Pteranodon, Tenontosaurus",
         "description": "Dòng sông sâu chảy từ trên núi xuống với các vách đá dốc đứng. Lãnh địa săn mồi quen thuộc của Deinosuchus phục kích bên dưới chân thác.",
         "resources": "Cá hồi lớn, nước ngọt sạch.",
         "tips": "Tránh nhảy xuống nước từ vách đá cao nếu không muốn rơi thẳng vào miệng cá sấu đang chờ sẵn."
