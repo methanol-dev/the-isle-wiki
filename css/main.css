@@ -434,44 +434,85 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.65rem;
   border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: transform var(--transition-fast);
+  line-height: 1.2;
+  background: rgba(10, 15, 25, 0.88);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .badge-carnivore {
-  background: rgba(239, 68, 68, 0.15);
-  color: var(--text-crimson);
-  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(38, 12, 16, 0.92);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.65);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(239, 68, 68, 0.18);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 .badge-herbivore {
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--text-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(8, 30, 20, 0.92);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.65);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(16, 185, 129, 0.18);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 .badge-omnivore {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--text-amber);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: rgba(35, 24, 8, 0.92);
+  color: #fde047;
+  border: 1px solid rgba(245, 158, 11, 0.65);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(245, 158, 11, 0.18);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 .badge-piscivore {
-  background: rgba(6, 182, 212, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(6, 182, 212, 0.35);
+  background: rgba(8, 26, 38, 0.92);
+  color: #7dd3fc;
+  border: 1px solid rgba(6, 182, 212, 0.65);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(6, 182, 212, 0.18);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 .badge-apex {
-  background: rgba(168, 85, 247, 0.2);
-  color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.45);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+  background: rgba(32, 12, 48, 0.94);
+  color: #f0abfc;
+  border: 1px solid rgba(168, 85, 247, 0.75);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4), 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(168, 85, 247, 0.22);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.badge-tier-heavy {
+  background: rgba(34, 20, 10, 0.92);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.65);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(249, 115, 22, 0.18);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.badge-tier-medium {
+  background: rgba(18, 24, 38, 0.92);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.badge-tier-small {
+  background: rgba(15, 23, 42, 0.92);
+  color: #94a3b8;
+  border: 1px solid rgba(100, 116, 139, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 /* ==========================================================================

@@ -84,7 +84,7 @@ const ModalDetails = {
             <span>⚔️</span> So sánh kèo
           </a>
           <span class="badge badge-${c.diet}">${c.dietLabelVi}</span>
-          <span class="badge ${c.tier === 'apex' ? 'badge-apex' : ''}" style="background: rgba(255,255,255,0.08);">${c.tierLabelVi}</span>
+          <span class="badge ${c.tier === 'apex' ? 'badge-apex' : (c.tier === 'heavy' ? 'badge-tier-heavy' : (c.tier === 'medium' ? 'badge-tier-medium' : 'badge-tier-small'))}">${c.tierLabelVi}</span>
         </div>
       </div>
     `;

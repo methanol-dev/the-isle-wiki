@@ -133,7 +133,14 @@ const FilterSearch = {
 
     grid.innerHTML = creatures.map((c, index) => {
       const dietBadgeClass = `badge-${c.diet}`;
-      const tierBadgeClass = c.tier === 'apex' ? 'badge badge-apex' : 'badge';
+      let tierBadgeClass = 'badge badge-tier-small';
+      if (c.tier === 'apex') {
+        tierBadgeClass = 'badge badge-apex';
+      } else if (c.tier === 'heavy') {
+        tierBadgeClass = 'badge badge-tier-heavy';
+      } else if (c.tier === 'medium') {
+        tierBadgeClass = 'badge badge-tier-medium';
+      }
 
       return `
         <div class="creature-card" style="--card-accent: ${c.badgeColor}; animation-delay: ${Math.min(300, index * 25)}ms;" onclick="ModalDetails.open('${c.id}')">
@@ -155,7 +162,7 @@ const FilterSearch = {
             </div>
 
             <div class="card-badges" style="margin-bottom: 0.85rem;">
-              <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);">${c.locomotionLabelVi}</span>
+              <span class="badge" style="background: rgba(15, 23, 42, 0.65); color: var(--text-muted); border-color: rgba(255, 255, 255, 0.08);">${c.locomotionLabelVi}</span>
             </div>
 
             <p class="creature-overview-snippet">${c.overview}</p>

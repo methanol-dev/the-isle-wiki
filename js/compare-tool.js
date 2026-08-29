@@ -126,9 +126,9 @@ const CompareTool = {
         <img src="${creature.image}" alt="${creature.name}" style="max-height: 88%; max-width: 90%; object-fit: contain; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.8));">
       </div>
 
-      <div style="margin-bottom: 1.25rem;">
+      <div style="margin-bottom: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
         <span class="badge badge-${creature.diet}">${creature.dietLabelVi}</span>
-        <span class="badge" style="background: rgba(255,255,255,0.06);">${creature.tierLabelVi}</span>
+        <span class="badge ${creature.tier === 'apex' ? 'badge-apex' : (creature.tier === 'heavy' ? 'badge-tier-heavy' : (creature.tier === 'medium' ? 'badge-tier-medium' : 'badge-tier-small'))}">${creature.tierLabelVi}</span>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 0.95rem;">
