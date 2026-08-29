@@ -211,6 +211,13 @@
     let mapsData = [];
     let currentMapId = 'gateway';
     let activeMapImage = '';
+    let mapZoom = 1;
+    let mapPanX = 0;
+    let mapPanY = 0;
+    let isPanning = false;
+    let startX = 0, startY = 0;
+    let showPins = true;
+    let currentViewMode = 'sat'; // 'sat', '3d', 'live'
 
     async function loadMaps() {
       if (window.EMBEDDED_MAPS && window.EMBEDDED_MAPS.length) {
@@ -231,6 +238,10 @@
 
     function selectMap(mapId) {
       currentMapId = mapId;
+      mapZoom = 1;
+      mapPanX = 0;
+      mapPanY = 0;
+      currentViewMode = 'sat';
       const btnG = document.getElementById('btnMapGateway');
       const btnS = document.getElementById('btnMapSpiro');
       if (btnG) btnG.classList.toggle('active', mapId === 'gateway');
@@ -250,13 +261,110 @@
       }
     }
 
+    function updateMapTransform() {
+      const layer = document.getElementById('fullmapContentLayer');
+      if (layer) {
+        layer.style.transform = `translate(${mapPanX}px, ${mapPanY}px) scale(${mapZoom})`;
+      }
+    }
+
+    function zoomIn() {
+      mapZoom = Math.min(mapZoom + 0.35, 4.2);
+      updateMapTransform();
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
+    }
+
+    function zoomOut() {
+      mapZoom = Math.max(mapZoom - 0.35, 0.75);
+      updateMapTransform();
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
+    }
+
+    function resetMapTransform() {
+      mapZoom = 1;
+      mapPanX = 0;
+      mapPanY = 0;
+      updateMapTransform();
+      if (typeof AudioFX !== 'undefined') AudioFX.playSelect();
+    }
+
+    function toggleMapPins() {
+      showPins = !showPins;
+      const pins = document.querySelectorAll('.fullmap-pin');
+      pins.forEach(p => p.style.display = showPins ? 'flex' : 'none');
+      const btn = document.getElementById('btnTogglePins');
+      if (btn) btn.style.background = showPins ? 'var(--color-emerald)' : 'rgba(255, 255, 255, 0.08)';
+      if (btn) btn.style.color = showPins ? '#05080c' : '#ffffff';
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
+    }
+
+    function focusRegionOnMap(pinX, pinY, regionName) {
+      mapZoom = 2.3;
+      mapPanX = (50 - pinX) * 6;
+      mapPanY = (50 - pinY) * 6;
+      updateMapTransform();
+      const stage = document.getElementById('fullmapStage');
+      if (stage) {
+        stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      if (typeof AudioFX !== 'undefined') AudioFX.playOpen();
+      if (typeof ToastService !== 'undefined') {
+        ToastService.show(`Đang định vị: ${regionName}`, 'info');
+      }
+    }
+
+    function switchMapTab(mode) {
+      currentViewMode = mode;
+      const map = mapsData.find(m => m.id === currentMapId) || mapsData[0];
+      const imgLayer = document.getElementById('fullmapImgContainer');
+      const iframeLayer = document.getElementById('fullmapIframeLayer');
+      const hudControls = document.getElementById('fullmapHudControls');
+      const hintBar = document.getElementById('fullmapHintBar');
+
+      const tabs = document.querySelectorAll('.fullmap-view-tabs .map-view-pill');
+      tabs.forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById(`tab-${mode}`);
+      if (activeTab) activeTab.classList.add('active');
+
+      if (mode === 'live') {
+        if (imgLayer) imgLayer.style.display = 'none';
+        if (iframeLayer) {
+          iframeLayer.style.display = 'block';
+          const iframe = iframeLayer.querySelector('iframe');
+          if (iframe && (!iframe.src || iframe.src === 'about:blank')) {
+            iframe.src = map.interactiveUrl || 'https://www.islemaps.com/';
+          }
+        }
+        if (hudControls) hudControls.style.display = 'none';
+        if (hintBar) hintBar.style.display = 'none';
+      } else {
+        if (iframeLayer) iframeLayer.style.display = 'none';
+        if (imgLayer) imgLayer.style.display = 'block';
+        if (hudControls) hudControls.style.display = 'flex';
+        if (hintBar) hintBar.style.display = 'flex';
+
+        const mainImg = document.getElementById('fullmapImage');
+        if (mainImg) {
+          if (mode === '3d' && map.image3D) {
+            mainImg.src = map.image3D;
+            activeMapImage = map.image3D;
+          } else {
+            mainImg.src = map.image;
+            activeMapImage = map.image;
+          }
+        }
+        resetMapTransform();
+      }
+      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
+    }
+
     function openMapLightbox(imgSrc, title) {
       const modal = document.getElementById('mapLightboxModal');
       const modalImg = document.getElementById('mapModalImg');
       const modalTitle = document.getElementById('mapModalTitle');
       if (!modal || !modalImg) return;
 
-      modalImg.src = imgSrc;
+      modalImg.src = imgSrc || activeMapImage;
       if (modalTitle) {
         modalTitle.innerHTML = `<span>🗺️</span> <span>${title || 'Bản Đồ In-Game'} (Bấm ESC để đóng)</span>`;
       }
@@ -287,17 +395,78 @@
       });
     }
 
-    function switchMapView(imgSrc, viewType) {
-      const mainImg = document.getElementById('mainMapPreviewImg');
-      if (mainImg) {
-        mainImg.src = imgSrc;
-        activeMapImage = imgSrc;
-      }
-      const pills = document.querySelectorAll('.map-view-pill');
-      pills.forEach(p => p.classList.remove('active'));
-      const activePill = document.getElementById(`pill-${viewType}`);
-      if (activePill) activePill.classList.add('active');
-      if (typeof AudioFX !== 'undefined') AudioFX.playTick();
+    function attachViewportEvents() {
+      const vp = document.getElementById('fullmapViewport');
+      if (!vp) return;
+
+      vp.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.fullmap-pin') || e.target.closest('.fullmap-hud-controls') || e.target.closest('.fullmap-view-tabs')) return;
+        isPanning = true;
+        startX = e.clientX - mapPanX;
+        startY = e.clientY - mapPanY;
+        vp.classList.add('panning');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isPanning) return;
+        mapPanX = e.clientX - startX;
+        mapPanY = e.clientY - startY;
+        updateMapTransform();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isPanning) {
+          isPanning = false;
+          vp.classList.remove('panning');
+        }
+      });
+
+      vp.addEventListener('wheel', (e) => {
+        if (currentViewMode === 'live') return;
+        e.preventDefault();
+        const zoomDelta = e.deltaY < 0 ? 0.2 : -0.2;
+        mapZoom = Math.min(Math.max(mapZoom + zoomDelta, 0.75), 4.5);
+        updateMapTransform();
+      }, { passive: false });
+
+      // Touch events for mobile
+      let touchStartDist = 0;
+      vp.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isPanning = true;
+          startX = e.touches[0].clientX - mapPanX;
+          startY = e.touches[0].clientY - mapPanY;
+        } else if (e.touches.length === 2) {
+          isPanning = false;
+          touchStartDist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+        }
+      }, { passive: true });
+
+      vp.addEventListener('touchmove', (e) => {
+        if (isPanning && e.touches.length === 1) {
+          mapPanX = e.touches[0].clientX - startX;
+          mapPanY = e.touches[0].clientY - startY;
+          updateMapTransform();
+        } else if (e.touches.length === 2) {
+          const dist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          if (touchStartDist > 0) {
+            const diff = (dist - touchStartDist) * 0.004;
+            mapZoom = Math.min(Math.max(mapZoom + diff, 0.75), 4.5);
+            updateMapTransform();
+          }
+        }
+      }, { passive: true });
+
+      vp.addEventListener('touchend', () => {
+        isPanning = false;
+        touchStartDist = 0;
+      });
     }
 
     function renderMap(mapId) {
@@ -307,6 +476,44 @@
       const map = mapsData.find(m => m.id === mapId) || mapsData[0];
       activeMapImage = map.image || './assets/maps/gateway.jpg';
 
+      // Render Pins on Map Image
+      const pinsHtml = map.regions.map((r, idx) => {
+        let dangerClass = '';
+        if (r.dangerLevel.includes('Cao') || r.dangerLevel.includes('Tử Địa') || r.dangerLevel.includes('Cực Độ')) {
+          dangerClass = 'danger-apex';
+        } else if (r.dangerLevel.includes('Trung Bình')) {
+          dangerClass = 'danger-mid';
+        }
+
+        const pX = r.pinX !== undefined ? r.pinX : (30 + (idx * 12) % 60);
+        const pY = r.pinY !== undefined ? r.pinY : (30 + (idx * 15) % 60);
+
+        return `
+          <div class="fullmap-pin ${dangerClass}" style="left: ${pX}%; top: ${pY}%;" onclick="event.stopPropagation(); focusRegionOnMap(${pX}, ${pY}, '${r.name}')" title="${r.name}">
+            <div class="fullmap-pin-pulse"></div>
+            <div class="fullmap-pin-icon-wrap">
+              <span>${r.icon || '📍'}</span>
+            </div>
+            <span class="fullmap-pin-label">${r.name.split('(')[0].trim()}</span>
+
+            <!-- Popup Tooltip on hover/click -->
+            <div class="fullmap-pin-tooltip" onclick="event.stopPropagation()">
+              <h4>${r.name}</h4>
+              <div style="font-size: 0.75rem; color: var(--color-amber); font-weight: 700; margin-bottom: 0.4rem;">
+                ⚠️ ${r.dangerLevel}
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-cyan); background: rgba(0,0,0,0.5); padding: 0.3rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                ${r.coords || 'Chưa có tọa độ'}
+              </div>
+              <button class="gps-copy-pill" style="width: 100%; justify-content: center; font-size: 0.75rem;" onclick="copyText('${r.coords || r.name}')">
+                📋 Sao chép tọa độ GPS
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Region detail cards below map
       const regionsHtml = map.regions.map((r, idx) => {
         let dangerColor = 'var(--color-emerald)';
         let dangerBadge = 'badge';
@@ -316,6 +523,9 @@
         } else if (r.dangerLevel.includes('Trung Bình')) {
           dangerColor = 'var(--color-amber)';
         }
+
+        const pX = r.pinX !== undefined ? r.pinX : 50;
+        const pY = r.pinY !== undefined ? r.pinY : 50;
 
         return `
           <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-lg); transition: all 0.25s; position: relative; overflow: hidden;" class="creature-card">
@@ -368,91 +578,106 @@
               <div style="color: var(--text-muted); margin-top: 0.25rem;">${r.tips}</div>
             </div>
 
-            <div style="display: flex; justify-content: flex-end;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+              <button class="map-view-pill" onclick="focusRegionOnMap(${pX}, ${pY}, '${r.name}')" style="background: rgba(16, 185, 129, 0.15); color: var(--color-emerald); border-color: rgba(16, 185, 129, 0.3);">
+                <span>🎯</span> Định vị trên bản đồ
+              </button>
               <button class="gps-copy-pill" onclick="copyText('${r.name} (${map.name})')">
-                <span>📍</span> Sao chép địa danh
+                <span>📍</span> Sao chép tên vùng
               </button>
             </div>
           </div>
         `;
       }).join('');
 
-      // Sub-views buttons
-      const viewToggleHtml = `
-        <div style="display: flex; gap: 0.5rem; margin-top: 0.85rem; flex-wrap: wrap;">
-          <button class="map-view-pill active" id="pill-sat" onclick="switchMapView('${map.image}', 'sat')">
-            🗺️ Vệ Tinh Độ Nét Cao
-          </button>
-          ${map.image3D ? `
-            <button class="map-view-pill" id="pill-3d" onclick="switchMapView('${map.image3D}', '3d')">
-              🏔️ Địa Hình 3D
-            </button>
-          ` : ''}
-          ${map.interactiveUrl ? `
-            <a href="${map.interactiveUrl}" target="_blank" rel="noopener noreferrer" class="map-view-pill" style="text-decoration: none;">
-              🌐 Mở Bản Đồ Vệ Tinh Trực Tuyến ↗
-            </a>
-          ` : ''}
-        </div>
-      `;
-
       container.innerHTML = `
-        <!-- MAP SHOWCASE & IN-GAME IMAGE VIEWER -->
-        <div class="map-showcase-container">
-          <div class="map-showcase-grid">
-            <!-- Left: In-Game Map Image Preview -->
-            <div>
-              <div class="map-img-frame" onclick="openMapLightbox(activeMapImage, '${map.name}')" title="Bấm để xem ảnh phóng to 4K siêu nét">
-                <div class="map-img-badge-overlay">
-                  <span>🎮</span> <span>ẢNH IN-GAME THỰC TẾ</span>
-                </div>
-                <img id="mainMapPreviewImg" src="${map.image}" alt="Bản đồ in-game thực tế ${map.name}" loading="eager" onerror="this.onerror=null; this.src='./assets/icons/og-preview.png';" />
-                <div class="map-zoom-hint-overlay">
-                  <span>🔍</span> <span>Bấm để phóng to</span>
-                </div>
-              </div>
-              ${viewToggleHtml}
+        <!-- INTERACTIVE FULL MAP STAGE (SHOWCASES ENTIRE 4K ISLAND MAP) -->
+        <div class="fullmap-stage-wrapper" id="fullmapStage">
+          <!-- Top Header Bar -->
+          <div class="fullmap-header-bar">
+            <div class="fullmap-meta-title">
+              <h2>${map.name}</h2>
+              <span class="badge badge-apex">${map.status}</span>
+              ${map.engine ? `<span class="badge" style="background: rgba(56, 189, 248, 0.15); color: var(--color-cyan); border-color: rgba(56, 189, 248, 0.3);">${map.engine}</span>` : ''}
+              <span style="font-size: 0.85rem; color: var(--text-dim); margin-left: 0.5rem;">Diện tích: <strong>${map.size}</strong></span>
             </div>
 
-            <!-- Right: Map Information & Quick Tools -->
-            <div>
-              <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
-                <span class="badge badge-apex">${map.status}</span>
-                ${map.engine ? `<span class="badge" style="background: rgba(56, 189, 248, 0.15); color: var(--color-cyan); border-color: rgba(56, 189, 248, 0.3);">${map.engine}</span>` : ''}
-              </div>
+            <!-- View Switcher Tabs -->
+            <div class="fullmap-view-tabs">
+              <button class="map-view-pill active" id="tab-sat" onclick="switchMapTab('sat')">
+                🗺️ Bản Đồ Vệ Tinh 4K
+              </button>
+              ${map.image3D ? `
+                <button class="map-view-pill" id="tab-3d" onclick="switchMapTab('3d')">
+                  🏔️ Địa Hình 3D
+                </button>
+              ` : ''}
+              ${map.interactiveUrl ? `
+                <button class="map-view-pill" id="tab-live" onclick="switchMapTab('live')">
+                  🌐 Bản Đồ Trực Tuyến Live
+                </button>
+              ` : ''}
+            </div>
+          </div>
 
-              <h2 style="font-size: 2.3rem; font-weight: 900; color: var(--text-main); line-height: 1.1; margin-bottom: 0.5rem;">
-                ${map.name}
-              </h2>
-              
-              <div style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.25rem;">
-                Kích thước thực địa: <strong style="color: var(--text-main); font-size: 1.05rem;">${map.size}</strong>
+          <!-- Pan & Zoom Viewport -->
+          <div class="fullmap-viewport" id="fullmapViewport">
+            <!-- Full Map Canvas / Content Layer -->
+            <div class="fullmap-content-layer" id="fullmapContentLayer">
+              <div class="fullmap-image-container" id="fullmapImgContainer">
+                <img id="fullmapImage" class="fullmap-image" src="${map.image}" alt="Toàn cảnh bản đồ ${map.name} in-game" loading="eager" />
+                <!-- Dynamic Interactive Pins -->
+                ${pinsHtml}
               </div>
+            </div>
 
-              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            <!-- Optional Embedded Live Map Iframe Layer -->
+            <div id="fullmapIframeLayer" style="display: none; width: 100%; height: 100%;">
+              <iframe class="fullmap-embed-frame" src="" title="Bản đồ tương tác trực tuyến" loading="lazy"></iframe>
+            </div>
+
+            <!-- Floating Controls HUD -->
+            <div class="fullmap-hud-controls" id="fullmapHudControls">
+              <button class="fullmap-ctrl-btn" onclick="zoomIn()" title="Phóng to (+)">➕</button>
+              <button class="fullmap-ctrl-btn" onclick="zoomOut()" title="Thu nhỏ (-)">➖</button>
+              <button class="fullmap-ctrl-btn" onclick="resetMapTransform()" title="Toàn cảnh 100% (Reset)">⟲</button>
+              <button class="fullmap-ctrl-btn" id="btnTogglePins" onclick="toggleMapPins()" title="Ẩn/Hiện Ghim Vị Trí" style="background: var(--color-emerald); color: #05080c;">📍</button>
+              <button class="fullmap-ctrl-btn" onclick="openMapLightbox(activeMapImage, '${map.name}')" title="Phóng to toàn màn hình">⛶</button>
+            </div>
+
+            <!-- Bottom Hint Indicator -->
+            <div class="fullmap-hint-bar" id="fullmapHintBar">
+              <span>💡</span> <span>Kéo chuột để di chuyển • Lăn chuột để phóng to • Bấm vào ghim để xem vị trí</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERVIEW & EXTERNAL TOOLS INFO -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 3rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="max-width: 800px;">
+              <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+                Tổng Quan Địa Lý & Hệ Sinh Thái ${map.name}
+              </h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
                 ${map.description}
               </p>
-
-              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                 ${map.features.map(f => `<span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); border: 1px solid rgba(16,185,129,0.25); font-size: 0.85rem;">✨ ${f}</span>`).join('')}
               </div>
+            </div>
 
-              <!-- Quick Action Navigation Buttons -->
-              <div class="map-action-btn-group">
-                <button class="map-btn-action primary" onclick="openMapLightbox(activeMapImage, '${map.name}')">
-                  <span>🔍</span> Phóng To Bản Đồ Cực Nét
-                </button>
-                ${map.interactiveUrl ? `
-                  <a href="${map.interactiveUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action" title="Mở bản đồ vệ tinh GPS tương tác">
-                    <span>🌐</span> Bản Đồ Tương Tác (IsleMaps) ↗
-                  </a>
-                ` : ''}
-                ${map.vulnonaUrl ? `
-                  <a href="${map.vulnonaUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action" title="Mở công cụ Vulnona Realtime Map">
-                    <span>📍</span> Tra Tọa Độ Vulnona ↗
-                  </a>
-                ` : ''}
-              </div>
+            <div class="map-action-btn-group" style="margin-top: 0;">
+              ${map.interactiveUrl ? `
+                <a href="${map.interactiveUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action primary" title="Mở bản đồ vệ tinh IsleMaps trong tab mới">
+                  <span>🌐</span> Mở IsleMaps (GPS Tương Tác) ↗
+                </a>
+              ` : ''}
+              ${map.vulnonaUrl ? `
+                <a href="${map.vulnonaUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action" title="Mở công cụ Vulnona Realtime Map">
+                  <span>📍</span> Tra Tọa Độ Vulnona ↗
+                </a>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -465,6 +690,8 @@
           ${regionsHtml}
         </div>
       `;
+
+      attachViewportEvents();
     }
 
     document.addEventListener('DOMContentLoaded', () => {
