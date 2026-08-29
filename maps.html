@@ -105,6 +105,21 @@
       <!-- Dynamic content rendered by JS -->
     </div>
 
+    <!-- MAP LIGHTBOX FULLSCREEN MODAL -->
+    <div class="map-modal-lightbox" id="mapLightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="map-modal-lightbox-header">
+        <div class="map-modal-title" id="mapModalTitle">
+          <span>🗺️</span> <span>Chi Tiết Bản Đồ In-Game</span>
+        </div>
+        <div class="map-modal-controls">
+          <button class="map-modal-close-btn" onclick="closeMapLightbox()" aria-label="Đóng phóng to">✕</button>
+        </div>
+      </div>
+      <div class="map-modal-img-scrollable" onclick="event.stopPropagation()">
+        <img id="mapModalImg" src="" alt="Bản đồ in-game The Isle phóng to" />
+      </div>
+    </div>
+
     <!-- NAVIGATION & GPS COORDINATES GUIDE -->
     <section style="margin-top: 4rem; background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg);">
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
@@ -195,6 +210,7 @@
   <script>
     let mapsData = [];
     let currentMapId = 'gateway';
+    let activeMapImage = '';
 
     async function loadMaps() {
       if (window.EMBEDDED_MAPS && window.EMBEDDED_MAPS.length) {
@@ -234,11 +250,58 @@
       }
     }
 
+    function openMapLightbox(imgSrc, title) {
+      const modal = document.getElementById('mapLightboxModal');
+      const modalImg = document.getElementById('mapModalImg');
+      const modalTitle = document.getElementById('mapModalTitle');
+      if (!modal || !modalImg) return;
+
+      modalImg.src = imgSrc;
+      if (modalTitle) {
+        modalTitle.innerHTML = `<span>🗺️</span> <span>${title || 'Bản Đồ In-Game'} (Bấm ESC để đóng)</span>`;
+      }
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+    }
+
+    function closeMapLightbox() {
+      const modal = document.getElementById('mapLightboxModal');
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (typeof AudioFx !== 'undefined') AudioFx.play('close');
+    }
+
+    // Đóng modal khi click ra ngoài hoặc bấm ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMapLightbox();
+    });
+
+    const modalBackdrop = document.getElementById('mapLightboxModal');
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) closeMapLightbox();
+      });
+    }
+
+    function switchMapView(imgSrc, mapTitle) {
+      const mainImg = document.getElementById('mainMapPreviewImg');
+      if (mainImg) {
+        mainImg.src = imgSrc;
+        activeMapImage = imgSrc;
+      }
+      if (typeof AudioFx !== 'undefined') AudioFx.play('click');
+    }
+
     function renderMap(mapId) {
       const container = document.getElementById('mapDetailContainer');
       if (!container || !mapsData.length) return;
 
       const map = mapsData.find(m => m.id === mapId) || mapsData[0];
+      activeMapImage = map.image || './assets/maps/gateway.jpg';
 
       const regionsHtml = map.regions.map((r, idx) => {
         let dangerColor = 'var(--color-emerald)';
@@ -287,22 +350,76 @@
         `;
       }).join('');
 
+      // Sub-views buttons for Spiro if available
+      const viewToggleHtml = map.image3D ? `
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+          <button class="gps-copy-pill" style="font-size: 0.8rem;" onclick="switchMapView('${map.image}', '${map.name}')">
+            🗺️ Xem Bản Đồ Vệ Tinh
+          </button>
+          <button class="gps-copy-pill" style="font-size: 0.8rem;" onclick="switchMapView('${map.image3D}', '${map.name} 3D')">
+            🏔️ Xem Toàn Cảnh 3D
+          </button>
+        </div>
+      ` : '';
+
       container.innerHTML = `
-        <div style="background: var(--bg-card); border: 1px solid var(--border-accent); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem; position: relative; overflow: hidden;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+        <!-- MAP SHOWCASE & IN-GAME IMAGE VIEWER -->
+        <div class="map-showcase-container">
+          <div class="map-showcase-grid">
+            <!-- Left: In-Game Map Image Preview -->
             <div>
-              <span class="badge badge-apex" style="margin-bottom: 0.5rem;">${map.status}</span>
-              <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main);">${map.name}</h2>
-              <div style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.25rem;">Kích thước diện tích: <strong>${map.size}</strong></div>
+              <div class="map-img-frame" onclick="openMapLightbox(activeMapImage, '${map.name}')" title="Bấm để xem ảnh phóng to 4K siêu nét">
+                <div class="map-img-badge-overlay">
+                  <span>🎮</span> <span>ẢNH IN-GAME THỰC TẾ</span>
+                </div>
+                <img id="mainMapPreviewImg" src="${map.image}" alt="Bản đồ in-game thực tế ${map.name}" loading="lazy" />
+                <div class="map-zoom-hint-overlay">
+                  <span>🔍</span> <span>Bấm để phóng to</span>
+                </div>
+              </div>
+              ${viewToggleHtml}
             </div>
-          </div>
 
-          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; max-width: 900px; margin-bottom: 1.5rem;">
-            ${map.description}
-          </p>
+            <!-- Right: Map Information & Quick Tools -->
+            <div>
+              <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                <span class="badge badge-apex">${map.status}</span>
+                ${map.engine ? `<span class="badge" style="background: rgba(56, 189, 248, 0.15); color: var(--color-cyan); border-color: rgba(56, 189, 248, 0.3);">${map.engine}</span>` : ''}
+              </div>
 
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            ${map.features.map(f => `<span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); border: 1px solid rgba(16,185,129,0.25); font-size: 0.85rem;">✨ ${f}</span>`).join('')}
+              <h2 style="font-size: 2.3rem; font-weight: 900; color: var(--text-main); line-height: 1.1; margin-bottom: 0.5rem;">
+                ${map.name}
+              </h2>
+              
+              <div style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                Kích thước thực địa: <strong style="color: var(--text-main); font-size: 1.05rem;">${map.size}</strong>
+              </div>
+
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                ${map.description}
+              </p>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                ${map.features.map(f => `<span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); border: 1px solid rgba(16,185,129,0.25); font-size: 0.85rem;">✨ ${f}</span>`).join('')}
+              </div>
+
+              <!-- Quick Action Navigation Buttons -->
+              <div class="map-action-btn-group">
+                <button class="map-btn-action primary" onclick="openMapLightbox(activeMapImage, '${map.name}')">
+                  <span>🔍</span> Phóng To Bản Đồ Cực Nét
+                </button>
+                ${map.interactiveUrl ? `
+                  <a href="${map.interactiveUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action" title="Mở bản đồ vệ tinh GPS tương tác">
+                    <span>🌐</span> Bản Đồ Tương Tác (IsleMaps) ↗
+                  </a>
+                ` : ''}
+                ${map.vulnonaUrl ? `
+                  <a href="${map.vulnonaUrl}" target="_blank" rel="noopener noreferrer" class="map-btn-action" title="Mở công cụ Vulnona Realtime Map">
+                    <span>📍</span> Tra Tọa Độ Vulnona ↗
+                  </a>
+                ` : ''}
+              </div>
+            </div>
           </div>
         </div>
 

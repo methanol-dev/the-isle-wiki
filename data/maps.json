@@ -3,8 +3,12 @@
     "id": "gateway",
     "name": "Gateway",
     "status": "Official Evrima (Map Hiện Tại)",
+    "image": "./assets/maps/gateway.jpg",
+    "interactiveUrl": "https://www.islemaps.com/",
+    "vulnonaUrl": "https://vulnona.com/game/the_isle/",
     "description": "Bản đồ thế hệ mới rộng lớn và chi tiết nhất của The Isle Evrima. Sở hữu địa hình đa dạng từ cao nguyên sương mù, các khu rừng mưa nhiệt đới rậm rạp, hệ thống sông ngòi chằng chịt, đầm lầy ngập mặn cho đến các cơ sở nghiên cứu và khu vòm nhân tạo bị bỏ hoang.",
     "size": "16 x 16 km",
+    "engine": "Unreal Engine 5",
     "features": ["Hệ thống Vùng Di Cư (Migration Zones)", "Cây Thánh Địa Con Non (Sanctuary Trees)", "Khu nghiên cứu vòm (Dome Facility)", "Sông ngòi kết nối biển"],
     "regions": [
       {
@@ -61,8 +65,12 @@
     "id": "spiro",
     "name": "Isle Spiro (Cựu Bản Đồ)",
     "status": "Legacy Evrima Map",
+    "image": "./assets/maps/spiro.jpg",
+    "image3D": "./assets/maps/spiro_3d.png",
+    "interactiveUrl": "https://vulnona.com/game/the_isle/",
     "description": "Bản đồ thời kỳ đầu của Evrima với cấu trúc địa hình tập trung mạnh quanh các con sông chính và ốc đảo trung tâm. Nơi ghi dấu những trận đại chiến kinh điển giữa Deinosuchus, Stegosaurus và bầy Utahraptor.",
     "size": "12 x 12 km",
+    "engine": "Unreal Engine 4",
     "features": ["Ốc đảo trung tâm (Center Oasis)", "Sông Nam & Sông Bắc", "Bãi đá Pachy Rock", "Đầm lầy phía Tây"],
     "regions": [
       {
