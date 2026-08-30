@@ -110,27 +110,30 @@
   <header class="navbar">
     <div class="container navbar-container">
       <a href="./index.html" class="navbar-logo">
-        <span style="font-size: 1.6rem;">🦖</span>
-        <div>
-          <span>THE ISLE WIKI</span>
-          <span class="logo-badge">EVRIMA VN</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-emerald);">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <div class="navbar-logo-text">
+          <span class="logo-main-title">THE ISLE</span>
+          <span class="logo-sub-title">COMPENDIUM <span class="logo-badge">v0.14+</span></span>
         </div>
       </a>
 
       <nav>
         <ul class="navbar-links" id="navbarLinks">
-          <li><a href="./index.html" class="nav-link active"><span>🦕</span> Danh Sách Khủng Long</a></li>
-          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
-          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
-          <li><a href="./maps.html" class="nav-link"><span>🗺️</span> Bản Đồ & Vị Trí</a></li>
-          <li><a href="./quests.html" class="nav-link"><span>🎯</span> Nhiệm Vụ & Đột Biến</a></li>
+          <li><a href="./index.html" class="nav-link active">Sinh Vật (Creatures)</a></li>
+          <li><a href="./compare.html" class="nav-link">Đối Đầu (Matchups)</a></li>
+          <li><a href="./guides.html" class="nav-link">Cơ Chế (Mechanics)</a></li>
+          <li><a href="./maps.html" class="nav-link">Địa Đồ (Cartography)</a></li>
+          <li><a href="./quests.html" class="nav-link">Đột Biến (Mutations)</a></li>
         </ul>
       </nav>
 
       <div class="navbar-actions">
         <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Bật/Tắt âm thanh">🔊</button>
         <button class="search-trigger-btn" id="searchTriggerBtn">
-          <span>🔍</span>
           <span>Tìm nhanh...</span>
           <span class="kbd-shortcut">Ctrl+K</span>
         </button>
@@ -145,33 +148,33 @@
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-tag">
-        <span>✨</span> Phiên bản cập nhật Gateway Evrima mới nhất
+        SURVIVAL COMPENDIUM • THE ISLE EVRIMA
       </div>
       <h1 class="hero-title">
-        Cơ Sở Dữ Liệu <br>
-        <span class="hero-title-highlight">The Isle (Evrima) Tiếng Việt</span>
+        The Isle Compendium <br>
+        <span class="hero-title-highlight">Cơ Sở Dữ Liệu Sinh Vật & Cơ Chế</span>
       </h1>
       <p class="hero-subtitle">
-        Tra cứu chỉ số 17 loài khủng long, thanh trượt mô phỏng tăng trưởng theo thời gian thực (0% – 100%), biểu đồ dinh dưỡng hoàn hảo và hướng dẫn kỹ năng chiến đấu chuẩn cho game thủ Việt.
+        Tra cứu thông số chi tiết 17 loài sinh vật, mô phỏng chỉ số tăng trưởng theo thời gian thực (0% – 100%), ma trận dinh dưỡng và cẩm nang sinh tồn The Isle Evrima.
       </p>
 
-      <!-- STATS TICKER -->
+      <!-- DATABASE STATUS STRIP -->
       <div class="stats-ticker">
         <div class="ticker-card">
-          <div class="ticker-number">17</div>
-          <div class="ticker-label">Loài Khủng Long Có Sẵn</div>
+          <div class="ticker-number">17 SPECIES</div>
+          <div class="ticker-label">Sinh vật playable có sẵn</div>
         </div>
         <div class="ticker-card">
-          <div class="ticker-number" style="color: var(--color-crimson);">2</div>
-          <div class="ticker-label">Apex Thống Trị Đầm Lầy & Cạn</div>
+          <div class="ticker-number">GATEWAY v0.14+</div>
+          <div class="ticker-label">Dữ liệu bản đồ & tọa độ GPS</div>
         </div>
         <div class="ticker-card">
-          <div class="ticker-number" style="color: var(--color-amber);">57.5</div>
-          <div class="ticker-label">km/h Tốc Độ Nhanh Nhất (Galli)</div>
+          <div class="ticker-number">DIET MATRIX 3/3</div>
+          <div class="ticker-label">Hệ thống dinh dưỡng hoàn hảo</div>
         </div>
         <div class="ticker-card">
-          <div class="ticker-number" style="color: var(--color-cyan);">0 - 100%</div>
-          <div class="ticker-label">Thanh Trượt Tính Toán Live</div>
+          <div class="ticker-number">0 – 100% LIVE</div>
+          <div class="ticker-label">Thanh trượt tính toán tăng trưởng</div>
         </div>
       </div>
     </section>
@@ -185,7 +188,7 @@
             type="text" 
             id="mainSearchInput" 
             class="main-search-input" 
-            placeholder="Tìm theo tên khủng long, tên tiếng Việt (cá sấu, bò tót, vồ, pounce, ăn thịt, stego...)"
+            placeholder="Tìm kiếm theo tên loài, tên khoa học, biệt danh (cá sấu, bò tót, pounce, carnivore, stego...)"
           >
         </div>
 
@@ -193,34 +196,34 @@
           <div class="filter-group">
             <span class="filter-label">Chế Độ Ăn:</span>
             <button class="filter-btn active" data-filter-diet="all">Tất Cả</button>
-            <button class="filter-btn" data-filter-diet="carnivore">🍖 Ăn Thịt</button>
-            <button class="filter-btn" data-filter-diet="herbivore">🌿 Ăn Cỏ</button>
-            <button class="filter-btn" data-filter-diet="omnivore">🫐 Ăn Tạp</button>
-            <button class="filter-btn" data-filter-diet="piscivore">🐟 Ăn Cá</button>
+            <button class="filter-btn" data-filter-diet="carnivore">Ăn Thịt</button>
+            <button class="filter-btn" data-filter-diet="herbivore">Ăn Cỏ</button>
+            <button class="filter-btn" data-filter-diet="omnivore">Ăn Tạp</button>
+            <button class="filter-btn" data-filter-diet="piscivore">Ăn Cá</button>
           </div>
 
           <div class="filter-group">
             <span class="filter-label">Môi Trường:</span>
             <button class="filter-btn active" data-filter-loco="all">Tất Cả</button>
-            <button class="filter-btn" data-filter-loco="terrestrial">🏞️ Trên Cạn</button>
-            <button class="filter-btn" data-filter-loco="semi-aquatic">🌊 Lưỡng Cư</button>
-            <button class="filter-btn" data-filter-loco="aerial">🪽 Bầu Trời</button>
+            <button class="filter-btn" data-filter-loco="terrestrial">Trên Cạn</button>
+            <button class="filter-btn" data-filter-loco="semi-aquatic">Lưỡng Cư</button>
+            <button class="filter-btn" data-filter-loco="aerial">Bầu Trời</button>
           </div>
 
           <div class="sort-wrapper">
             <label for="sortSelect" class="filter-label">Sắp Xếp:</label>
             <select id="sortSelect" class="sort-select">
-              <option value="weight_desc">⚖️ Trọng lượng: Lớn ➔ Nhỏ</option>
-              <option value="weight_asc">⚖️ Trọng lượng: Nhỏ ➔ Lớn</option>
-              <option value="speed_desc">⚡ Tốc độ chạy Sprint</option>
-              <option value="growth_asc">⏱️ Thời gian lớn: Nhanh nhất</option>
-              <option value="growth_desc">⏱️ Thời gian lớn: Lâu nhất</option>
-              <option value="name_asc">🔤 Tên A ➔ Z</option>
+              <option value="weight_desc">Trọng lượng: Lớn ➔ Nhỏ</option>
+              <option value="weight_asc">Trọng lượng: Nhỏ ➔ Lớn</option>
+              <option value="speed_desc">Tốc độ chạy Sprint</option>
+              <option value="growth_asc">Thời gian lớn: Nhanh nhất</option>
+              <option value="growth_desc">Thời gian lớn: Lâu nhất</option>
+              <option value="name_asc">Tên A ➔ Z</option>
             </select>
           </div>
         </div>
       </div>
-      <div id="resultsCount" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-dim); text-align: right;"></div>
+      <div id="resultsCount" style="margin-top: 0.75rem; font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-dim); text-align: right;"></div>
     </section>
 
     <!-- CREATURE GRID -->
@@ -245,10 +248,10 @@
       <div class="modal-body">
         <!-- Navigation Tabs -->
         <div class="modal-tabs">
-          <button class="tab-btn active" data-tab="growth">📊 Chỉ Số & Tăng Trưởng</button>
-          <button class="tab-btn" data-tab="diet">🥩 Dinh Dưỡng & Con Mồi</button>
-          <button class="tab-btn" data-tab="abilities">⚔️ Bộ Kỹ Năng & Phím Bấm</button>
-          <button class="tab-btn" data-tab="tips">🛡️ Mẹo Sinh Tồn & Kèo Đấu</button>
+          <button class="tab-btn active" data-tab="growth">Chỉ Số & Tăng Trưởng</button>
+          <button class="tab-btn" data-tab="diet">Khẩu Phần & Dinh Dưỡng</button>
+          <button class="tab-btn" data-tab="abilities">Kỹ Năng Chiến Đấu</button>
+          <button class="tab-btn" data-tab="tips">Cẩm Nang Sinh Tồn</button>
         </div>
 
         <!-- Tab 1: Growth & Stats Slider -->

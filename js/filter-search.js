@@ -170,31 +170,31 @@ const FilterSearch = {
             <div class="card-stats-preview">
               <div class="stat-meter-item">
                 <div class="stat-meter-row">
-                  <span class="stat-meter-label">⚖️ Trọng lượng</span>
+                  <span class="stat-meter-label">Trọng lượng</span>
                   <span class="stat-meter-value">${c.statsMax.weight.toLocaleString('vi-VN')} kg</span>
                 </div>
                 <div class="stat-bar-track">
-                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.weight / 8000) * 100)}%; background: #38bdf8;"></div>
+                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.weight / 8000) * 100)}%; background: var(--color-cyan);"></div>
                 </div>
               </div>
 
               <div class="stat-meter-item">
                 <div class="stat-meter-row">
-                  <span class="stat-meter-label">⚡ Tốc độ Sprint</span>
+                  <span class="stat-meter-label">Tốc độ Sprint</span>
                   <span class="stat-meter-value">${c.statsMax.sprintSpeed} km/h</span>
                 </div>
                 <div class="stat-bar-track">
-                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.sprintSpeed / 60) * 100)}%; background: #10b981;"></div>
+                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.sprintSpeed / 60) * 100)}%; background: var(--color-emerald);"></div>
                 </div>
               </div>
 
               <div class="stat-meter-item">
                 <div class="stat-meter-row">
-                  <span class="stat-meter-label">⚔️ Sát thương cắn</span>
+                  <span class="stat-meter-label">Lực cắn</span>
                   <span class="stat-meter-value">${c.statsMax.biteDamage} dmg</span>
                 </div>
                 <div class="stat-bar-track">
-                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.biteDamage / 1200) * 100)}%; background: #ef4444;"></div>
+                  <div class="stat-bar-fill" style="width: ${Math.min(100, (c.statsMax.biteDamage / 1200) * 100)}%; background: var(--color-crimson);"></div>
                 </div>
               </div>
             </div>
@@ -202,7 +202,7 @@ const FilterSearch = {
 
           <div class="card-footer">
             <div class="growth-time-tag">
-              ⏱️ Lớn: <strong>${c.growthTimeFormatted}</strong>
+              Lớn: <strong>${c.growthTimeFormatted}</strong>
             </div>
             <div class="card-action-hint">
               Hồ sơ chi tiết ➔

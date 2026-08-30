@@ -71,17 +71,17 @@ const ModalDetails = {
     headerEl.innerHTML = `
       <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <h2 style="font-size: 1.6rem; font-weight: 900; line-height: 1.1;">${c.name}</h2>
-          <div style="font-size: 0.95rem; color: var(--color-emerald); font-weight: 700; margin-top: 0.2rem;">${c.vietnameseName}</div>
-          <div style="font-size: 0.8rem; color: var(--text-dim); font-style: italic;">${c.scientificName}</div>
+          <h2 style="font-size: 1.5rem; font-weight: 900; line-height: 1.1; font-family: var(--font-display);">${c.name}</h2>
+          <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 700; margin-top: 0.2rem;">${c.vietnameseName}</div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">${c.scientificName}</div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-          <button class="filter-btn" onclick="ModalDetails.copyShareLink()" title="Sao chép liên kết chia sẻ" style="font-size: 0.8rem;">
-            <span>🔗</span> Chia sẻ
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="filter-btn" onclick="ModalDetails.copyShareLink()" title="Sao chép liên kết chia sẻ" style="font-size: 0.78rem;">
+            Sao chép Link
           </button>
-          <a href="./compare.html?a=${c.id}" class="filter-btn" style="font-size: 0.8rem; text-decoration: none; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.35); color: var(--text-crimson);">
-            <span>⚔️</span> So sánh kèo
+          <a href="./compare.html?a=${c.id}" class="filter-btn" style="font-size: 0.78rem; text-decoration: none; background: #200f13; border-color: #7f1d1d; color: #fca5a5;">
+            So sánh đối đầu
           </a>
           <span class="badge badge-${c.diet}">${c.dietLabelVi}</span>
           <span class="badge ${c.tier === 'apex' ? 'badge-apex' : (c.tier === 'heavy' ? 'badge-tier-heavy' : (c.tier === 'medium' ? 'badge-tier-medium' : 'badge-tier-small'))}">${c.tierLabelVi}</span>
@@ -98,7 +98,7 @@ const ModalDetails = {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(shareUrl).then(() => {
         if (typeof ToastService !== 'undefined') {
-          ToastService.show(`Đã sao chép liên kết của ${c.name} vào bộ nhớ đệm!`, 'success');
+          ToastService.show(`Đã sao chép liên kết của ${c.name} vào bộ nhớ tạm!`, 'success');
         }
       });
     }
@@ -127,18 +127,18 @@ const ModalDetails = {
     if (!panel) return;
 
     panel.innerHTML = `
-      <div style="width: 100%; height: 260px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem; background: radial-gradient(circle at center, rgba(16,185,129,0.15) 0%, rgba(0,0,0,0.85) 100%); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; position: relative;">
-        <img src="${c.image}" alt="${c.name} render" style="max-height: 90%; max-width: 95%; object-fit: contain; filter: drop-shadow(0 12px 30px rgba(0,0,0,0.9));">
-        <div style="position: absolute; bottom: 0.75rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.3rem 0.75rem; border-radius: 4px; font-size: 0.75rem; color: var(--text-dim); border: 1px solid rgba(255,255,255,0.1);">
-          📸 In-game Official Artwork: <strong>${c.name}</strong>
+      <div style="width: 100%; height: 250px; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 1.5rem; background: #080c14; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; position: relative;">
+        <img src="${c.image}" alt="${c.name} render" style="max-height: 90%; max-width: 95%; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.9));">
+        <div style="position: absolute; bottom: 0.65rem; left: 0.85rem; background: #090c13; padding: 0.25rem 0.65rem; border-radius: 3px; font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-dim); border: 1px solid var(--border-color);">
+          Official Render: <strong>${c.name}</strong>
         </div>
       </div>
 
       <div class="growth-calculator-card">
         <div class="growth-calc-header">
           <div>
-            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Thanh Trượt Tăng Trưởng Thực Tế</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Kéo thanh trượt để tính toán chỉ số tương ứng theo từng giai đoạn phát triển.</p>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem;">Thanh Trượt Tăng Trưởng Thực Tế</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Kéo thanh trượt để tính toán chỉ số tương ứng theo từng giai đoạn phát triển.</p>
           </div>
           <div class="growth-stage-badge" id="modalStageBadge">
             Trưởng Thành (100%)
@@ -170,9 +170,9 @@ const ModalDetails = {
         </div>
       </div>
 
-      <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-        <h4 style="color: var(--color-emerald); margin-bottom: 0.5rem; font-size: 0.95rem;">💡 Tổng Quan Sinh Học</h4>
-        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">${c.overview}</p>
+      <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm);">
+        <h4 style="color: var(--color-emerald); margin-bottom: 0.35rem; font-size: 0.88rem; font-family: var(--font-mono); text-transform: uppercase;">Tổng Quan Sinh Học</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">${c.overview}</p>
       </div>
     `;
 
@@ -224,36 +224,36 @@ const ModalDetails = {
     if (statsContainer) {
       statsContainer.innerHTML = `
         <div class="calc-stat-box">
-          <div class="calc-stat-label">⚖️ Trọng Lượng</div>
-          <div class="calc-stat-number" style="color: #38bdf8;">${stats.weight.toLocaleString('vi-VN')}<span class="calc-stat-unit">kg</span></div>
+          <div class="calc-stat-label">Trọng Lượng</div>
+          <div class="calc-stat-number" style="color: var(--color-cyan);">${stats.weight.toLocaleString('vi-VN')}<span class="calc-stat-unit">kg</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">❤️ Lượng Máu (HP)</div>
-          <div class="calc-stat-number" style="color: #10b981;">${stats.health.toLocaleString('vi-VN')}<span class="calc-stat-unit">HP</span></div>
+          <div class="calc-stat-label">Lượng Máu (HP)</div>
+          <div class="calc-stat-number" style="color: var(--color-emerald);">${stats.health.toLocaleString('vi-VN')}<span class="calc-stat-unit">HP</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">⚔️ Sát Thương Cắn</div>
-          <div class="calc-stat-number" style="color: #ef4444;">${stats.biteDamage}<span class="calc-stat-unit">dmg</span></div>
+          <div class="calc-stat-label">Lực Cắn (Damage)</div>
+          <div class="calc-stat-number" style="color: var(--color-crimson);">${stats.biteDamage}<span class="calc-stat-unit">dmg</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">⚡ Tốc Độ Sprint</div>
-          <div class="calc-stat-number" style="color: #f59e0b;">${stats.sprintSpeed}<span class="calc-stat-unit">km/h</span></div>
+          <div class="calc-stat-label">Tốc Độ Sprint</div>
+          <div class="calc-stat-number" style="color: var(--color-amber);">${stats.sprintSpeed}<span class="calc-stat-unit">km/h</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">🚶 Tốc Độ Đi Bộ</div>
+          <div class="calc-stat-label">Tốc Độ Đi Bộ</div>
           <div class="calc-stat-number">${stats.trotSpeed}<span class="calc-stat-unit">km/h</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">🏊 Tốc Độ Bơi</div>
+          <div class="calc-stat-label">Tốc Độ Bơi</div>
           <div class="calc-stat-number">${stats.swimSpeed}<span class="calc-stat-unit">km/h</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">🔋 Thể Lực (Stam)</div>
-          <div class="calc-stat-number" style="color: #a855f7;">${stats.stamina}<span class="calc-stat-unit">pts</span></div>
+          <div class="calc-stat-label">Thể Lực (Stam)</div>
+          <div class="calc-stat-number" style="color: var(--color-purple-light);">${stats.stamina}<span class="calc-stat-unit">pts</span></div>
         </div>
         <div class="calc-stat-box">
-          <div class="calc-stat-label">⏱️ Thời Gian Lớn Còn</div>
-          <div class="calc-stat-number" style="font-size: 1.05rem; color: #fbbf24;">${stats.timeRemainingFormatted}</div>
+          <div class="calc-stat-label">Thời Gian Còn Lại</div>
+          <div class="calc-stat-number" style="font-size: 1rem; color: #fbbf24;">${stats.timeRemainingFormatted}</div>
         </div>
       `;
     }
@@ -269,12 +269,12 @@ const ModalDetails = {
       return `
         <div class="nutrient-card">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-            <img src="./assets/nutrients/${iconFile}" alt="${s.symbol}" style="width: 32px; height: 32px;">
-            <div class="nutrient-badge-symbol" style="margin: 0;">Chất [ ${s.symbol} ] : ${s.name}</div>
+            <img src="./assets/nutrients/${iconFile}" alt="${s.symbol}" style="width: 28px; height: 28px;">
+            <div class="nutrient-badge-symbol" style="margin: 0; font-size: 0.95rem;">Chất [ ${s.symbol} ] : ${s.name}</div>
           </div>
-          <div style="font-size: 0.85rem; color: var(--text-emerald); margin-bottom: 0.5rem;">✨ ${s.buffDescription}</div>
-          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.25rem;">Thức ăn cung cấp:</div>
-          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-dim);">
+          <div style="font-size: 0.82rem; color: var(--color-emerald); margin-bottom: 0.5rem;">${s.buffDescription}</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem;">Nguồn thức ăn:</div>
+          <ul style="padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-muted);">
             ${s.foods.map(f => `<li>${f}</li>`).join('')}
           </ul>
         </div>
@@ -282,13 +282,13 @@ const ModalDetails = {
     }).join('');
 
     const organsHtml = c.dietInfo.favoriteOrgans.length > 0 ? `
-      <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-        <h4 style="color: var(--color-amber); margin-bottom: 0.75rem; font-size: 1rem;">🥩 Nội Tạng Động Vật Buff Đặc Biệt</h4>
+      <div style="margin-top: 1.5rem; background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm);">
+        <h4 style="color: var(--color-amber); margin-bottom: 0.75rem; font-size: 0.92rem; font-family: var(--font-mono); text-transform: uppercase;">Nội Tạng Động Vật & Hiệu Ứng</h4>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
           ${c.dietInfo.favoriteOrgans.map(o => `
-            <div style="background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 6px; font-size: 0.85rem;">
+            <div style="background: #111622; border: 1px solid var(--border-color); padding: 0.75rem; border-radius: 4px; font-size: 0.82rem;">
               <strong style="color: var(--text-main);">${o.organ}:</strong>
-              <div style="color: var(--text-emerald); margin-top: 0.2rem;">${o.benefit}</div>
+              <div style="color: var(--color-emerald); margin-top: 0.2rem;">${o.benefit}</div>
             </div>
           `).join('')}
         </div>
@@ -297,8 +297,8 @@ const ModalDetails = {
 
     panel.innerHTML = `
       <div style="margin-bottom: 1.5rem;">
-        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Hệ Thống 3 Nhóm Dinh Dưỡng Của ${c.name}</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Duy trì đầy đủ cả 3 chất để nhận buff +50% tốc độ lớn và hồi phục thể lực nhanh nhất.</p>
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">Hệ Thống 3 Nhóm Dinh Dưỡng Của ${c.name}</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted);">Duy trì đầy đủ cả 3 chất để nhận buff +50% tốc độ lớn và hồi phục thể lực nhanh nhất.</p>
       </div>
 
       <div class="nutrient-cards-grid">
@@ -307,8 +307,8 @@ const ModalDetails = {
 
       ${organsHtml}
 
-      <div style="margin-top: 1.5rem; background: ${c.dietInfo.cannibalism ? 'rgba(6,182,212,0.1)' : 'rgba(239,68,68,0.1)'}; border: 1px solid ${c.dietInfo.cannibalism ? 'var(--border-accent)' : 'rgba(239,68,68,0.3)'}; padding: 1rem; border-radius: var(--radius-md); font-size: 0.85rem;">
-        <strong>⚠️ Tập tính ăn đồng loại (Cannibalism):</strong>
+      <div style="margin-top: 1.5rem; background: #090c13; border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-sm); font-size: 0.82rem;">
+        <strong style="color: var(--color-amber);">Tập tính ăn đồng loại (Cannibalism):</strong>
         <p style="margin-top: 0.25rem; color: var(--text-muted);">${c.dietInfo.cannibalismNote}</p>
       </div>
     `;
@@ -336,25 +336,25 @@ const ModalDetails = {
       <div class="ability-card">
         <div class="ability-header">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <img src="${getAbilityIcon(a.name)}" alt="${a.name}" style="width: 32px; height: 32px; padding: 4px; background: rgba(255,255,255,0.06); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+            <img src="${getAbilityIcon(a.name)}" alt="${a.name}" style="width: 28px; height: 28px; padding: 3px; background: #111622; border-radius: 4px; border: 1px solid var(--border-color);">
             <div>
-              <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main);">${a.nameVi}</h4>
-              <div style="font-size: 0.8rem; color: var(--text-dim);">${a.name}</div>
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">${a.nameVi}</h4>
+              <div style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">${a.name}</div>
             </div>
           </div>
-          <span class="ability-keybind">⌨️ ${a.keybind}</span>
+          <span class="ability-keybind">[ ${a.keybind} ]</span>
         </div>
-        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.5;">${a.description}</p>
-        <div style="font-size: 0.85rem; color: var(--color-emerald); background: rgba(16,185,129,0.08); padding: 0.5rem 0.75rem; border-radius: 4px;">
-          💥 <strong>Hiệu quả chiến đấu:</strong> ${a.effect} (Tiêu hao Stamina: <em>${a.staminaCost}</em>)
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.5;">${a.description}</p>
+        <div style="font-size: 0.82rem; color: var(--color-emerald); background: #0c1510; border: 1px solid #166534; padding: 0.45rem 0.65rem; border-radius: 3px;">
+          <strong>Hiệu quả chiến đấu:</strong> ${a.effect} (Tiêu hao Stamina: <em>${a.staminaCost}</em>)
         </div>
       </div>
     `).join('');
 
     panel.innerHTML = `
       <div style="margin-bottom: 1.5rem;">
-        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Kỹ Năng Chiến Đấu & Bộ Phím Điều Khiển</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Nắm rõ thời điểm tung chiêu để tối ưu hóa lượng thể lực trong giao tranh.</p>
+        <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem;">Kỹ Năng Chiến Đấu & Bộ Phím Điều Khiển</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted);">Nắm rõ thời điểm tung chiêu để tối ưu hóa lượng thể lực trong giao tranh.</p>
       </div>
 
       ${abilitiesHtml}
@@ -368,29 +368,29 @@ const ModalDetails = {
 
     panel.innerHTML = `
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
-        <div style="background: rgba(16,185,129,0.08); border: 1px solid var(--border-accent); padding: 1.25rem; border-radius: var(--radius-md);">
-          <h4 style="color: var(--text-emerald); margin-bottom: 0.75rem; font-size: 1rem;">✅ Thế Mạnh Cốt Lõi</h4>
-          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+        <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm);">
+          <h4 style="color: var(--color-emerald); margin-bottom: 0.65rem; font-size: 0.88rem; font-family: var(--font-mono); text-transform: uppercase;">Thế Mạnh Cốt Lõi</h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;">
             ${c.combatTips.strengths.map(s => `<li>${s}</li>`).join('')}
           </ul>
         </div>
 
-        <div style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); padding: 1.25rem; border-radius: var(--radius-md);">
-          <h4 style="color: var(--text-crimson); margin-bottom: 0.75rem; font-size: 1rem;">❌ Điểm Yếu Cần Tránh</h4>
-          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+        <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm);">
+          <h4 style="color: var(--color-crimson-light); margin-bottom: 0.65rem; font-size: 0.88rem; font-family: var(--font-mono); text-transform: uppercase;">Điểm Yếu Cần Lưu Ý</h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;">
             ${c.combatTips.weaknesses.map(w => `<li>${w}</li>`).join('')}
           </ul>
         </div>
       </div>
 
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
-        <h4 style="color: var(--color-amber); margin-bottom: 0.5rem; font-size: 0.95rem;">🏹 Cẩm Nang Săn Mồi & Kiếm Ăn</h4>
-        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">${c.combatTips.huntingGuide}</p>
+      <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+        <h4 style="color: var(--color-amber); margin-bottom: 0.5rem; font-size: 0.88rem; font-family: var(--font-mono); text-transform: uppercase;">Cẩm Nang Săn Mồi & Kiếm Ăn</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">${c.combatTips.huntingGuide || c.combatTips.matchupsTips}</p>
       </div>
 
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-md);">
-        <h4 style="color: var(--color-cyan); margin-bottom: 0.5rem; font-size: 0.95rem;">🛡️ Chiến Thuật Phòng Thủ & Thoát Thân</h4>
-        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">${c.combatTips.defenseGuide}</p>
+      <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: var(--radius-sm);">
+        <h4 style="color: var(--color-cyan); margin-bottom: 0.5rem; font-size: 0.88rem; font-family: var(--font-mono); text-transform: uppercase;">Chiến Thuật Phòng Thủ & Thoát Thân</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">${c.combatTips.defenseGuide || c.combatTips.matchupsTips}</p>
       </div>
     `;
   }

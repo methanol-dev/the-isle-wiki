@@ -46,27 +46,30 @@
   <header class="navbar">
     <div class="container navbar-container">
       <a href="./index.html" class="navbar-logo">
-        <span style="font-size: 1.6rem;">🦖</span>
-        <div>
-          <span>THE ISLE WIKI</span>
-          <span class="logo-badge">EVRIMA VN</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-emerald);">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <div class="navbar-logo-text">
+          <span class="logo-main-title">THE ISLE</span>
+          <span class="logo-sub-title">COMPENDIUM <span class="logo-badge">v0.14+</span></span>
         </div>
       </a>
 
       <nav>
         <ul class="navbar-links" id="navbarLinks">
-          <li><a href="./index.html" class="nav-link"><span>🦕</span> Danh Sách Khủng Long</a></li>
-          <li><a href="./compare.html" class="nav-link"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
-          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
-          <li><a href="./maps.html" class="nav-link"><span>🗺️</span> Bản Đồ & Vị Trí</a></li>
-          <li><a href="./quests.html" class="nav-link active"><span>🎯</span> Nhiệm Vụ & Đột Biến</a></li>
+          <li><a href="./index.html" class="nav-link">Sinh Vật (Creatures)</a></li>
+          <li><a href="./compare.html" class="nav-link">Đối Đầu (Matchups)</a></li>
+          <li><a href="./guides.html" class="nav-link">Cơ Chế (Mechanics)</a></li>
+          <li><a href="./maps.html" class="nav-link">Địa Đồ (Cartography)</a></li>
+          <li><a href="./quests.html" class="nav-link active">Đột Biến (Mutations)</a></li>
         </ul>
       </nav>
 
       <div class="navbar-actions">
         <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Bật/Tắt âm thanh">🔊</button>
         <button class="search-trigger-btn" id="searchTriggerBtn">
-          <span>🔍</span>
           <span>Tìm nhanh...</span>
           <span class="kbd-shortcut">Ctrl+K</span>
         </button>
@@ -80,13 +83,13 @@
     <!-- HERO TITLE -->
     <div style="text-align: center; margin-bottom: 3rem;">
       <div class="hero-tag">
-        <span>🎯</span> Mục Tiêu Tiến Hóa & Sinh Tồn Đỉnh Cao
+        EVOLUTION SYSTEM • MUTATION SLOTS • MIGRATION PROTOCOLS
       </div>
       <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">
-        Nhiệm Vụ & <span class="hero-title-highlight">Đột Biến Gen (Mutations)</span>
+        Đột Biến Gen <span class="hero-title-highlight">& Nhiệm Vụ Di Cư</span>
       </h1>
-      <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
-        Khám phá các thử thách tiến hóa sinh học, tự xây dựng bộ 3 Slot Đột Biến Gen (Mutation Builder), theo dõi tiến trình làm nhiệm vụ và chuỗi di cư sinh sản trong The Isle Evrima.
+      <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 0.95rem;">
+        Hệ thống đột biến sinh học, mô phỏng bộ 3 Slot Đột Biến Gen (Mutation Loadout), theo dõi tiến trình và chuỗi di cư sinh sản trong The Isle Evrima.
       </p>
     </div>
 
@@ -94,34 +97,34 @@
     <div class="mutation-builder-card">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <span class="badge badge-apex" style="margin-bottom: 0.4rem;">⚙️ CÔNG CỤ TÙY BIẾN</span>
-          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main);">Bộ 3 Khe Cắm Đột Biến Của Bạn (Mutation Build)</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Nhấn "Trang bị" trên các thẻ đột biến bên dưới để gắn vào bộ build và xem tổng hợp sức mạnh.</p>
+          <span class="badge badge-apex" style="margin-bottom: 0.4rem; font-size: 0.75rem;">CÔNG CỤ TÙY BIẾN LOADOUT</span>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); font-family: var(--font-display);">Bộ 3 Khe Cắm Đột Biến Gen (Mutation Loadout)</h2>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">Nhấn "Trang bị" trên các thẻ đột biến bên dưới để gắn vào bộ build và xem tổng hợp sức mạnh.</p>
         </div>
-        <button class="filter-btn" onclick="clearMutationBuild()" style="font-size: 0.85rem; background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.3); color: var(--text-crimson);">
-          🔄 Xóa Bộ Build
+        <button class="filter-btn" onclick="clearMutationBuild()" style="font-size: 0.78rem; background: #200f13; border-color: #7f1d1d; color: #fca5a5;">
+          Đặt Lại Build
         </button>
       </div>
 
       <div class="mutation-slots-grid">
         <div class="mutation-slot-box" id="slotBox1">
-          <div style="font-size: 0.75rem; color: var(--color-amber); font-weight: 800; margin-bottom: 0.3rem;">SLOT 1: SƠ SINH (0% - 40%)</div>
-          <div id="slotContent1" style="font-size: 0.9rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
+          <div style="font-size: 0.72rem; color: var(--color-amber); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.3rem;">SLOT 1: SƠ SINH (0% - 40%)</div>
+          <div id="slotContent1" style="font-size: 0.85rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
         </div>
 
         <div class="mutation-slot-box" id="slotBox2">
-          <div style="font-size: 0.75rem; color: var(--color-cyan); font-weight: 800; margin-bottom: 0.3rem;">SLOT 2: THIẾU NIÊN (60% - 80%)</div>
-          <div id="slotContent2" style="font-size: 0.9rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
+          <div style="font-size: 0.72rem; color: var(--color-cyan); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.3rem;">SLOT 2: THIẾU NIÊN (60% - 80%)</div>
+          <div id="slotContent2" style="font-size: 0.85rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
         </div>
 
         <div class="mutation-slot-box" id="slotBox3">
-          <div style="font-size: 0.75rem; color: var(--color-purple); font-weight: 800; margin-bottom: 0.3rem;">SLOT 3: TRƯỞNG THÀNH (100%)</div>
-          <div id="slotContent3" style="font-size: 0.9rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
+          <div style="font-size: 0.72rem; color: var(--color-purple-light); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.3rem;">SLOT 3: TRƯỞNG THÀNH (100%)</div>
+          <div id="slotContent3" style="font-size: 0.85rem; color: var(--text-dim);">Chưa trang bị (Trống)</div>
         </div>
       </div>
 
-      <div id="buildSummaryBox" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); padding: 1rem 1.25rem; border-radius: var(--radius-md); font-size: 0.85rem;">
-        <strong style="color: var(--color-emerald);">✨ Tổng hợp bùa lợi kích hoạt:</strong>
+      <div id="buildSummaryBox" style="background: #090c13; border: 1px solid var(--border-color); padding: 0.9rem 1.15rem; border-radius: var(--radius-sm); font-size: 0.82rem;">
+        <strong style="color: var(--color-emerald); font-family: var(--font-mono); text-transform: uppercase;">Tổng hợp bùa lợi kích hoạt:</strong>
         <div id="buildSummaryText" style="color: var(--text-muted); margin-top: 0.3rem;">Hãy chọn ít nhất 1 đột biến để xem tổng hợp hiệu ứng.</div>
       </div>
     </div>
@@ -130,17 +133,16 @@
     <section style="margin-bottom: 4rem;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <span style="font-size: 1.8rem;">🧬</span>
-          <h2 style="font-size: 1.6rem; font-weight: 800;">1. Danh Sách Nhiệm Vụ Mở Khóa Đột Biến Gen</h2>
+          <h2 style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-display);">01. Danh Sách Nhiệm Vụ Mở Khóa Đột Biến Gen</h2>
         </div>
 
         <!-- Filter & Search Controls -->
-        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;">
-          <input type="text" id="mutationSearchInput" oninput="handleMutationSearch()" placeholder="🔍 Tìm đột biến, hiệu ứng..." style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); color: #fff; padding: 0.5rem 0.9rem; border-radius: var(--radius-sm); font-size: 0.85rem; outline: none;">
-          <div style="display: flex; gap: 0.4rem;">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+          <input type="text" id="mutationSearchInput" oninput="handleMutationSearch()" placeholder="Tìm đột biến, hiệu ứng..." style="background: #090c13; border: 1px solid var(--border-color); color: #fff; padding: 0.45rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.82rem; outline: none; font-family: var(--font-sans);">
+          <div style="display: flex; gap: 0.35rem;">
             <button class="filter-btn active" id="btnFilterAll" onclick="filterMutations('all')">Tất cả</button>
-            <button class="filter-btn" id="btnFilterCarnivore" onclick="filterMutations('carnivore')">🍖 Ăn thịt</button>
-            <button class="filter-btn" id="btnFilterHerbivore" onclick="filterMutations('herbivore')">🌿 Ăn cỏ</button>
+            <button class="filter-btn" id="btnFilterCarnivore" onclick="filterMutations('carnivore')">Ăn thịt</button>
+            <button class="filter-btn" id="btnFilterHerbivore" onclick="filterMutations('herbivore')">Ăn cỏ</button>
           </div>
         </div>
       </div>
@@ -153,26 +155,25 @@
     <!-- SECTION 2: MIGRATION QUESTLINE -->
     <section style="margin-bottom: 4rem;">
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
-        <span style="font-size: 1.8rem;">🦌</span>
-        <h2 style="font-size: 1.6rem; font-weight: 800;">2. Chuỗi Nhiệm Vụ Di Cư (Migration Zones)</h2>
+        <h2 style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-display);">02. Chuỗi Nhiệm Vụ Di Cư (Migration Zones)</h2>
       </div>
 
-      <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-lg);">
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+      <div style="background: #090c13; border: 1px solid var(--border-color); padding: 1.75rem; border-radius: var(--radius-sm);">
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
           Vùng Di Cư là cơ chế cốt lõi thúc đẩy người chơi di chuyển liên tục trên khắp bản đồ Gateway thay vì cắm trại một chỗ. Mỗi loài sẽ có khu vực di cư riêng biệt thay đổi theo chu kỳ thời gian.
         </p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="color: var(--color-cyan); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">1. Dò Tìm Tuyến Di Cư</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          <div style="background: #111622; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: 4px;">
+            <div style="color: var(--color-cyan); font-weight: 800; font-size: 0.95rem; margin-bottom: 0.4rem; font-family: var(--font-mono);">01. Dò Tìm Tuyến Di Cư</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
               Nhấn giữ <strong>Q</strong> để ngửi mùi gió. Vùng di cư sẽ hiển thị dưới dạng biểu tượng la bàn hình tròn phát sáng ở phía trên thanh la bàn màn hình.
             </p>
           </div>
 
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="color: var(--color-emerald); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">2. Phần Thưởng Dinh Dưỡng</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          <div style="background: #111622; border: 1px solid var(--border-color); padding: 1.15rem; border-radius: 4px;">
+            <div style="color: var(--color-emerald); font-weight: 800; font-size: 0.95rem; margin-bottom: 0.4rem; font-family: var(--font-mono);">02. Phần Thưởng Dinh Dưỡng</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
               Khi đặt chân vào vùng di cư, cây cối, hoa quả và con mồi sẽ hồi sinh với số lượng dồi dào, giúp nạp đầy 100% cả 3 chất dinh dưỡng S, //, ...
             </p>
           </div>
@@ -246,8 +247,8 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-content">
-      <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--text-main);">
-        <span style="font-size: 1.3rem;">🦖</span> THE ISLE WIKI (EVRIMA) VIETNAM
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--text-main); font-family: var(--font-display);">
+        THE ISLE COMPENDIUM (EVRIMA) VIETNAM
       </div>
       <ul class="footer-links">
         <li><a href="./index.html">Danh Sách Khủng Long</a></li>
@@ -265,7 +266,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button class="back-to-top-btn" id="backToTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">⬆️</button>
+  <button class="back-to-top-btn" id="backToTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">↑</button>
 
   <!-- JAVASCRIPT BUNDLE -->
   <script src="./js/security-utils.js"></script>
@@ -445,38 +446,35 @@
         const itemsHtml = filteredItems.map(item => {
           const isDone = !!completedQuests[item.id];
           return `
-            <div style="background: var(--bg-card); border: 1px solid ${isDone ? 'var(--color-emerald)' : 'var(--border-color)'}; padding: 1.5rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: all 0.2s;">
+            <div style="background: #090c13; border: 1px solid ${isDone ? 'var(--color-emerald)' : 'var(--border-color)'}; padding: 1.25rem; border-radius: var(--radius-sm); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: all 0.2s;">
               <div>
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
-                  <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <span style="font-size: 1.5rem;">${item.icon}</span>
-                    <div>
-                      <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">${item.name}</h3>
-                      <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">${item.dietLabel}</div>
-                    </div>
+                  <div>
+                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); line-height: 1.2; font-family: var(--font-display);">${item.name}</h3>
+                    <div style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono); margin-top: 0.15rem;">${item.dietLabel}</div>
                   </div>
-                  <span class="badge" style="background: rgba(16,185,129,0.12); color: var(--text-emerald); font-size: 0.75rem; white-space: nowrap;">${item.rating}</span>
+                  <span class="badge" style="background: #0d2016; color: #86efac; border: 1px solid #166534; font-size: 0.72rem; white-space: nowrap;">${item.rating}</span>
                 </div>
 
-                <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem;">
-                  <strong style="color: var(--color-amber);">🎯 Nhiệm Vụ Mở Khóa:</strong>
-                  <p style="color: var(--text-muted); margin-top: 0.25rem;">${item.objective}</p>
+                <div style="background: #111622; border: 1px solid var(--border-color); padding: 0.65rem 0.85rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 0.65rem;">
+                  <strong style="color: var(--color-amber); font-family: var(--font-mono); text-transform: uppercase; font-size: 0.75rem;">Yêu cầu mở khóa:</strong>
+                  <p style="color: var(--text-muted); margin-top: 0.2rem;">${item.objective}</p>
                 </div>
 
-                <div style="background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 1rem;">
-                  <strong style="color: var(--color-cyan);">✨ Hiệu Ứng Bùa Lợi:</strong>
-                  <p style="color: var(--text-emerald); margin-top: 0.25rem; font-weight: 600;">${item.effect}</p>
+                <div style="background: #0c1510; border: 1px solid #166534; padding: 0.65rem 0.85rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 0.85rem;">
+                  <strong style="color: var(--color-emerald); font-family: var(--font-mono); text-transform: uppercase; font-size: 0.75rem;">Hiệu ứng bùa lợi:</strong>
+                  <p style="color: #86efac; margin-top: 0.2rem; font-weight: 600;">${item.effect}</p>
                 </div>
               </div>
 
-              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.85rem; gap: 0.5rem; flex-wrap: wrap;">
-                <label class="quest-check-toggle">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 0.75rem; gap: 0.5rem; flex-wrap: wrap;">
+                <label class="quest-check-toggle" style="font-size: 0.8rem; font-family: var(--font-mono);">
                   <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleQuestCheck('${item.id}')">
-                  <span>${isDone ? '✅ Đã hoàn thành' : 'Chưa hoàn thành'}</span>
+                  <span>${isDone ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</span>
                 </label>
 
-                <button class="filter-btn" onclick="equipMutation('${item.id}', ${catIdx})" style="font-size: 0.8rem; padding: 0.4rem 0.85rem; background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.35); color: var(--text-emerald);">
-                  ⚡ Trang Bị Slot
+                <button class="filter-btn" onclick="equipMutation('${item.id}', ${catIdx})" style="font-size: 0.78rem; padding: 0.35rem 0.75rem; background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.35); color: var(--text-emerald);">
+                  Trang Bị Loadout
                 </button>
               </div>
             </div>

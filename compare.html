@@ -68,27 +68,30 @@
   <header class="navbar">
     <div class="container navbar-container">
       <a href="./index.html" class="navbar-logo">
-        <span style="font-size: 1.6rem;">🦖</span>
-        <div>
-          <span>THE ISLE WIKI</span>
-          <span class="logo-badge">EVRIMA VN</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-emerald);">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <div class="navbar-logo-text">
+          <span class="logo-main-title">THE ISLE</span>
+          <span class="logo-sub-title">COMPENDIUM <span class="logo-badge">v0.14+</span></span>
         </div>
       </a>
 
       <nav>
         <ul class="navbar-links" id="navbarLinks">
-          <li><a href="./index.html" class="nav-link"><span>🦕</span> Danh Sách Khủng Long</a></li>
-          <li><a href="./compare.html" class="nav-link active"><span>⚔️</span> So Sánh Kèo Đấu</a></li>
-          <li><a href="./guides.html" class="nav-link"><span>📜</span> Cẩm Nang Cơ Chế</a></li>
-          <li><a href="./maps.html" class="nav-link"><span>🗺️</span> Bản Đồ & Vị Trí</a></li>
-          <li><a href="./quests.html" class="nav-link"><span>🎯</span> Nhiệm Vụ & Đột Biến</a></li>
+          <li><a href="./index.html" class="nav-link">Sinh Vật (Creatures)</a></li>
+          <li><a href="./compare.html" class="nav-link active">Đối Đầu (Matchups)</a></li>
+          <li><a href="./guides.html" class="nav-link">Cơ Chế (Mechanics)</a></li>
+          <li><a href="./maps.html" class="nav-link">Địa Đồ (Cartography)</a></li>
+          <li><a href="./quests.html" class="nav-link">Đột Biến (Mutations)</a></li>
         </ul>
       </nav>
 
       <div class="navbar-actions">
         <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Bật/Tắt âm thanh">🔊</button>
         <button class="search-trigger-btn" id="searchTriggerBtn">
-          <span>🔍</span>
           <span>Tìm nhanh...</span>
           <span class="kbd-shortcut">Ctrl+K</span>
         </button>
@@ -102,13 +105,13 @@
 
     <div style="text-align: center; margin-bottom: 2.5rem;">
       <div class="hero-tag">
-        <span>⚔️</span> Công Cụ Tính Toán Đối Đầu & Tương Quan Trọng Lượng
+        COMBAT SIMULATION • WEIGHT CORRELATION
       </div>
       <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">
-        So Sánh <span class="hero-title-highlight">Khủng Long Đối Đầu</span>
+        So Sánh <span class="hero-title-highlight">Đối Đầu Trực Diện</span>
       </h1>
-      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">
-        Chọn 2 loài khủng long bất kỳ, tùy chỉnh thanh trượt tăng trưởng để xem chênh lệch cân nặng, sát thương, tốc độ và phân tích kịch bản giao tranh.
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        Phân tích tương quan cân nặng, sát thương, tốc độ và kịch bản va chạm giữa 2 loài sinh vật theo từng giai đoạn tăng trưởng.
       </p>
     </div>
 
@@ -117,8 +120,8 @@
       
       <!-- SIDE A -->
       <div class="compare-creature-card">
-        <label for="compareSelectA" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
-          Khủng Long Phe A:
+        <label for="compareSelectA" style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-dim); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
+          Sinh Vật Phía A:
         </label>
         <select id="compareSelectA" class="compare-select">
           <!-- Populated by JS -->
