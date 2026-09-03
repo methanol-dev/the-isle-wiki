@@ -1,0 +1,16 @@
+{
+  "name": "the-isle-wiki",
+  "version": "1.0.0",
+  "description": "The Isle Wiki (Evrima) - Vietnam Compendium",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "the-isle",
+    "wiki",
+    "evrima",
+    "vietnam"
+  ],
+  "author": "methanol-dev",
+  "license": "MIT"
+}

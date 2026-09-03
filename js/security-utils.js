@@ -34,4 +34,9 @@ const SecurityUtils = {
   }
 };
 
-window.SecurityUtils = SecurityUtils;
+if (typeof window !== 'undefined') {
+  window.SecurityUtils = SecurityUtils;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SecurityUtils;
+}

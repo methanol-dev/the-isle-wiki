@@ -78,4 +78,9 @@ const GrowthCalc = {
   }
 };
 
-window.GrowthCalc = GrowthCalc;
+if (typeof window !== 'undefined') {
+  window.GrowthCalc = GrowthCalc;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = GrowthCalc;
+}

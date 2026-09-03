@@ -227,4 +227,9 @@ const CompareTool = {
   }
 };
 
-window.CompareTool = CompareTool;
+if (typeof window !== 'undefined') {
+  window.CompareTool = CompareTool;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = CompareTool;
+}
