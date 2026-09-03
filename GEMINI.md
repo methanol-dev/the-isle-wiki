@@ -100,6 +100,7 @@ Thêm các hướng dẫn cụ thể cho dự án của bạn tại đây.
 - Từ giờ mọi yêu cầu đều phải lên plan, sau đó phân tích thành các task nhỏ, làm lần lượt từng task, không được làm trước task sau khi task trước chưa hoàn thành, và phải sempre kiểm tra lại yêu cầu của user, không được làm khi chưa hiểu rõ yêu cầu của user.
 - Luôn có kế hoạch kiểm tra kỹ lưỡng trước khi thực hiện, và luôn luôn test kỹ lưỡng sau khi thực hiện.
 - Luôn giao tiếp với user bằng tiếng Việt.
+- Tuyệt đối không ghi đường dẫn tuyệt đối của máy cá nhân (`file:///c:/Users/...`, `C:\Users\...`) vào các tệp tài liệu và mã nguồn của dự án; luôn dùng đường dẫn tương đối (`./`, `../`).
 
 ---
 *Được tạo bởi Antigravity IDE*
