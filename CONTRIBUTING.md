@@ -26,7 +26,7 @@ git checkout -b feat/them-khung-long-moi
 ```
 
 ### Bước 3: Chỉnh Sửa Dữ Liệu Hoặc Mã Nguồn
-- Nếu cập nhật hoặc thêm loài khủng long mới, hãy chỉnh sửa tệp [`data/creatures.json`](file:///c:/Users/meth/Desktop/the-isle-wiki/data/creatures.json) và tệp fallback [`js/embedded-data.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/embedded-data.js) theo đúng chuẩn [Data Schema](file:///c:/Users/meth/Desktop/the-isle-wiki/docs/DATA_SCHEMA.md).
+- Nếu cập nhật hoặc thêm loài khủng long mới, hãy chỉnh sửa tệp [`data/creatures.json`](./data/creatures.json) và tệp fallback [`js/embedded-data.js`](./js/embedded-data.js) theo đúng chuẩn [Data Schema](./docs/DATA_SCHEMA.md).
 - Kiểm tra tính hợp lệ của JSON trước khi commit (không có dấu phẩy thừa ở cuối mảng).
 
 ### Bước 4: Kiểm Tra Trực Tiếp Trên Trình Duyệt

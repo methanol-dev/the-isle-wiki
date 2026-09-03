@@ -34,11 +34,11 @@ graph TD
 
 ## 3. Các Mô-đun JavaScript Cốt Lõi (Core Modules)
 
-### A. `DataService` ([`js/data-service.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/data-service.js))
+### A. `DataService` ([`js/data-service.js`](../js/data-service.js))
 - Quản lý nạp và lưu trữ bộ nhớ đệm (Cache) cho 3 tệp dữ liệu: `creatures.json`, `nutrients.json`, `mechanics.json`.
 - Cung cấp các phương thức truy xuất dữ liệu: `getAllCreatures()`, `getCreatureById(id)`, `getNutrients()`, `getMechanics()`.
 
-### B. `GrowthCalc` ([`js/growth-calc.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/growth-calc.js))
+### B. `GrowthCalc` ([`js/growth-calc.js`](../js/growth-calc.js))
 Mô-đun thực hiện các phép nội suy toán học phi tuyến tính mô phỏng sự tích lũy khối lượng và phát triển thể chất của khủng long theo phần trăm tăng trưởng $g \in [0, 100]$:
 
 1. **Công Thức Trọng Lượng (Exponential Mass Accumulation)**:
@@ -54,27 +54,27 @@ Mô-đun thực hiện các phép nội suy toán học phi tuyến tính mô ph
 4. **Tốc Độ & Thể Lực (Linear Speed & Stamina)**:
    $$V(g) = V_{min} + (V_{max} - V_{min}) \cdot \left(\frac{g}{100}\right)$$
 
-### C. `FilterSearch` ([`js/filter-search.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/filter-search.js))
+### C. `FilterSearch` ([`js/filter-search.js`](../js/filter-search.js))
 - Lọc theo chế độ ăn: `all`, `carnivore`, `herbivore`, `omnivore`, `piscivore`.
 - Lọc theo môi trường sống: `all`, `terrestrial`, `semi-aquatic`, `aerial`.
 - Tìm kiếm từ khóa tức thì trên các trường `name`, `vietnameseName`, `scientificName`, `overview`.
 - Sắp xếp đa tiêu chí: Trọng lượng (tăng/giảm), Tốc độ chạy, Thời gian lớn, Tên A-Z.
 
-### D. `CompareTool` ([`js/compare-tool.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/compare-tool.js))
+### D. `CompareTool` ([`js/compare-tool.js`](../js/compare-tool.js))
 - Tính toán tỉ lệ chênh lệch trọng lượng:
-  $$\text{Ratio} = \frac{\max(W_A, W_B)}{\min(W_A, W_B)}$$
+   $$\text{Ratio} = \frac{\max(W_A, W_B)}{\min(W_A, W_B)}$$
 - Đưa ra kịch bản đối kháng:
   - $\text{Ratio} \ge 2.0\text{x}$: Áp đảo thể hình (dễ dàng Khóa hàm, Húc ngã, Đè bẹp).
   - $1.25\text{x} \le \text{Ratio} < 2.0\text{x}$: Chênh lệch hạng cân vừa phải.
   - $\text{Ratio} < 1.25\text{x}$: Kèo đấu cân bằng phụ thuộc vào kỹ năng điều khiển và quản lý Stamina.
 
-### E. `SecurityUtils` ([`js/security-utils.js`](file:///c:/Users/meth/Desktop/the-isle-wiki/js/security-utils.js))
+### E. `SecurityUtils` ([`js/security-utils.js`](../js/security-utils.js))
 - Cung cấp các phương thức bảo vệ: `escapeHTML()`, `sanitizeQuery()`, `isValidId()`.
 
 ---
 
 ## 4. Hệ Thống Giao Diện & Design Tokens (CSS Architecture)
 
-- [`css/main.css`](file:///c:/Users/meth/Desktop/the-isle-wiki/css/main.css): Định nghĩa biến màu CSS Custom Properties, reset, typography, header, footer.
-- [`css/components.css`](file:///c:/Users/meth/Desktop/the-isle-wiki/css/components.css): Bố cục thẻ khủng long, thanh trượt HUD, modal drawer, bảng dinh dưỡng, compare tool.
-- [`css/responsive.css`](file:///c:/Users/meth/Desktop/the-isle-wiki/css/responsive.css): Điểm ngắt Responsive `@media (max-width: 992px)`, `(max-width: 768px)`, `(max-width: 480px)`.
+- [`css/main.css`](../css/main.css): Định nghĩa biến màu CSS Custom Properties, reset, typography, header, footer.
+- [`css/components.css`](../css/components.css): Bố cục thẻ khủng long, thanh trượt HUD, modal drawer, bảng dinh dưỡng, compare tool.
+- [`css/responsive.css`](../css/responsive.css): Điểm ngắt Responsive `@media (max-width: 992px)`, `(max-width: 768px)`, `(max-width: 480px)`.
