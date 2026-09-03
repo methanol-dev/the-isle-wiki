@@ -87,11 +87,26 @@ describe('GrowthCalc Module Tests', () => {
 
     it('should accurately calculate intermediate stats at 50% growth', () => {
       const stats = GrowthCalc.calculateStats(mockCreature, 50);
-      const expectedWeightT = Math.pow(0.5, 2.2);
+      const expectedWeightT = Math.pow(0.5, 1.18);
       const expectedWeight = Math.round(200 + (8000 - 200) * expectedWeightT);
       assert.strictEqual(stats.weight, expectedWeight);
       assert.strictEqual(stats.stageInfo.stage, 'subadult');
       assert.ok(stats.timeRemainingFormatted.includes('phút'));
+
+      // Test Carnotaurus sub-adult (50%) realistic weight curve (790 - 850 kg)
+      const carnoMock = {
+        growthTimeHours: 3,
+        statsMin: { weight: 80, health: 80, biteDamage: 25, sprintSpeed: 38, trotSpeed: 18, swimSpeed: 14, stamina: 120, staminaRegen: 'Nhanh', nightVision: 'Khá', fallDamageResistance: 'Trung bình' },
+        statsMax: { weight: 1800, health: 1800, biteDamage: 240, sprintSpeed: 54, trotSpeed: 23.5, swimSpeed: 16, stamina: 160, staminaRegen: 'Nhanh', nightVision: 'Khá', fallDamageResistance: 'Trung bình' }
+      };
+      const carnoStats25 = GrowthCalc.calculateStats(carnoMock, 25);
+      const carnoStats50 = GrowthCalc.calculateStats(carnoMock, 50);
+      const carnoStats75 = GrowthCalc.calculateStats(carnoMock, 75);
+
+      assert.ok(carnoStats25.weight >= 400 && carnoStats25.weight <= 450, `Carno 25% weight (${carnoStats25.weight}kg) should be within [400, 450] kg`);
+      assert.ok(carnoStats50.weight >= 790 && carnoStats50.weight <= 850, `Carno 50% weight (${carnoStats50.weight}kg) should be within [790, 850] kg`);
+      assert.ok(carnoStats75.weight >= 1250 && carnoStats75.weight <= 1350, `Carno 75% weight (${carnoStats75.weight}kg) should be within [1250, 1350] kg`);
+      assert.strictEqual(carnoStats50.weight, 839);
     });
 
     it('should clamp growth percentages below 0 and above 100', () => {

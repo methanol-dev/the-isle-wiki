@@ -47,6 +47,21 @@ describe('Data Integrity & Schema Validation Tests', () => {
         assert.ok(Array.isArray(c.abilities), `Missing abilities array for ${c.id}`);
       });
     });
+
+    it('should specify weight ratio conditions for Deinosuchus grab and Omniraptor pounce', () => {
+      const deino = creatures.find(c => c.id === 'deinosuchus');
+      const omni = creatures.find(c => c.id === 'omniraptor');
+      const ptera = creatures.find(c => c.id === 'pteranodon');
+
+      const deinoLunge = deino.abilities.find(a => a.name.includes('Water Ambush') || a.name.includes('Lunge'));
+      assert.ok(deinoLunge.description.includes('50%'), 'Deinosuchus lunge must specify 50% weight limit');
+
+      const omniPounce = omni.abilities.find(a => a.name.includes('Pounce'));
+      assert.ok(omniPounce.description.includes('100%'), 'Omniraptor pounce must specify 100% solo weight limit');
+
+      const pteraWeaknesses = ptera.combatTips.weaknesses.join(' ');
+      assert.ok(pteraWeaknesses.includes('KHÔNG THỂ') || pteraWeaknesses.includes('grab'), 'Pteranodon must state lack of grab');
+    });
   });
 
   describe('Other JSON datasets', () => {

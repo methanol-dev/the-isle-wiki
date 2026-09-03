@@ -58,5 +58,31 @@
         "cure": "Nơi an toàn nhất để con non lớn lên những mốc đầu đời."
       }
     ]
+  },
+  {
+    "category": "Cơ Chế Khóa Hàm & Vồ Theo Tỷ Lệ Cân Nặng (Pounce & Grab Weight Mechanics)",
+    "items": [
+      {
+        "name": "Ngoạm Kéo Chìm Deinosuchus (Deinosuchus Grab & Lockjaw)",
+        "icon": "🐊",
+        "description": "Kỹ năng rình mồi đặc trưng của cá sấu đầm lầy Deinosuchus bằng phím RMB khi ẩn mình dưới nước.",
+        "effects": "Quy tắc tỷ lệ cân nặng sống còn: [Trên cạn]: Chỉ ngoạm kéo được mục tiêu ≤ 50% trọng lượng Deinosuchus (Deino phải nặng tối thiểu gấp đôi con mồi). Nếu mục tiêu > 50%, Deino bị khựng lắc đầu và thất bại. [Dưới nước]: Ngưỡng kéo được nới lỏng lên tới ~75% - 80% trọng lượng Deino khi con mồi đang bơi.",
+        "cure": "Uống nước ở những vùng cạn nông hoặc gờ dốc cao; luôn quan sát kỹ mặt nước trước khi cúi đầu uống."
+      },
+      {
+        "name": "Vồ Bám Thân & Đè Bẹp Omniraptor (Omniraptor Pounce & Pin)",
+        "icon": "🦖",
+        "description": "Kỹ năng vồ bám thân hoặc đè bẹp con mồi của Omniraptor bằng cách giữ và thả RMB.",
+        "effects": "Ba cơ chế phụ thuộc tỷ lệ cân nặng: [1. Pin đè bẹp solo]: Mục tiêu ≤ 100% trọng lượng Raptor (đè bẹp xuống đất). [2. Latch bám sườn]: Mục tiêu > 100% trọng lượng Raptor (bám lên thân cào xé gây Bleed). [3. Group Grapple]: Từ 2 Raptor trở lên cùng bám sẽ kéo ngã đè bẹp cả con mồi to lớn.",
+        "cure": "Khi bị Raptor bám sườn, giữ phím E để giãy (Bucking) rút cạn Stamina của Raptor, hoặc dùng đòn quất đuôi/dậm chân hất văng Raptor."
+      },
+      {
+        "name": "Va Chạm Không Chiến Pteranodon (Pteranodon Crash Collision)",
+        "icon": "🦅",
+        "description": "Cơ chế khí động học và giới hạn thể chất của thằn lằn bay Pteranodon trên bầu trời Evrima.",
+        "effects": "Pteranodon hoàn toàn không có khả năng cắp/gắp khủng long khác trên không (RMB chỉ dùng để lướt bắt cá). Nếu tấn công đâm bổ vào mục tiêu có trọng lượng nặng hơn mình, Pteranodon sẽ bị phản lực choáng ngã mất kiểm soát (Crash) rơi xuống đất tử vong.",
+        "cure": "Chỉ lướt tấn công con non thật nhỏ hoặc cá sông biển; tuyệt đối tránh bổ nhào vào mục tiêu nặng ký."
+      }
+    ]
   }
 ]

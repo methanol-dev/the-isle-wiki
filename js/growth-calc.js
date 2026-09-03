@@ -29,12 +29,12 @@ const GrowthCalc = {
     const min = creature.statsMin;
     const max = creature.statsMax;
 
-    // Weight uses exponential mass scaling curve t^2.2
-    const weightT = Math.pow(t, 2.2);
+    // Weight uses exponential mass scaling curve t^1.18 (Sub-adult 50% reaches ~44% mass)
+    const weightT = Math.pow(t, 1.18);
     const weight = Math.round(min.weight + (max.weight - min.weight) * weightT);
 
-    // Health scales with weight curve t^1.8
-    const healthT = Math.pow(t, 1.8);
+    // Health scales with weight curve 1:1 in Evrima (1kg ~ 1HP)
+    const healthT = Math.pow(t, 1.18);
     const health = Math.round(min.health + (max.health - min.health) * healthT);
 
     // Bite damage scales with t^1.5

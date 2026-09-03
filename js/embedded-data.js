@@ -106,19 +106,19 @@ window.EMBEDDED_CREATURES = [
     "abilities": [
       {
         "name": "Water Ambush & Water Lunge",
-        "nameVi": "Phục Kích & Lao Đớp Dưới Nước",
-        "keybind": "Giữ Chuột Phải (RMB) dưới nước khi nổi gần mặt",
+        "nameVi": "Phục Kích & Lao Đớp Dưới Nước (Grab/Lunge)",
+        "keybind": "Giữ Chuột Phải (RMB) dưới nước khi nổi gần mặt bờ",
         "staminaCost": "Trung bình",
-        "description": "Lao vọt lên khỏi mặt nước với tốc độ cực đại để táp con mồi đứng trên bờ sông hoặc đang bơi.",
-        "effect": "Gây sát thương đòn đánh chí mạng và bắt đầu kỹ năng Kéo Chìm nếu trọng lượng đủ lớn."
+        "description": "Lao vọt lên khỏi mặt nước với tốc độ cực đại để táp con mồi đứng ven bờ hoặc đang bơi. [Điều kiện tỷ lệ cân nặng]: Trên bờ/cạn, Deinosuchus CHỈ ngoạm kéo được mục tiêu có trọng lượng ≤ 50% trọng lượng của nó (Deino phải nặng tối thiểu gấp 2 lần con mồi). Nếu mục tiêu > 50% trọng lượng Deino, cú táp thất bại và Deino bị khựng lắc đầu (fail grab stun). Dưới nước: Khi mục tiêu đang bơi, ngưỡng kéo được nới lỏng lên tới ~75% - 80% trọng lượng Deinosuchus.",
+        "effect": "Gây sát thương đòn đánh chí mạng; nếu thỏa điều kiện cân nặng (≤ 50% trên cạn / ≤ 80% dưới nước) sẽ ngậm chặt con mồi và kích hoạt Khóa Hàm (Lockjaw) kéo chìm."
       },
       {
         "name": "Drown & Thrash (Lockjaw)",
         "nameVi": "Khóa Hàm & Kéo Chìm (Dìm Chết)",
-        "keybind": "Chuột Phải (RMB) trúng mục tiêu nhỏ/bằng cân",
-        "staminaCost": "Rút Stamina liên tục",
-        "description": "Ngậm chặt con mồi trong miệng và kéo xuống vực nước sâu. Con mồi sẽ bị rút cạn oxy và chết ngạt nhanh chóng.",
-        "effect": "Không thể thoát nếu con mồi nhẹ hơn Deinosuchus. Con mồi mất oxy liên tục cho đến chết."
+        "keybind": "Tự động kích hoạt khi Lunge trúng mục tiêu thỏa điều kiện cân nặng (≤ 50% cạn / ≤ 80% nước)",
+        "staminaCost": "Rút Stamina liên tục khi ngậm kéo",
+        "description": "Ngậm chặt con mồi trong miệng và kéo xuống vực nước sâu. Khi đang ngậm giữ con mồi, Deinosuchus bị khóa khả năng Sprint trên cạn.",
+        "effect": "Con mồi bị khóa cứng không thể tự thoát nếu Deino đủ cân nặng, oxy tụt liên tục cho đến chết ngạt hoặc bị xé xác."
       },
       {
         "name": "Bone-Crushing Bite",
@@ -287,7 +287,7 @@ window.EMBEDDED_CREATURES = [
     "overview": "Tên lửa mặt đất của Evrima. Carnotaurus sở hữu tốc độ chạy nước rút nhanh nhất trong số các loài thú săn mồi cỡ lớn, kết hợp đòn húc đầu cực mạnh có thể hất văng và làm ngã gục con mồi đang bỏ chạy.",
     "statsMin": {
       "weight": 80,
-      "health": 200,
+      "health": 80,
       "biteDamage": 25,
       "sprintSpeed": 38,
       "trotSpeed": 18,
@@ -298,8 +298,8 @@ window.EMBEDDED_CREATURES = [
       "nightVision": "Khá"
     },
     "statsMax": {
-      "weight": 2200,
-      "health": 2200,
+      "weight": 1800,
+      "health": 1800,
       "biteDamage": 240,
       "sprintSpeed": 54,
       "trotSpeed": 23.5,
@@ -616,11 +616,11 @@ window.EMBEDDED_CREATURES = [
     "abilities": [
       {
         "name": "Pounce & Pin",
-        "nameVi": "Cú Nhảy Vồ & Bám Thân Xé Xác",
+        "nameVi": "Cú Nhảy Vồ & Bám Thân Xé Xác (Pounce / Pin)",
         "keybind": "Giữ Chuột Phải (RMB) để nhắm -> Thả ra để vồ",
         "staminaCost": "Tiêu hao Stamina liên tục khi bám",
-        "description": "Phóng mình lên không trung bám chặt vào sườn hoặc mông con mồi lớn, liên tục cào xé.",
-        "effect": "Gây sát thương Chảy Máu (Bleed) cực nặng theo thời gian. Với con mồi nhỏ hơn, sẽ đè bẹp xuống đất (Pin)."
+        "description": "Phóng mình lên không trung vồ mục tiêu với 3 cơ chế dựa trên tỷ lệ cân nặng: [1. Pin Đè Bẹp Solo]: Kích hoạt khi con mồi có trọng lượng ≤ 100% trọng lượng Raptor (ghìm chặt con mồi xuống đất cắn xé). [2. Latch Bám Sườn]: Kích hoạt khi con mồi nặng hơn Raptor (> 100%), Raptor bám dính vào thân để cào xé rách da; con mồi có thể giữ phím E để giãy (Bucking) rút cạn Stamina của Raptor. [3. Group Grapple Ghìm Bầy]: Từ 2 Raptor trở lên cùng bám sẽ kéo ngã đè bẹp cả những con mồi lớn vượt ngưỡng cân solo.",
+        "effect": "Gây sát thương Chảy Máu (Bleed) dồn dập. Lưu ý sống còn: Nếu cạn kiệt Stamina khi đang bám Pounce, Raptor sẽ bị rơi xuống đất và bị choáng ngã (Knockdown Stun)."
       },
       {
         "name": "High Jump & Ledge Perch",
@@ -1108,6 +1108,8 @@ window.EMBEDDED_CREATURES = [
       ],
       "weaknesses": [
         "Lượng máu cực kỳ ít ỏi (250 HP), rất mỏng manh",
+        "Hoàn toàn KHÔNG THỂ cắp/gắp (grab/carry) khủng long khác trên không; RMB chỉ dùng để bắt cá",
+        "Nếu đâm bổ trên không vào bất kỳ mục tiêu nào nặng hơn mình sẽ bị phản lực choáng rơi mất kiểm soát (Crash Collision)",
         "Dễ bị Deinosuchus phóng lên đớp khi sà xuống bắt cá",
         "Dễ bị Herrerasaurus vồ nếu đậu trên cành cây thấp"
       ],
@@ -1200,11 +1202,11 @@ window.EMBEDDED_CREATURES = [
     "abilities": [
       {
         "name": "Venom Pounce & Dash",
-        "nameVi": "Nhảy Cắn Tiêm Độc & Lướt Rút Lui",
+        "nameVi": "Nhảy Cắn Tiêm Độc & Lướt Bật Lùi (Hit & Run)",
         "keybind": "Giữ Chuột Phải (RMB) để ngắm -> Thả ra để phóng",
         "staminaCost": "Thấp",
-        "description": "Lao như một mũi tên cắn phập vào mục tiêu tiêm độc tố rồi lập tức nhảy bật lùi lại phía sau.",
-        "effect": "Tích lũy các giai đoạn nọc độc: Giai đoạn 1 -> Giai đoạn 2 -> Giai đoạn 3 (Kịch Độc rút máu ồ ạt)."
+        "description": "Lao như một mũi tên cắn phập vào mục tiêu tiêm độc tố rồi lập tức nhảy bật lùi lại phía sau (Hit & Run). Cơ chế này KHÔNG bám giữ (Latch) như Omniraptor, giúp Troodon sống sót trước các loài khủng long khổng lồ mà không bị giẫm bẹp.",
+        "effect": "Tích lũy các giai đoạn nọc độc: Giai đoạn 1 -> Giai đoạn 2 -> Giai đoạn 3 (Kịch Độc làm mù tầm nhìn và rút máu ồ ạt). Tuy nhiên nếu vồ trực diện vào đòn đánh của thú lớn sẽ bị văng chết ngay lập tức."
       },
       {
         "name": "Venom Trance Call",
